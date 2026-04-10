@@ -15,10 +15,10 @@ export const Hero = () => {
       </video>
 
       {/* Dark Overlay for Readability */}
-      <div className="absolute inset-0 bg-black/60 z-0"></div>
+      <div className="absolute inset-0 bg-black/40 z-0"></div>
 
       {/* Grid Container */}
-      <div className="relative z-10 flex-1 w-full flex flex-col overflow-hidden">
+      <div className="relative z-10 flex-1 w-full overflow-hidden">
         {/* Red Wireframe Grid Background */}
         <div className="absolute inset-0 pointer-events-none z-0 grid grid-cols-3 grid-rows-8 md:grid-cols-4 md:grid-rows-6 lg:grid-cols-6 lg:grid-rows-4 gap-2 md:gap-3 lg:gap-4">
           {Array.from({ length: 24 }).map((_, i) => (
@@ -26,38 +26,46 @@ export const Hero = () => {
           ))}
         </div>
 
-        {/* Main Content Area */}
-        <main className="relative z-10 grow flex flex-col items-center justify-center px-4 text-center">
-          <h1 className="text-4xl md:text-6xl lg:text-[5rem] font-bold tracking-tight mb-4 text-white">
-            Fly it to prove yourself
-          </h1>
-          <p className="text-xs md:text-sm text-gray-400 max-w-100 mb-8 leading-relaxed font-medium">
-            Join us, for ---------- Conquer yourself
-          </p>
-          <button className="bg-white text-black font-medium text-[11px] md:text-xs rounded-full px-6 py-2.5 hover:bg-gray-200 transition-colors flex items-center gap-2">
-            Register now ↗
-          </button>
-        </main>
+        {/* Foreground Content Grid */}
+        <div className="absolute inset-0 z-10 grid grid-cols-3 grid-rows-8 md:grid-cols-4 md:grid-rows-6 lg:grid-cols-6 lg:grid-rows-4 gap-2 md:gap-3 lg:gap-4 pointer-events-none">
 
-        {/* Bottom Footer Area */}
-        <footer className="relative z-10 w-full h-15 grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 md:gap-3 lg:gap-4 items-end text-[8px] md:text-[9px] font-bold tracking-widest uppercase text-white/80">
-          <div className="hidden md:flex md:col-start-1">The Irina</div>
+          {/* Main Title Area */}
+          <main className="col-span-full row-start-4 md:row-start-3 lg:row-start-2 flex flex-col items-center justify-center text-center pointer-events-auto">
+            <h1 className="text-4xl md:text-6xl lg:text-[5rem] font-bold tracking-tight mb-2 md:mb-4 text-white">
+              Fly it to prove yourself
+            </h1>
+            <p className="text-xs md:text-sm text-gray-400 max-w-100 leading-relaxed font-medium">
+              Join us, for ---------- Conquer yourself
+            </p>
+          </main>
 
-          <div className="col-span-3 md:col-start-2 md:col-span-2 lg:col-start-3 lg:col-span-2 flex items-center justify-between w-full">
-            <div className="flex items-center gap-1.5 md:gap-2">
-              <div className="w-1.5 h-1.5 rounded-full bg-[#d62828] mb-px"></div>
-              <span>48 DAYS</span>
+          {/* Button Area */}
+          <div className="col-span-full lg:col-start-3 lg:col-span-2 row-start-5 md:row-start-4 lg:row-start-3 flex flex-col items-center justify-start pointer-events-auto">
+            <button className="bg-white text-black font-medium text-[11px] md:text-xs rounded-full px-6 py-2.5 hover:bg-gray-200 transition-colors flex items-center gap-2">
+              Register now ↗
+            </button>
+          </div>
+
+          {/* Bottom Footer Area */}
+          <footer className="col-span-full row-start-8 md:row-start-6 lg:row-start-4 self-end grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 md:gap-3 lg:gap-4 items-end text-[8px] md:text-[9px] font-bold tracking-widest uppercase text-white/80 pointer-events-auto pb-4 lg:pb-0">
+            <div className="hidden md:flex md:col-start-1">The Irina</div>
+
+            <div className="col-span-3 md:col-start-2 md:col-span-2 lg:col-start-3 lg:col-span-2 flex items-center justify-between w-full">
+              <div className="flex items-center gap-1.5 md:gap-2">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#d62828] mb-px"></div>
+                <span>48 DAYS</span>
+              </div>
+              <span>23 HOURS</span>
+              <span>42 MINUTES</span>
+              <span>11 SECONDS</span>
             </div>
-            <span>23 HOURS</span>
-            <span>42 MINUTES</span>
-            <span>11 SECONDS</span>
-          </div>
 
-          <div className="hidden md:flex justify-between w-full md:col-start-4 lg:col-start-6">
-            <span>4&deg; 24&apos; 49&quot; N</span>
-            <span>76&deg; 09&apos; 17&quot; W</span>
-          </div>
-        </footer>
+            <div className="hidden md:flex justify-between w-full md:col-start-4 lg:col-start-6">
+              <span>4&deg; 24&apos; 49&quot; N</span>
+              <span>76&deg; 09&apos; 17&quot; W</span>
+            </div>
+          </footer>
+        </div>
       </div>
     </section>
   );
