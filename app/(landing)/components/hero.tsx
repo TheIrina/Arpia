@@ -1,0 +1,66 @@
+import React from "react";
+
+export const Hero = () => {
+  return (
+    <section className="relative w-full min-h-screen bg-[#111111] p-4 md:p-6 lg:p-8 text-white font-['Helvetica_Neue',Helvetica,Arial,sans-serif] flex flex-col overflow-hidden selection:bg-white selection:text-black">
+      {/* Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover z-0"
+      >
+        <source src="/videos/hero1.mp4" type="video/mp4" />
+      </video>
+
+      {/* Dark Overlay for Readability */}
+      <div className="absolute inset-0 bg-black/60 z-0"></div>
+
+      {/* Grid Container */}
+      <div className="relative z-10 flex-1 w-full flex flex-col overflow-hidden">
+        {/* Red Wireframe Grid Background */}
+        <div className="absolute inset-0 pointer-events-none z-0 grid grid-cols-3 grid-rows-8 md:grid-cols-4 md:grid-rows-6 lg:grid-cols-6 lg:grid-rows-4 gap-2 md:gap-3 lg:gap-4">
+          {Array.from({ length: 24 }).map((_, i) => (
+            <div key={i} className="border border-[#d62828]/50"></div>
+          ))}
+        </div>
+
+        {/* Main Content Area */}
+        <main className="relative z-10 grow flex flex-col items-center justify-center px-4 text-center">
+          <h1 className="text-4xl md:text-6xl lg:text-[5rem] font-bold tracking-tight mb-4 text-white">
+            Fly it to prove yourself
+          </h1>
+          <p className="text-xs md:text-sm text-gray-400 max-w-100 mb-8 leading-relaxed font-medium">
+            Join us, for ---------- Conquer yourself
+          </p>
+          <button className="bg-white text-black font-medium text-[11px] md:text-xs rounded-full px-6 py-2.5 hover:bg-gray-200 transition-colors flex items-center gap-2">
+            Register now ↗
+          </button>
+        </main>
+
+        {/* Bottom Footer Area */}
+        <footer className="relative z-10 w-full h-15 grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 md:gap-3 lg:gap-4 items-end text-[8px] md:text-[9px] font-bold tracking-widest uppercase text-white/80">
+          <div className="hidden md:flex md:col-start-1">The Irina</div>
+
+          <div className="col-span-3 md:col-start-2 md:col-span-2 lg:col-start-3 lg:col-span-2 flex items-center justify-between w-full">
+            <div className="flex items-center gap-1.5 md:gap-2">
+              <div className="w-1.5 h-1.5 rounded-full bg-[#d62828] mb-px"></div>
+              <span>48 DAYS</span>
+            </div>
+            <span>23 HOURS</span>
+            <span>42 MINUTES</span>
+            <span>11 SECONDS</span>
+          </div>
+
+          <div className="hidden md:flex justify-between w-full md:col-start-4 lg:col-start-6">
+            <span>4&deg; 24&apos; 49&quot; N</span>
+            <span>76&deg; 09&apos; 17&quot; W</span>
+          </div>
+        </footer>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;
