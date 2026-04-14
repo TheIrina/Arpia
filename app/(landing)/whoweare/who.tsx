@@ -52,12 +52,17 @@ export const WhoWeAre = () => {
     >
       {/* Block 1: Text Left, Image Right */}
       <div className="w-full flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
-        <div className="w-full lg:w-1/2 text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-medium leading-none tracking-tighter font-['Helvetica_Neue',Helvetica,Arial,sans-serif] text-start">
+        <div className="w-full lg:w-1/2 text-4xl md:text-5xl xl:text-6xl font-medium leading-none tracking-tighter font-['Helvetica_Neue',Helvetica,Arial,sans-serif] text-start">
           <p>{renderWords(text1)}</p>
         </div>
         {/* Placeholder Imagen 1 */}
         <div className="w-full lg:w-1/2 h-[50vh] lg:h-[80vh] bg-black rounded-2xl relative overflow-hidden">
-          <Image src="/logo/para.png" alt="Paragliding adventure" fill className="object-contain p-8" />
+          <Image
+            src="/logo/para.png"
+            alt="Paragliding adventure"
+            fill
+            className="object-contain p-8"
+          />
         </div>
       </div>
 
@@ -65,9 +70,14 @@ export const WhoWeAre = () => {
       <div className="w-full flex flex-col-reverse lg:flex-row items-center gap-8 lg:gap-12">
         {/* Placeholder Imagen 2 */}
         <div className="w-full lg:w-1/2 h-[50vh] lg:h-[80vh] bg-black rounded-2xl relative overflow-hidden">
-          <Image src="/logo/clo.png" alt="Local community" fill className="object-contain p-8" />
+          <Image
+            src="/logo/clo.png"
+            alt="Local community"
+            fill
+            className="object-contain p-8"
+          />
         </div>
-        <div className="w-full lg:w-1/2 text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-medium leading-none tracking-tighter font-['Helvetica_Neue',Helvetica,Arial,sans-serif] text-start lg:text-end">
+        <div className="w-full lg:w-1/2 text-4xl md:text-5xl xl:text-6xl font-medium leading-none tracking-tighter font-['Helvetica_Neue',Helvetica,Arial,sans-serif] text-start lg:text-end">
           <p>{renderWords(text2)}</p>
         </div>
       </div>
