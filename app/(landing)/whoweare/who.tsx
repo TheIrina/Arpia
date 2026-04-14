@@ -56,7 +56,7 @@ export const WhoWeAre = () => {
           <p>{renderWords(text1)}</p>
         </div>
         {/* Placeholder Imagen 1 */}
-        <div className="w-full lg:w-1/2 h-[50vh] lg:h-[80vh] bg-black rounded-2xl relative overflow-hidden">
+        <div className="w-full lg:w-1/2 h-[50vh] lg:h-[80vh] bg-[#1A1A1A] rounded-2xl relative overflow-hidden">
           <Image
             src="/logo/para.png"
             alt="Paragliding adventure"
@@ -69,7 +69,7 @@ export const WhoWeAre = () => {
       {/* Block 2: Image Left, Text Right */}
       <div className="w-full flex flex-col-reverse lg:flex-row items-center gap-8 lg:gap-12">
         {/* Placeholder Imagen 2 */}
-        <div className="w-full lg:w-1/2 h-[50vh] lg:h-[80vh] bg-black rounded-2xl relative overflow-hidden">
+        <div className="w-full lg:w-1/2 h-[50vh] lg:h-[80vh] bg-[#1A1A1A] rounded-2xl relative overflow-hidden">
           <Image
             src="/logo/clo.png"
             alt="Local community"
