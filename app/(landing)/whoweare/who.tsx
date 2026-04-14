@@ -21,8 +21,8 @@ export const WhoWeAre = () => {
         stagger: 0.1,
         scrollTrigger: {
           trigger: containerRef.current,
-          start: "top 70%",
-          end: "bottom 10%",
+          start: "top 50%",
+          end: "bottom 70%",
           scrub: true,
         },
       });

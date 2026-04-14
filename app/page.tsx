@@ -2,6 +2,7 @@ import { Hero } from "./(landing)/components/hero";
 import { Navbar } from "./(landing)/components/navbar";
 import { WhoWeAre } from "./(landing)/whoweare/who";
 import { Features } from "./(landing)/features/features";
+import { Cta } from "./(landing)/cta/cta";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <Hero />
       <WhoWeAre />
       <Features />
+      <Cta />
     </main>
   );
 }

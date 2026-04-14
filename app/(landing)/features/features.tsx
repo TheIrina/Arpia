@@ -18,11 +18,11 @@ export const Features = () => {
       const words = gsap.utils.toArray(".feature-word");
       gsap.to(words, {
         opacity: 1,
-        stagger: 0.05,
+        stagger: 0.1,
         scrollTrigger: {
           trigger: containerRef.current,
-          start: "top 75%",
-          end: "top 25%",
+          start: "top 60%",
+          end: "top 10%",
           scrub: true,
         },
       });
@@ -66,7 +66,7 @@ export const Features = () => {
         },
       });
     },
-    { scope: containerRef }
+    { scope: containerRef },
   );
 
   const headlineText =
@@ -83,7 +83,7 @@ export const Features = () => {
   };
 
   return (
-    <section 
+    <section
       ref={containerRef}
       className="relative w-full bg-white text-black px-4 py-24 md:px-8 lg:px-12"
     >
@@ -94,13 +94,13 @@ export const Features = () => {
           <div className="w-full lg:w-1/2 flex flex-col items-start">
             {/* Tags / Pills */}
             <div className="flex flex-wrap gap-3 mb-8">
-              <span className="feature-pill px-4 py-1.5 rounded-full border border-gray-300 text-xs font-semibold tracking-wide uppercase">
+              <span className="feature-pill px-4 py-1.5 rounded-full bg-black text-white text-xs font-semibold tracking-wide uppercase">
                 Live Weather
               </span>
-              <span className="feature-pill px-4 py-1.5 rounded-full border border-gray-300 text-xs font-semibold tracking-wide uppercase">
+              <span className="feature-pill px-4 py-1.5 rounded-full bg-black text-white text-xs font-semibold tracking-wide uppercase">
                 Launch Sites
               </span>
-              <span className="feature-pill px-4 py-1.5 rounded-full border border-gray-300 text-xs font-semibold tracking-wide uppercase">
+              <span className="feature-pill px-4 py-1.5 rounded-full bg-black text-white text-xs font-semibold tracking-wide uppercase">
                 Thermal Maps
               </span>
             </div>
