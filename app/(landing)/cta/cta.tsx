@@ -29,9 +29,8 @@ export const Cta = () => {
               </button>
             </div>
           </div>
-          {/* Right: Video */}
-          <div className="w-full lg:w-1/2 p-4 flex">
-            <div className="relative w-full min-h-100 lg:min-h-auto h-full rounded-lg overflow-hidden">
+          <div className="w-full lg:w-1/2 p-4 flex min-h-[400px]">
+            <div className="relative w-full rounded-lg overflow-hidden">
               <video
                 autoPlay
                 loop
@@ -39,7 +38,7 @@ export const Cta = () => {
                 playsInline
                 className="absolute top-0 left-0 w-full h-full object-cover"
               >
-                <source src="/videos/hero3.mp4" type="video/mp4" />
+                <source src="/videos/hero2.mp4" type="video/mp4" />
               </video>
             </div>
           </div>

@@ -26,45 +26,6 @@ export const Features = () => {
           scrub: true,
         },
       });
-
-      // Animate pills fading in
-      gsap.from(".feature-pill", {
-        y: 20,
-        opacity: 0,
-        stagger: 0.1,
-        duration: 0.8,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top 80%",
-        },
-      });
-
-      // Animate paragraphs fading up
-      gsap.from(".feature-paragraph", {
-        y: 30,
-        opacity: 0,
-        stagger: 0.2,
-        duration: 1,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top 60%",
-        },
-      });
-
-      // Animate cards fading in from right
-      gsap.from(".feature-card", {
-        x: 50,
-        opacity: 0,
-        stagger: 0.15,
-        duration: 1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".feature-cards-container",
-          start: "top 80%",
-        },
-      });
     },
     { scope: containerRef },
   );
@@ -94,13 +55,13 @@ export const Features = () => {
           <div className="w-full lg:w-1/2 flex flex-col items-start">
             {/* Tags / Pills */}
             <div className="flex flex-wrap mb-8">
-              <span className="feature-pill px-4 py-1.5 rounded-full bg-black text-white text-xs font-semibold tracking-wide uppercase">
+              <span className="px-4 py-1.5 rounded-full bg-black text-white text-xs font-semibold tracking-wide uppercase">
                 Live Weather
               </span>
-              <span className="feature-pill px-4 py-1.5 rounded-full bg-black text-white text-xs font-semibold tracking-wide uppercase">
+              <span className="px-4 py-1.5 rounded-full bg-black text-white text-xs font-semibold tracking-wide uppercase">
                 Launch Sites
               </span>
-              <span className="feature-pill px-4 py-1.5 rounded-full bg-black text-white text-xs font-semibold tracking-wide uppercase">
+              <span className="px-4 py-1.5 rounded-full bg-black text-white text-xs font-semibold tracking-wide uppercase">
                 Thermal Maps
               </span>
             </div>
@@ -113,7 +74,7 @@ export const Features = () => {
 
           {/* Right: Two columns of descriptive text */}
           <div className="w-full lg:w-1/2 flex flex-col md:flex-row gap-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium pt-2 lg:pt-16">
-            <div className="w-full md:w-1/2 feature-paragraph">
+            <div className="w-full md:w-1/2">
               <p>
                 Live weather data and thermal maps are the backbone of any
                 cross-country flight. Our platform aggregates real-time wind
@@ -122,7 +83,7 @@ export const Features = () => {
                 pilots.
               </p>
             </div>
-            <div className="w-full md:w-1/2 feature-paragraph">
+            <div className="w-full md:w-1/2">
               <p>
                 We map out every certified launch site and safe landing zone in
                 the region. Each location profile includes difficulty ratings,
@@ -137,11 +98,11 @@ export const Features = () => {
         {/* Bottom Cards / Gallery Section */}
         {/* Horizontal scroll container (hide scrollbar for cleaner look) */}
         <div
-          className="feature-cards-container flex overflow-x-auto gap-4 md:gap-8 pb-8 snap-x snap-mandatory scrollbar-hide"
+          className="flex overflow-x-auto gap-4 md:gap-8 pb-8 snap-x snap-mandatory scrollbar-hide"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
           {/* Card 1 */}
-          <div className="feature-card flex flex-col gap-4 min-w-[85vw] md:min-w-100 lg:min-w-112.5 shrink-0 snap-center">
+          <div className="flex flex-col gap-4 min-w-[85vw] md:min-w-100 lg:min-w-112.5 shrink-0 snap-center">
             <div className="w-full h-100 md:h-125 lg:h-150 rounded-2xl bg-blue-100"></div>
             <div className="flex flex-col gap-1">
               <h3 className="text-xl md:text-2xl font-medium font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
@@ -154,7 +115,7 @@ export const Features = () => {
           </div>
 
           {/* Card 2 */}
-          <div className="feature-card flex flex-col gap-4 min-w-[85vw] md:min-w-100 lg:min-w-112.5 shrink-0 snap-center">
+          <div className="flex flex-col gap-4 min-w-[85vw] md:min-w-100 lg:min-w-112.5 shrink-0 snap-center">
             <div className="w-full h-100 md:h-125 lg:h-150 rounded-2xl bg-orange-100"></div>
             <div className="flex flex-col gap-1">
               <h3 className="text-xl md:text-2xl font-medium font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
@@ -167,7 +128,7 @@ export const Features = () => {
           </div>
 
           {/* Card 3 */}
-          <div className="feature-card flex flex-col gap-4 min-w-[85vw] md:min-w-100 lg:min-w-112.5 shrink-0 snap-center">
+          <div className="flex flex-col gap-4 min-w-[85vw] md:min-w-100 lg:min-w-112.5 shrink-0 snap-center">
             <div className="w-full h-100 md:h-125 lg:h-150 rounded-2xl bg-green-100"></div>
             <div className="flex flex-col gap-1">
               <h3 className="text-xl md:text-2xl font-medium font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
@@ -180,7 +141,7 @@ export const Features = () => {
           </div>
 
           {/* Card 4 */}
-          <div className="feature-card flex flex-col gap-4 min-w-[85vw] md:min-w-100 lg:min-w-112.5 shrink-0 snap-center">
+          <div className="flex flex-col gap-4 min-w-[85vw] md:min-w-100 lg:min-w-112.5 shrink-0 snap-center">
             <div className="w-full h-100 md:h-125 lg:h-150 rounded-2xl bg-purple-100"></div>
             <div className="flex flex-col gap-1">
               <h3 className="text-xl md:text-2xl font-medium font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
