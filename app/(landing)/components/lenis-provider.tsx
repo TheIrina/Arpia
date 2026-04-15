@@ -2,6 +2,7 @@
 
 import { ReactNode, useEffect } from "react";
 import Lenis from "lenis";
+import gsap from "@/lib/gsap";
 
 export const LenisProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
@@ -16,14 +17,17 @@ export const LenisProvider = ({ children }: { children: ReactNode }) => {
       infinite: false,
     });
 
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
+    // Synchronize Lenis with GSAP ticker for jitter-free scroll
+    gsap.ticker.lagSmoothing(0);
+
+    function update(time: number) {
+      lenis.raf(time * 1000); // GSAP time is in seconds, Lenis expects ms
     }
 
-    requestAnimationFrame(raf);
+    gsap.ticker.add(update);
 
     return () => {
+      gsap.ticker.remove(update);
       lenis.destroy();
     };
   }, []);

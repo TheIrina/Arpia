@@ -9,8 +9,11 @@ export const Hero = () => {
         loop
         muted
         playsInline
+        preload="auto"
+        poster="/videos/hero1-poster.avif"
         className="absolute inset-0 w-full h-full object-cover z-0"
       >
+        <source src="/videos/hero1.webm" type="video/webm" />
         <source src="/videos/hero1.mp4" type="video/mp4" />
       </video>
 

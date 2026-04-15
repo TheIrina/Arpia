@@ -21,8 +21,11 @@ export const Hero2 = () => {
                 loop
                 muted
                 playsInline
+                preload="metadata"
+                poster="/videos/hero1-poster.avif"
                 className="absolute inset-0 w-full h-full object-cover"
               >
+                <source src="/videos/hero1.webm" type="video/webm" />
                 <source src="/videos/hero1.mp4" type="video/mp4" />
               </video>
             </div>

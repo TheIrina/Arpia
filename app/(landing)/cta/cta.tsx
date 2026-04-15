@@ -36,8 +36,11 @@ export const Cta = () => {
                 loop
                 muted
                 playsInline
+                preload="metadata"
+                poster="/videos/hero2-poster.avif"
                 className="absolute top-0 left-0 w-full h-full object-cover"
               >
+                <source src="/videos/hero2.webm" type="video/webm" />
                 <source src="/videos/hero2.mp4" type="video/mp4" />
               </video>
             </div>

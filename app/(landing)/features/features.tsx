@@ -1,13 +1,8 @@
 "use client";
 
 import { useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
-
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger, useGSAP);
-}
+import gsap, { ScrollTrigger, useGSAP } from "@/lib/gsap";
+import { SplitText } from "../components/common/split-text";
 
 export const Features = () => {
   const containerRef = useRef<HTMLElement>(null);
@@ -32,16 +27,6 @@ export const Features = () => {
 
   const headlineText =
     "Essential Tools: a complete suite for planning flights, analyzing conditions, and flying safely.";
-
-  const renderWords = (text: string) => {
-    const wordsArray = text.split(" ");
-    return wordsArray.map((word, index) => (
-      <span key={index} className="inline-block">
-        <span className="feature-word opacity-20">{word}</span>
-        {index < wordsArray.length - 1 && <span>&nbsp;</span>}
-      </span>
-    ));
-  };
 
   return (
     <section
@@ -68,7 +53,7 @@ export const Features = () => {
 
             {/* Big Headline */}
             <h2 className="text-4xl md:text-5xl xl:text-6xl font-medium leading-[1.1] tracking-tighter font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
-              {renderWords(headlineText)}
+              <SplitText text={headlineText} wordClassName="feature-word opacity-20" />
             </h2>
           </div>
 
