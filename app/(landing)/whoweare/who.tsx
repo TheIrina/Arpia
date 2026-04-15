@@ -61,6 +61,7 @@ export const WhoWeAre = () => {
             src="/logo/para.png"
             alt="Paragliding adventure"
             fill
+            priority
             className="object-contain p-8"
           />
         </div>
