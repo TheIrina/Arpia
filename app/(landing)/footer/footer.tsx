@@ -1,0 +1,110 @@
+import React from "react";
+import Link from "next/link";
+
+export const Footer = () => {
+  return (
+    <footer className="w-full bg-white text-black px-4 pt-24 pb-12 md:px-8 lg:px-12">
+      <div className="max-w-screen-2xl mx-auto flex flex-col gap-16 md:gap-24">
+        {/* Top Section: Branding & Links */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
+          {/* Logo & Vision */}
+          <div className="lg:col-span-6 flex flex-col items-start gap-8">
+            <h2 className="text-4xl md:text-5xl font-medium tracking-tighter leading-none font-['Helvetica_Neue',Helvetica,Arial,sans-serif] max-w-md">
+              Elevating the paragliding experience, one thermal at a time.
+            </h2>
+          </div>
+
+          {/* Links Grid */}
+          <div className="lg:col-span-6 grid grid-cols-2 md:grid-cols-3 gap-8">
+            {/* Product */}
+            <div className="flex flex-col gap-4">
+              <h4 className="text-xs md:text-base uppercase font-semibold tracking-wide text-black">
+                Product
+              </h4>
+              <nav className="flex text-sm md:text-base font-medium text-[#5f666d] flex-col gap-2">
+                <Link href="#" className="hover:underline">
+                  Features
+                </Link>
+                <Link href="#" className="hover:underline">
+                  Beta Access
+                </Link>
+                <Link href="#" className="hover:underline">
+                  Mobile App
+                </Link>
+                <Link href="#" className="hover:underline">
+                  Community
+                </Link>
+              </nav>
+            </div>
+
+            {/* Company */}
+            <div className="flex flex-col gap-4">
+              <h4 className="text-xs font-bold uppercase tracking-widest text-black">
+                Company
+              </h4>
+              <nav className="flex text-sm md:text-base font-medium text-[#5f666d] flex-col gap-2">
+                <Link href="#" className="hover:underline">
+                  Who We Are
+                </Link>
+                <Link href="#" className="hover:underline">
+                  Manifesto
+                </Link>
+                <Link href="#" className="hover:underline">
+                  Contact
+                </Link>
+                <Link href="#" className="hover:underline">
+                  Support
+                </Link>
+              </nav>
+            </div>
+
+            {/* Social */}
+            <div className="flex flex-col gap-4">
+              <h4 className="text-xs font-bold uppercase tracking-widest text-black">
+                Social
+              </h4>
+              <nav className="flex text-sm md:text-base font-medium text-[#5f666d] flex-col gap-2">
+                <Link href="#" className="hover:underline">
+                  Instagram
+                </Link>
+                <Link href="#" className="hover:underline">
+                  X (Twitter)
+                </Link>
+                <Link href="#" className="hover:underline">
+                  YouTube
+                </Link>
+                <Link href="#" className="hover:underline">
+                  Discord
+                </Link>
+              </nav>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Section: Giant Typography & Legal */}
+        <div className="flex flex-col gap-8 md:gap-18">
+          <div className="w-full pt-8">
+            <h1 className="text-7xl md:text-[12rem] lg:text-[16rem] xl:text-[20rem] font-medium leading-[0.7] tracking-tighter font-['Helvetica_Neue',Helvetica,Arial,sans-serif] -ml-2 lg:-ml-6 select-none text-black/5 overflow-visible">
+              Arpia.com
+            </h1>
+          </div>
+
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 font-medium text-xs text-[#5f666d] uppercase">
+            <p>© 2026 Arpia.com All rights reserved.</p>
+            <div className="flex gap-8">
+              <Link href="#" className="hover:underline">
+                Privacy Policy
+              </Link>
+              <Link href="#" className="hover:underline">
+                Terms of Service
+              </Link>
+              <Link href="#" className="hover:underline">
+                Cookie Settings
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};

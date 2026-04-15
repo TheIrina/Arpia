@@ -4,18 +4,18 @@ export const Cta = () => {
       <div className="max-w-screen-2xl mx-auto">
         <div className="bg-[#1A1A1A] rounded-2xl flex flex-col lg:flex-row overflow-hidden items-stretch">
           {/* Left: Text & CTA Button */}
-          <div className="w-full lg:w-1/2 p-8 flex flex-col justify-between">
+          <div className="w-full lg:w-1/2 p-4 md:p-8 flex flex-col justify-between">
             <div>
               {/* White dot / icon placeholder */}
               <div className="w-8 h-8 bg-white rounded-full mb-8"></div>
 
               {/* Title */}
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-white mb-4 font-['Helvetica_Neue',Helvetica,Arial,sans-serif] tracking-tight">
+              <h2 className="text-4xl md:text-5xl xl:text-6xl font-medium text-white mb-4 font-['Helvetica_Neue',Helvetica,Arial,sans-serif] tracking-tight">
                 Ready to take off? Join the Arpia community
               </h2>
 
               {/* Description */}
-              <p className="text-[#86868B] text-base md:text-lg lg:text-xl leading-relaxed max-w-lg mb-12">
+              <p className="text-[#86868B] text-sm md:text-base leading-relaxed max-w-lg mb-12">
                 Download the app to access live weather, find local launch
                 sites, and connect with pilots from all over the world. Whether
                 you fly for sport or competition, we provide the tools you need.
