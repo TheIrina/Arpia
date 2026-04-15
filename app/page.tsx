@@ -12,7 +12,7 @@ export default function Home() {
     <main className="min-h-screen bg-[#fefefe]">
       <Navbar />
       {/* <Hero /> */}
-      <Hero3 />
+      <Hero />
       <WhoWeAre />
       <Features />
       <Cta />
