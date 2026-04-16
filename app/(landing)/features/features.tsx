@@ -3,6 +3,8 @@
 import { useRef } from "react";
 import gsap, { ScrollTrigger, useGSAP } from "@/lib/gsap";
 import { SplitText } from "../components/common/split-text";
+import { MapCardVisual } from "./cards/map";
+import { WeatherCard } from "./cards/weather";
 
 export const Features = () => {
   const containerRef = useRef<HTMLElement>(null);
@@ -88,7 +90,7 @@ export const Features = () => {
         >
           {/* Card 1 */}
           <div className="flex flex-col gap-4 min-w-[85vw] md:min-w-100 lg:min-w-112.5 shrink-0 snap-center">
-            <div className="w-full h-100 md:h-125 lg:h-150 rounded-2xl bg-blue-100"></div>
+            <WeatherCard />
             <div className="flex flex-col gap-1">
               <h3 className="text-xl md:text-2xl font-medium font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
                 Live Weather Interface
@@ -134,6 +136,19 @@ export const Features = () => {
               </h3>
               <p className="text-sm md:text-base text-[#5f666d]">
                 Connect with local experts and international flyers.
+              </p>
+            </div>
+          </div>
+
+          {/* Card 5 */}
+          <div className="flex flex-col gap-4 min-w-[85vw] md:min-w-100 lg:min-w-112.5 shrink-0 snap-center">
+            <MapCardVisual />
+            <div className="flex flex-col gap-1">
+              <h3 className="text-xl md:text-2xl font-medium font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
+                Roldanillo Launch Sites
+              </h3>
+              <p className="text-sm md:text-base text-[#5f666d]">
+                Explore top launch sites and thermals around Roldanillo.
               </p>
             </div>
           </div>
