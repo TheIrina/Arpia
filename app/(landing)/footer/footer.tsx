@@ -6,78 +6,51 @@ export const Footer = () => {
     <footer className="w-full bg-white text-black px-4 pt-24 pb-12 md:px-8 lg:px-12">
       <div className="max-w-screen-2xl mx-auto flex flex-col gap-16 md:gap-24">
         {/* Top Section: Branding & Links */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-2 md:gap-x-3 lg:gap-x-4 gap-y-12">
           {/* Logo & Vision */}
-          <div className="lg:col-span-6 flex flex-col items-start gap-8">
+          <div className="col-span-2 md:col-span-8 lg:col-span-5 flex flex-col items-start gap-8">
             <h2 className="text-4xl md:text-5xl font-medium tracking-tighter leading-none font-['Helvetica_Neue',Helvetica,Arial,sans-serif] max-w-md">
               Elevating the paragliding experience, one thermal at a time.
             </h2>
           </div>
 
-          {/* Links Grid */}
-          <div className="lg:col-span-6 grid grid-cols-2 md:grid-cols-3 gap-8">
-            {/* Product */}
-            <div className="flex flex-col gap-4">
-              <h4 className="text-xs md:text-base uppercase font-semibold tracking-wide text-black">
-                Product
-              </h4>
-              <nav className="flex text-sm md:text-base font-medium text-[#5f666d] flex-col gap-2">
-                <Link href="#" className="hover:underline">
-                  Features
-                </Link>
-                <Link href="#" className="hover:underline">
-                  Beta Access
-                </Link>
-                <Link href="#" className="hover:underline">
-                  Mobile App
-                </Link>
-                <Link href="#" className="hover:underline">
-                  Community
-                </Link>
-              </nav>
-            </div>
+          {/* Product */}
+          <div className="col-span-1 md:col-span-2 lg:col-start-7 lg:col-span-2 flex flex-col gap-4">
+            <h4 className="text-xs md:text-base uppercase font-semibold tracking-wide text-black">
+              Product
+            </h4>
+            <nav className="flex text-sm md:text-base font-medium text-[#5f666d] flex-col gap-2">
+              <Link href="#" className="hover:underline">Features</Link>
+              <Link href="#" className="hover:underline">Beta Access</Link>
+              <Link href="#" className="hover:underline">Mobile App</Link>
+              <Link href="#" className="hover:underline">Community</Link>
+            </nav>
+          </div>
 
-            {/* Company */}
-            <div className="flex flex-col gap-4">
-              <h4 className="text-xs md:text-base uppercase font-semibold tracking-wide text-black">
-                Company
-              </h4>
-              <nav className="flex text-sm md:text-base font-medium text-[#5f666d] flex-col gap-2">
-                <Link href="#" className="hover:underline">
-                  Who We Are
-                </Link>
-                <Link href="#" className="hover:underline">
-                  Manifesto
-                </Link>
-                <Link href="#" className="hover:underline">
-                  Contact
-                </Link>
-                <Link href="#" className="hover:underline">
-                  Support
-                </Link>
-              </nav>
-            </div>
+          {/* Company */}
+          <div className="col-span-1 md:col-span-2 lg:col-start-9 lg:col-span-2 flex flex-col gap-4">
+            <h4 className="text-xs md:text-base uppercase font-semibold tracking-wide text-black">
+              Company
+            </h4>
+            <nav className="flex text-sm md:text-base font-medium text-[#5f666d] flex-col gap-2">
+              <Link href="#" className="hover:underline">Who We Are</Link>
+              <Link href="#" className="hover:underline">Manifesto</Link>
+              <Link href="#" className="hover:underline">Contact</Link>
+              <Link href="#" className="hover:underline">Support</Link>
+            </nav>
+          </div>
 
-            {/* Social */}
-            <div className="flex flex-col gap-4">
-              <h4 className="text-xs md:text-base uppercase font-semibold tracking-wide text-black">
-                Social
-              </h4>
-              <nav className="flex text-sm md:text-base font-medium text-[#5f666d] flex-col gap-2">
-                <Link href="#" className="hover:underline">
-                  Instagram
-                </Link>
-                <Link href="#" className="hover:underline">
-                  X (Twitter)
-                </Link>
-                <Link href="#" className="hover:underline">
-                  YouTube
-                </Link>
-                <Link href="#" className="hover:underline">
-                  Discord
-                </Link>
-              </nav>
-            </div>
+          {/* Social */}
+          <div className="col-span-1 md:col-span-2 lg:col-start-11 lg:col-span-2 flex flex-col gap-4">
+            <h4 className="text-xs md:text-base uppercase font-semibold tracking-wide text-black">
+              Social
+            </h4>
+            <nav className="flex text-sm md:text-base font-medium text-[#5f666d] flex-col gap-2">
+              <Link href="#" className="hover:underline">Instagram</Link>
+              <Link href="#" className="hover:underline">X (Twitter)</Link>
+              <Link href="#" className="hover:underline">YouTube</Link>
+              <Link href="#" className="hover:underline">Discord</Link>
+            </nav>
           </div>
         </div>
 

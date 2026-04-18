@@ -21,13 +21,6 @@ export const Hero = () => {
 
       {/* Grid Container */}
       <div className="relative z-10 flex-1 w-full overflow-hidden">
-        {/* Red Wireframe Grid Background
-        <div className="absolute inset-0 pointer-events-none z-0 grid grid-cols-3 grid-rows-8 md:grid-cols-4 md:grid-rows-6 lg:grid-cols-6 lg:grid-rows-4 gap-2 md:gap-3 lg:gap-4">
-          {Array.from({ length: 24 }).map((_, i) => (
-            <div key={i} className="border border-[#d62828]/50"></div>
-          ))}
-        </div> */}
-
         {/* Foreground Content Grid */}
         <div className="absolute inset-0 z-10 grid grid-cols-3 grid-rows-8 md:grid-cols-4 md:grid-rows-6 lg:grid-cols-6 lg:grid-rows-4 gap-2 md:gap-3 lg:gap-4 pointer-events-none">
           {/* Main Title Area */}
