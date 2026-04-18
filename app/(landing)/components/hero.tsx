@@ -2,7 +2,7 @@ import React from "react";
 
 export const Hero = () => {
   return (
-    <section className="relative w-full min-h-screen bg-[#111111] p-4 md:py-6 lg:py-8 md:px-8 lg:px-12 text-white font-['Helvetica_Neue',Helvetica,Arial,sans-serif] flex flex-col overflow-hidden selection:bg-white selection:text-black">
+    <section className="relative w-full min-h-screen p-4 md:py-6 lg:py-8 md:px-8 lg:px-12 text-white font-['Helvetica_Neue',Helvetica,Arial,sans-serif] flex flex-col overflow-hidden selection:bg-white selection:text-black">
       {/* Background Video */}
       <video
         autoPlay
