@@ -14,11 +14,10 @@ export const Hero = () => {
         className="absolute inset-0 w-full h-full object-cover z-0"
       >
         <source src="/videos/hero1.webm" type="video/webm" />
-        <source src="/videos/hero1.mp4" type="video/mp4" />
       </video>
 
       {/* Dark Overlay for Readability */}
-      <div className="absolute inset-0 bg-black/40 z-0"></div>
+      <div className="absolute inset-0 bg-black/20 z-0"></div>
 
       {/* Grid Container */}
       <div className="relative z-10 flex-1 w-full overflow-hidden">

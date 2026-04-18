@@ -44,7 +44,7 @@ export const WhoWeAre = () => {
         </div>
         <div className="w-full lg:w-1/2 h-[50vh] lg:h-[80vh] bg-[#1A1A1A] rounded-2xl relative overflow-hidden">
           <Image
-            src="/logo/para.avif"
+            src="/logo/para.png"
             alt="Paragliding adventure"
             fill
             priority
@@ -57,7 +57,7 @@ export const WhoWeAre = () => {
       <div className="w-full flex flex-col-reverse lg:flex-row items-center gap-8 lg:gap-12">
         <div className="w-full lg:w-1/2 h-[50vh] lg:h-[80vh] bg-[#1A1A1A] rounded-2xl relative overflow-hidden">
           <Image
-            src="/logo/clo.avif"
+            src="/logo/clo.png"
             alt="Local community"
             fill
             className="object-contain p-8"

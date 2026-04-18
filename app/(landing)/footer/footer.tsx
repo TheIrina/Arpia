@@ -39,7 +39,7 @@ export const Footer = () => {
 
             {/* Company */}
             <div className="flex flex-col gap-4">
-              <h4 className="text-xs font-bold uppercase tracking-widest text-black">
+              <h4 className="text-xs md:text-base uppercase font-semibold tracking-wide text-black">
                 Company
               </h4>
               <nav className="flex text-sm md:text-base font-medium text-[#5f666d] flex-col gap-2">
@@ -60,7 +60,7 @@ export const Footer = () => {
 
             {/* Social */}
             <div className="flex flex-col gap-4">
-              <h4 className="text-xs font-bold uppercase tracking-widest text-black">
+              <h4 className="text-xs md:text-base uppercase font-semibold tracking-wide text-black">
                 Social
               </h4>
               <nav className="flex text-sm md:text-base font-medium text-[#5f666d] flex-col gap-2">
