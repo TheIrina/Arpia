@@ -1,10 +1,11 @@
 "use client";
 
 import { useRef } from "react";
-import gsap, { ScrollTrigger, useGSAP } from "@/lib/gsap";
+import gsap, { useGSAP } from "@/lib/gsap";
 import { SplitText } from "../components/common/split-text";
-import { MapCardVisual } from "./cards/map";
-import { WeatherCard } from "./cards/weather";
+import dynamic from "next/dynamic";
+const MapCardVisual = dynamic(() => import("./cards/map").then(mod => mod.MapCardVisual), { ssr: false });
+const WeatherCard = dynamic(() => import("./cards/weather").then(mod => mod.WeatherCard), { ssr: false });
 
 export const Features = () => {
   const containerRef = useRef<HTMLElement>(null);

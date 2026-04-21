@@ -1,26 +1,88 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --background: #ffffff;
+    --foreground: #171717;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --font-sans: var(--font-geist-sans);
+    --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+    :root {
+        --background: #0a0a0a;
+        --foreground: #ededed;
+    }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: Arial, Helvetica, sans-serif;
+    /* Prevent text size adjustment on orientation change */
+    -webkit-text-size-adjust: 100%;
+}
+
+/* ------------------------- Osmo Scaling System ------------------------- */
+
+/* Desktop (Default) */
+:root {
+    --size-unit: 16; /* Base 16px */
+    --size-container-ideal: 1440; /* Figma desktop canvas width */
+    --size-container-min: 992px;
+    --size-container-max: 1920px;
+
+    --size-container: clamp(
+        var(--size-container-min),
+        100vw,
+        var(--size-container-max)
+    );
+    --size-font: calc(
+        var(--size-container) / (var(--size-container-ideal) / var(--size-unit))
+    );
+}
+
+/* Tablet */
+@media screen and (max-width: 991px) {
+    :root {
+        --size-container-ideal: 834;
+        --size-container-min: 768px;
+        --size-container-max: 991px;
+    }
+}
+
+/* Mobile Landscape */
+@media screen and (max-width: 767px) {
+    :root {
+        --size-container-ideal: 550;
+        --size-container-min: 480px;
+        --size-container-max: 767px;
+    }
+}
+
+/* Mobile Portrait */
+@media screen and (max-width: 479px) {
+    :root {
+        --size-container-ideal: 390;
+        --size-container-min: 320px;
+        --size-container-max: 479px;
+    }
+}
+
+/*
+  Apply to HTML to make all Tailwind REMs scale fluidly.
+  Fallback to 16px if variables fail.
+*/
+html {
+    font-size: var(--size-font, 16px);
+}
+
+/* Custom Container Utilities for Tailwind v4 */
+@utility osmo-container {
+    max-width: var(--size-container);
+    margin-inline: auto;
 }

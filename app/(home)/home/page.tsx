@@ -56,7 +56,7 @@ export default function AppHome() {
         {/* Action Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 w-full mt-4">
           {/* Main Flight Card */}
-          <div className="dashboard-anim lg:col-span-2 bg-[#1a1a1a] border border-white/10 rounded-[24px] p-6 lg:p-10 flex flex-col justify-between min-h-[340px] overflow-hidden relative group">
+          <div className="dashboard-anim lg:col-span-2 bg-[#1a1a1a] border border-white/10 rounded-3xl p-6 lg:p-10 flex flex-col justify-between min-h-85 overflow-hidden relative group">
             {/* Background topological decoration */}
             <div className="absolute top-0 right-0 w-[60%] h-full opacity-20 pointer-events-none transition-transform duration-1000 group-hover:scale-105">
               <div className="absolute inset-0 bg-linear-to-r from-[#1a1a1a] to-transparent z-10"></div>
@@ -117,7 +117,7 @@ export default function AppHome() {
           </div>
 
           {/* Live Weather Card */}
-          <div className="dashboard-anim bg-[#1a1a1a] border border-white/10 rounded-[24px] p-6 lg:p-8 flex flex-col justify-between min-h-[340px] hover:border-white/20 transition-all group">
+          <div className="dashboard-anim bg-[#1a1a1a] border border-white/10 rounded-3xl p-6 lg:p-8 flex flex-col justify-between min-h-85 hover:border-white/20 transition-all group">
             <div>
               <div className="flex justify-between items-center mb-8">
                 <span className="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold tracking-widest uppercase">
@@ -150,7 +150,7 @@ export default function AppHome() {
           </div>
 
           {/* Quick Actions Card */}
-          <div className="dashboard-anim bg-[#1a1a1a] border border-white/10 rounded-[24px] p-6 lg:p-8 hover:border-white/20 transition-all flex flex-col min-h-[260px]">
+          <div className="dashboard-anim bg-[#1a1a1a] border border-white/10 rounded-3xl p-6 lg:p-8 hover:border-white/20 transition-all flex flex-col min-h-65">
             <span className="text-[10px] font-bold tracking-widest text-[#5f666d] uppercase mb-6 block">
               Quick Links
             </span>
@@ -204,8 +204,8 @@ export default function AppHome() {
           </div>
 
           {/* Stats Summary Card */}
-          <div className="dashboard-anim lg:col-span-2 bg-[#d62828] rounded-[24px] p-6 lg:p-10 flex flex-col md:flex-row items-start md:items-center justify-between min-h-[180px] text-white relative overflow-hidden group">
-            <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent pointer-events-none"></div>
+          <div className="dashboard-anim lg:col-span-2 bg-[#d62828] rounded-3xl p-6 lg:p-10 flex flex-col md:flex-row items-start md:items-center justify-between min-h-45 text-white relative overflow-hidden group">
+            <div className="absolute inset-0 bg-linear-to-r from-black/20 to-transparent pointer-events-none"></div>
 
             <div className="flex flex-col gap-3 relative z-10 w-full md:w-auto">
               <h3 className="text-3xl font-medium tracking-tight">

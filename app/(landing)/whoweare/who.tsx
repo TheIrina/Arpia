@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import Image from "next/image";
-import gsap, { ScrollTrigger, useGSAP } from "@/lib/gsap";
+import gsap, { useGSAP } from "@/lib/gsap";
 import { SplitText } from "../components/common/split-text";
 
 export const WhoWeAre = () => {
@@ -43,11 +43,11 @@ export const WhoWeAre = () => {
             <SplitText text={text1} wordClassName="word opacity-20" />
           </p>
         </div>
-        
+
         {/* Image is placed below the text, aligned with it */}
         <div className="col-span-1 md:col-span-8 lg:col-start-5 lg:col-span-8 h-[50vh] lg:h-[70vh] bg-[#1A1A1A] rounded-2xl relative overflow-hidden mt-12 lg:mt-24">
           <Image
-            src="/logo/para.png"
+            src="/logo/para.avif"
             alt="Paragliding adventure"
             fill
             priority
@@ -68,7 +68,7 @@ export const WhoWeAre = () => {
         {/* Image is placed below the text */}
         <div className="col-span-1 md:col-span-8 lg:col-start-1 lg:col-span-12 h-[50vh] lg:h-[70vh] bg-[#1A1A1A] rounded-2xl relative overflow-hidden mt-12 lg:mt-24">
           <Image
-            src="/logo/clo.png"
+            src="/logo/clo.avif"
             alt="Local community"
             fill
             className="object-contain p-8"

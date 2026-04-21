@@ -20,10 +20,18 @@ export const Footer = () => {
               Product
             </h4>
             <nav className="flex text-sm md:text-base font-medium text-[#5f666d] flex-col gap-2">
-              <Link href="#" className="hover:underline">Features</Link>
-              <Link href="#" className="hover:underline">Beta Access</Link>
-              <Link href="#" className="hover:underline">Mobile App</Link>
-              <Link href="#" className="hover:underline">Community</Link>
+              <Link href="#" className="hover:underline">
+                Features
+              </Link>
+              <Link href="#" className="hover:underline">
+                Beta Access
+              </Link>
+              <Link href="#" className="hover:underline">
+                Mobile App
+              </Link>
+              <Link href="#" className="hover:underline">
+                Community
+              </Link>
             </nav>
           </div>
 
@@ -33,10 +41,18 @@ export const Footer = () => {
               Company
             </h4>
             <nav className="flex text-sm md:text-base font-medium text-[#5f666d] flex-col gap-2">
-              <Link href="#" className="hover:underline">Who We Are</Link>
-              <Link href="#" className="hover:underline">Manifesto</Link>
-              <Link href="#" className="hover:underline">Contact</Link>
-              <Link href="#" className="hover:underline">Support</Link>
+              <Link href="#" className="hover:underline">
+                Who We Are
+              </Link>
+              <Link href="#" className="hover:underline">
+                Manifesto
+              </Link>
+              <Link href="#" className="hover:underline">
+                Contact
+              </Link>
+              <Link href="#" className="hover:underline">
+                Support
+              </Link>
             </nav>
           </div>
 
@@ -46,10 +62,18 @@ export const Footer = () => {
               Social
             </h4>
             <nav className="flex text-sm md:text-base font-medium text-[#5f666d] flex-col gap-2">
-              <Link href="#" className="hover:underline">Instagram</Link>
-              <Link href="#" className="hover:underline">X (Twitter)</Link>
-              <Link href="#" className="hover:underline">YouTube</Link>
-              <Link href="#" className="hover:underline">Discord</Link>
+              <Link href="#" className="hover:underline">
+                Instagram
+              </Link>
+              <Link href="#" className="hover:underline">
+                X (Twitter)
+              </Link>
+              <Link href="#" className="hover:underline">
+                YouTube
+              </Link>
+              <Link href="#" className="hover:underline">
+                Discord
+              </Link>
             </nav>
           </div>
         </div>
@@ -57,7 +81,7 @@ export const Footer = () => {
         {/* Bottom Section: Giant Typography & Legal */}
         <div className="flex flex-col gap-8 md:gap-18">
           <div className="w-full pt-8">
-            <h1 className="text-7xl md:text-[12rem] lg:text-[16rem] xl:text-[20rem] font-medium leading-[0.7] tracking-tighter font-['Helvetica_Neue',Helvetica,Arial,sans-serif] -ml-2 lg:-ml-6 select-none text-black/5 overflow-visible">
+            <h1 className="text-[16vw] font-medium leading-[0.7] tracking-tighter font-['Helvetica_Neue',Helvetica,Arial,sans-serif] -ml-2 lg:-ml-6 select-none text-black/5">
               Arpia.com
             </h1>
           </div>

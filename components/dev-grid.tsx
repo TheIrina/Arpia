@@ -4,10 +4,8 @@ import { useState, useEffect } from "react";
 
 export function DevGrid() {
   const [isVisible, setIsVisible] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    setIsMounted(true);
     // Only works in development mode
     if (process.env.NODE_ENV !== "development") return;
 
@@ -23,7 +21,7 @@ export function DevGrid() {
   }, []);
 
   // Avoid hydration mismatch and don't render in production
-  if (!isMounted || process.env.NODE_ENV !== "development" || !isVisible) return null;
+  if (process.env.NODE_ENV !== "development" || !isVisible) return null;
 
   return (
     <div className="fixed inset-0 z-[9999] pointer-events-none select-none w-full h-full flex flex-col justify-between">
