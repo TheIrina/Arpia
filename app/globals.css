@@ -86,3 +86,14 @@ html {
     max-width: var(--size-container);
     margin-inline: auto;
 }
+
+/* Ocultar barra de desplazamiento para Chrome, Safari y Opera */
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* Ocultar barra de desplazamiento para IE, Edge y Firefox */
+* {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
