@@ -86,15 +86,21 @@ export const Footer = () => {
             </h1>
           </div>
 
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 font-medium text-xs text-[#5f666d] uppercase">
-            <p>© 2026 Arpia.com All rights reserved.</p>
-            <div className="flex gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-2 md:gap-x-3 lg:gap-x-4 gap-y-4 items-start md:items-center font-medium text-xs text-[#5f666d] uppercase">
+            <div className="col-span-2 md:col-span-4 lg:col-span-6">
+              <p>© 2026 Arpia.com All rights reserved.</p>
+            </div>
+            <div className="col-span-1 md:col-span-2 lg:col-start-7 lg:col-span-2">
               <Link href="#" className="hover:underline">
                 Privacy Policy
               </Link>
+            </div>
+            <div className="col-span-1 md:col-span-2 lg:col-start-9 lg:col-span-2">
               <Link href="#" className="hover:underline">
                 Terms of Service
               </Link>
+            </div>
+            <div className="col-span-1 md:col-span-2 lg:col-start-11 lg:col-span-2">
               <Link href="#" className="hover:underline">
                 Cookie Settings
               </Link>
