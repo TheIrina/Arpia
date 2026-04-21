@@ -11,10 +11,10 @@ export const SplitText = ({ text, className = "", wordClassName = "" }: SplitTex
   
   return (
     <span className={className}>
-      {wordsArray.map((word, index) => (
-        <span key={index} className="inline-block">
+      {wordsArray.map((word, wordPos) => (
+        <span key={`${word}-${wordPos}`} className="inline-block">
           <span className={wordClassName}>{word}</span>
-          {index < wordsArray.length - 1 && <span>&nbsp;</span>}
+          {wordPos < wordsArray.length - 1 && <span>&nbsp;</span>}
         </span>
       ))}
     </span>

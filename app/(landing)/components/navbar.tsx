@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 export const Navbar = () => {
   return (
@@ -15,21 +16,21 @@ export const Navbar = () => {
         </div>
 
         <div className="hidden lg:flex lg:col-start-3 lg:col-span-2 items-start justify-between w-full text-[11px] font-medium tracking-wide pointer-events-auto">
-          <a href="#" className="hover:text-gray-300 transition-colors">
+          <Link href="/route" className="hover:text-gray-300 transition-colors">
             Route
-          </a>
-          <a href="#" className="hover:text-gray-300 transition-colors">
+          </Link>
+          <Link href="/instructions" className="hover:text-gray-300 transition-colors">
             Instructions
-          </a>
-          <a href="#" className="hover:text-gray-300 transition-colors">
+          </Link>
+          <Link href="/faq" className="hover:text-gray-300 transition-colors">
             FAQ
-          </a>
-          <a href="#" className="hover:text-gray-300 transition-colors">
+          </Link>
+          <Link href="/history" className="hover:text-gray-300 transition-colors">
             History
-          </a>
-          <a href="#" className="hover:text-gray-300 transition-colors">
+          </Link>
+          <Link href="/contact" className="hover:text-gray-300 transition-colors">
             Contact Us
-          </a>
+          </Link>
         </div>
 
         <div className="md:col-start-4 lg:col-start-6 flex items-start justify-end pointer-events-auto">

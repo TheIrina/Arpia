@@ -51,6 +51,7 @@ export const WhoWeAre = () => {
             alt="Paragliding adventure"
             fill
             priority
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 66vw"
             className="object-contain p-8"
           />
         </div>
@@ -71,6 +72,7 @@ export const WhoWeAre = () => {
             src="/logo/clo.avif"
             alt="Local community"
             fill
+            sizes="(max-width: 768px) 100vw, 100vw"
             className="object-contain p-8"
           />
         </div>

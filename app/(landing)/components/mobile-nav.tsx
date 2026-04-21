@@ -33,13 +33,13 @@ export const MobileNav = () => {
   }, [isOpen, lenisRef]);
 
   const links = [
-    { label: "Route", href: "#", hasIcon: true },
-    { label: "Instructions", href: "#", hasIcon: false },
-    { label: "FAQ", href: "#", hasIcon: true },
-    { label: "History", href: "#", hasIcon: false },
-    { label: "Contact Us", href: "#", hasIcon: false },
-    { label: "Log in", href: "#", hasIcon: false },
-    { label: "Register now", href: "#", hasIcon: false },
+    { label: "Route", href: "/route", hasIcon: true },
+    { label: "Instructions", href: "/instructions", hasIcon: false },
+    { label: "FAQ", href: "/faq", hasIcon: true },
+    { label: "History", href: "/history", hasIcon: false },
+    { label: "Contact Us", href: "/contact", hasIcon: false },
+    { label: "Log in", href: "/login", hasIcon: false },
+    { label: "Register now", href: "/register", hasIcon: false },
   ];
 
   return (
@@ -47,8 +47,12 @@ export const MobileNav = () => {
       {/* Background Overlay */}
       {isOpen && (
         <div
+          role="button"
+          tabIndex={0}
           className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 md:hidden animate-in fade-in duration-200"
           onClick={() => setIsOpen(false)}
+          onKeyDown={(e) => { if (e.key === 'Escape' || e.key === 'Enter') setIsOpen(false); }}
+          aria-label="Close menu"
         />
       )}
 
@@ -60,7 +64,7 @@ export const MobileNav = () => {
           <div className="flex flex-col items-end gap-4 w-full text-right">
             {links.map((link, index) => (
               <a
-                key={index}
+                key={link.label}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
                 className="group flex items-center justify-end gap-3 text-black hover:underline text-lg font-medium tracking-tight w-full"
