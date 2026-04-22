@@ -39,7 +39,7 @@ export const Navbar = () => {
 
         <div className="md:col-start-4 lg:col-start-6 flex items-start justify-end pointer-events-auto">
           <button className="hidden md:flex items-center gap-2 text-[11px] font-medium rounded-full px-5 py-2 bg-black/20 backdrop-blur-xs text-white">
-            Register now ↗
+            Register now
           </button>
         </div>
       </div>
