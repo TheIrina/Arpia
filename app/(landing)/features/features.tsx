@@ -4,8 +4,14 @@ import { useRef } from "react";
 import gsap, { useGSAP } from "@/lib/gsap";
 import { SplitText } from "../components/common/split-text";
 import dynamic from "next/dynamic";
-const MapCardVisual = dynamic(() => import("./cards/map").then(mod => mod.MapCardVisual), { ssr: false });
-const WeatherCard = dynamic(() => import("./cards/weather").then(mod => mod.WeatherCard), { ssr: false });
+const MapCardVisual = dynamic(
+  () => import("./cards/map").then((mod) => mod.MapCardVisual),
+  { ssr: false },
+);
+const WeatherCard = dynamic(
+  () => import("./cards/weather").then((mod) => mod.WeatherCard),
+  { ssr: false },
+);
 
 export const Features = () => {
   const containerRef = useRef<HTMLElement>(null);
@@ -55,8 +61,11 @@ export const Features = () => {
             </div>
 
             {/* Big Headline */}
-            <h2 className="text-4xl md:text-5xl xl:text-[4rem] font-medium leading-[1.05] tracking-tighter font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
-              <SplitText text={headlineText} wordClassName="feature-word opacity-20" />
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-normal leading-[1.05] tracking-tighter font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
+              <SplitText
+                text={headlineText}
+                wordClassName="feature-word opacity-20"
+              />
             </h2>
           </div>
 
@@ -92,7 +101,7 @@ export const Features = () => {
           <div className="flex flex-col gap-4 w-[85vw] md:w-[calc(50%-8px)] lg:w-[calc(41.666667%-9.333px)] shrink-0 snap-start">
             <WeatherCard />
             <div className="flex flex-col gap-1">
-              <h3 className="text-xl md:text-2xl font-medium font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
+              <h3 className="text-xl md:text-2xl font-normal font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
                 Live Weather Interface
               </h3>
               <p className="text-sm md:text-base text-[#5f666d]">
@@ -105,7 +114,7 @@ export const Features = () => {
           <div className="flex flex-col gap-4 w-[85vw] md:w-[calc(50%-8px)] lg:w-[calc(41.666667%-9.333px)] shrink-0 snap-start">
             <div className="w-full h-100 md:h-125 lg:h-150 rounded-2xl bg-orange-100"></div>
             <div className="flex flex-col gap-1">
-              <h3 className="text-xl md:text-2xl font-medium font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
+              <h3 className="text-xl md:text-2xl font-normal font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
                 Thermal Tracking
               </h3>
               <p className="text-sm md:text-base text-[#5f666d]">
@@ -118,7 +127,7 @@ export const Features = () => {
           <div className="flex flex-col gap-4 w-[85vw] md:w-[calc(50%-8px)] lg:w-[calc(41.666667%-9.333px)] shrink-0 snap-start">
             <div className="w-full h-100 md:h-125 lg:h-150 rounded-2xl bg-green-100"></div>
             <div className="flex flex-col gap-1">
-              <h3 className="text-xl md:text-2xl font-medium font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
+              <h3 className="text-xl md:text-2xl font-normal font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
                 Site Topography
               </h3>
               <p className="text-sm md:text-base text-[#5f666d]">
@@ -131,7 +140,7 @@ export const Features = () => {
           <div className="flex flex-col gap-4 w-[85vw] md:w-[calc(50%-8px)] lg:w-[calc(41.666667%-9.333px)] shrink-0 snap-start">
             <div className="w-full h-100 md:h-125 lg:h-150 rounded-2xl bg-purple-100"></div>
             <div className="flex flex-col gap-1">
-              <h3 className="text-xl md:text-2xl font-medium font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
+              <h3 className="text-xl md:text-2xl font-normal font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
                 Pilot Community
               </h3>
               <p className="text-sm md:text-base text-[#5f666d]">
@@ -144,7 +153,7 @@ export const Features = () => {
           <div className="flex flex-col gap-4 w-[85vw] md:w-[calc(50%-8px)] lg:w-[calc(41.666667%-9.333px)] shrink-0 snap-start">
             <MapCardVisual />
             <div className="flex flex-col gap-1">
-              <h3 className="text-xl md:text-2xl font-medium font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
+              <h3 className="text-xl md:text-2xl font-normal font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
                 Roldanillo Launch Sites
               </h3>
               <p className="text-sm md:text-base text-[#5f666d]">

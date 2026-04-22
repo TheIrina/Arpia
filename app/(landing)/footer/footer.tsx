@@ -9,7 +9,7 @@ export const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-2 md:gap-x-3 lg:gap-x-4 gap-y-12">
           {/* Logo & Vision */}
           <div className="col-span-2 md:col-span-8 lg:col-span-5 flex flex-col items-start gap-8">
-            <h2 className="text-4xl md:text-5xl font-medium tracking-tighter leading-none font-['Helvetica_Neue',Helvetica,Arial,sans-serif] max-w-md">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium tracking-tighter leading-none font-['Helvetica_Neue',Helvetica,Arial,sans-serif] max-w-md">
               Elevating the paragliding experience, one thermal at a time.
             </h2>
           </div>
@@ -81,7 +81,7 @@ export const Footer = () => {
         {/* Bottom Section: Giant Typography & Legal */}
         <div className="flex flex-col gap-8 md:gap-18">
           <div className="w-full pt-8">
-            <h1 className="text-[16vw] font-medium leading-[0.7] tracking-tighter font-['Helvetica_Neue',Helvetica,Arial,sans-serif] -ml-2 lg:-ml-6 select-none text-black/5">
+            <h1 className="text-[16vw] font-medium leading-[0.7] tracking-tighter font-['Helvetica_Neue',Helvetica,Arial,sans-serif] -ml-2 lg:-ml-6 select-none text-black">
               Arpia.com
             </h1>
           </div>
@@ -104,9 +104,6 @@ export const Footer = () => {
               <Link href="#" className="hover:underline">
                 Cookie Settings
               </Link>
-              <a href="https://www.mapbox.com/about/maps/" target="_blank" rel="noopener noreferrer" className="hover:underline flex items-center gap-1">
-                © Mapbox
-              </a>
             </div>
           </div>
         </div>

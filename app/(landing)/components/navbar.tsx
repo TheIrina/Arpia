@@ -7,28 +7,32 @@ export const Navbar = () => {
       <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 md:gap-3 lg:gap-4 w-full">
         {/* Header row items (Row 1 from the original grid) */}
         <div className="col-start-1 col-span-2 md:col-span-1 flex items-start gap-2 pointer-events-auto">
-          <div className="w-2 h-2 rounded-full bg-white mt-1 shrink-0"></div>
-          <span className="font-bold text-[10px] md:text-xs tracking-wider uppercase leading-tight">
-            Roldanillo
-            <br />
-            Colombia
-          </span>
+          <span className="font-normal text-sm md:text-3xl">Arpia</span>
         </div>
 
         <div className="hidden lg:flex lg:col-start-3 lg:col-span-2 items-start justify-between w-full text-[11px] font-medium tracking-wide pointer-events-auto">
           <Link href="/route" className="hover:text-gray-300 transition-colors">
             Route
           </Link>
-          <Link href="/instructions" className="hover:text-gray-300 transition-colors">
+          <Link
+            href="/instructions"
+            className="hover:text-gray-300 transition-colors"
+          >
             Instructions
           </Link>
           <Link href="/faq" className="hover:text-gray-300 transition-colors">
             FAQ
           </Link>
-          <Link href="/history" className="hover:text-gray-300 transition-colors">
+          <Link
+            href="/history"
+            className="hover:text-gray-300 transition-colors"
+          >
             History
           </Link>
-          <Link href="/contact" className="hover:text-gray-300 transition-colors">
+          <Link
+            href="/contact"
+            className="hover:text-gray-300 transition-colors"
+          >
             Contact Us
           </Link>
         </div>

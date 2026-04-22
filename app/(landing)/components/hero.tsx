@@ -35,8 +35,8 @@ export const Hero = () => {
 
           {/* Button Area */}
           <div className="col-span-full lg:col-start-3 lg:col-span-2 row-start-5 md:row-start-4 lg:row-start-3 flex flex-col items-center justify-start pointer-events-auto">
-            <button className="bg-white text-black font-medium text-[11px] md:text-xs rounded-full px-6 py-2.5 hover:bg-gray-200 transition-colors flex items-center gap-2">
-              Register now ↗
+            <button className="bg-white text-black font-normal py-3 px-8 rounded-full text-sm md:text-base">
+              Register now
             </button>
           </div>
 
