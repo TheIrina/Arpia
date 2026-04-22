@@ -37,3 +37,14 @@ body {
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
 }
+
+/* Stealth Mapbox Logo */
+.mapboxgl-ctrl-bottom-left .mapboxgl-ctrl-logo {
+    opacity: 0.3 !important;
+    filter: grayscale(100%) !important;
+    transition: opacity 0.3s ease;
+    pointer-events: auto;
+}
+.mapboxgl-ctrl-bottom-left .mapboxgl-ctrl-logo:hover {
+    opacity: 0.8 !important;
+}

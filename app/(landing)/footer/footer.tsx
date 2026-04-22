@@ -100,10 +100,13 @@ export const Footer = () => {
                 Terms of Service
               </Link>
             </div>
-            <div className="col-span-1 md:col-span-2 lg:col-start-11 lg:col-span-2">
+            <div className="col-span-1 md:col-span-2 lg:col-start-11 lg:col-span-2 flex flex-col gap-2">
               <Link href="#" className="hover:underline">
                 Cookie Settings
               </Link>
+              <a href="https://www.mapbox.com/about/maps/" target="_blank" rel="noopener noreferrer" className="hover:underline flex items-center gap-1">
+                © Mapbox
+              </a>
             </div>
           </div>
         </div>
