@@ -7,7 +7,6 @@ export const NAV_LINKS = [
 ];
 
 export const AUTH_LINKS = [
-  { label: "Log in", href: "/login", hasIcon: false },
   { label: "Register now", href: "/register", hasIcon: false },
 ];
 

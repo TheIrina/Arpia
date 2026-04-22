@@ -2,8 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import { ListIcon } from "@phosphor-icons/react/dist/ssr/List";
-import { XIcon } from "@phosphor-icons/react/dist/ssr/X";
 import { ArrowUpRightIcon } from "@phosphor-icons/react/dist/ssr/ArrowUpRight";
+import { XIcon } from "@phosphor-icons/react/dist/ssr/X";
 import { useLenis } from "./lenis-context";
 
 import { ALL_LINKS } from "@/lib/navigation";
@@ -59,7 +59,7 @@ export const MobileNav = () => {
           <div className="bg-black flex flex-col p-6 rounded-2xl animate-in fade-in slide-in-from-bottom-4 duration-200 min-w-50">
             {/* Links aligned to right */}
             <div className="flex flex-col items-end gap-4 w-full text-right">
-              {links.map((link, index) => (
+              {links.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
