@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 export const Hero = () => {
   return (
@@ -35,9 +36,12 @@ export const Hero = () => {
 
           {/* Button Area */}
           <div className="col-span-full lg:col-start-3 lg:col-span-2 row-start-5 md:row-start-4 lg:row-start-3 flex flex-col items-center justify-start pointer-events-auto">
-            <button className="bg-white text-black font-normal py-3 px-8 rounded-full text-sm md:text-base">
+            <Link
+              href="/home"
+              className="bg-white text-black font-normal py-3 px-8 rounded-full text-sm md:text-base inline-block"
+            >
               Register now
-            </button>
+            </Link>
           </div>
 
           {/* Bottom Footer Area */}
