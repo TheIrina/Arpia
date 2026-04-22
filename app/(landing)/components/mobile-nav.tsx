@@ -6,6 +6,8 @@ import { XIcon } from "@phosphor-icons/react/dist/ssr/X";
 import { ArrowUpRightIcon } from "@phosphor-icons/react/dist/ssr/ArrowUpRight";
 import { useLenis } from "./lenis-context";
 
+import { ALL_LINKS } from "@/lib/navigation";
+
 export const MobileNav = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { lenisRef } = useLenis();
@@ -33,15 +35,7 @@ export const MobileNav = () => {
     };
   }, [isOpen, lenisRef]);
 
-  const links = [
-    { label: "Route", href: "/route", hasIcon: true },
-    { label: "Instructions", href: "/instructions", hasIcon: false },
-    { label: "FAQ", href: "/faq", hasIcon: true },
-    { label: "History", href: "/history", hasIcon: false },
-    { label: "Contact Us", href: "/contact", hasIcon: false },
-    { label: "Log in", href: "/login", hasIcon: false },
-    { label: "Register now", href: "/register", hasIcon: false },
-  ];
+  const links = ALL_LINKS;
 
   return (
     <>

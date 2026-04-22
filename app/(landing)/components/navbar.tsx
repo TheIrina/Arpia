@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { NAV_LINKS, AUTH_LINKS } from "@/lib/navigation";
 
 export const Navbar = () => {
   return (
@@ -11,35 +12,26 @@ export const Navbar = () => {
         </div>
 
         <div className="hidden lg:flex lg:col-start-3 lg:col-span-2 items-center justify-between w-full text-[11px] font-medium tracking-wide pointer-events-auto">
-          <Link href="/route" className="hover:text-gray-300 transition-colors">
-            Route
-          </Link>
-          <Link
-            href="/instructions"
-            className="hover:text-gray-300 transition-colors"
-          >
-            Instructions
-          </Link>
-          <Link href="/faq" className="hover:text-gray-300 transition-colors">
-            FAQ
-          </Link>
-          <Link
-            href="/history"
-            className="hover:text-gray-300 transition-colors"
-          >
-            History
-          </Link>
-          <Link
-            href="/contact"
-            className="hover:text-gray-300 transition-colors"
-          >
-            Contact Us
-          </Link>
+          {NAV_LINKS.map((link) => (
+            <Link
+              key={link.label}
+              href={link.href}
+              className="hover:text-gray-300 transition-colors"
+            >
+              {link.label}
+            </Link>
+          ))}
         </div>
 
-        <div className="md:col-start-4 lg:col-start-6 flex items-start justify-end pointer-events-auto">
+        <div className="md:col-start-4 lg:col-start-6 flex items-start justify-end pointer-events-auto gap-3">
+          <Link
+            href={AUTH_LINKS[0].href}
+            className="hidden md:flex items-center text-[11px] font-medium hover:text-gray-300 transition-colors"
+          >
+            {AUTH_LINKS[0].label}
+          </Link>
           <button className="hidden md:flex items-center gap-2 text-[11px] font-medium rounded-full px-5 py-2 bg-black/20 backdrop-blur-xs text-white">
-            Register now
+            {AUTH_LINKS[1].label}
           </button>
         </div>
       </div>
