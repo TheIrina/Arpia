@@ -7,10 +7,10 @@ export const Navbar = () => {
       <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 md:gap-3 lg:gap-4 w-full">
         {/* Header row items (Row 1 from the original grid) */}
         <div className="col-start-1 col-span-2 md:col-span-1 flex items-start gap-2 pointer-events-auto">
-          <span className="font-normal text-sm md:text-3xl">Arpia</span>
+          <span className="text-2xl md:text-3xl">Arpia</span>
         </div>
 
-        <div className="hidden lg:flex lg:col-start-3 lg:col-span-2 items-start justify-between w-full text-[11px] font-medium tracking-wide pointer-events-auto">
+        <div className="hidden lg:flex lg:col-start-3 lg:col-span-2 items-center justify-between w-full text-[11px] font-medium tracking-wide pointer-events-auto">
           <Link href="/route" className="hover:text-gray-300 transition-colors">
             Route
           </Link>
@@ -38,7 +38,7 @@ export const Navbar = () => {
         </div>
 
         <div className="md:col-start-4 lg:col-start-6 flex items-start justify-end pointer-events-auto">
-          <button className="hidden md:flex items-center gap-2 text-[11px] font-medium border border-white rounded-full px-5 py-2 hover:bg-white hover:text-black transition-colors">
+          <button className="hidden md:flex items-center gap-2 text-[11px] font-medium rounded-full px-5 py-2 bg-black/20 backdrop-blur-xs text-white">
             Register now ↗
           </button>
         </div>

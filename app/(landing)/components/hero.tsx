@@ -25,11 +25,11 @@ export const Hero = () => {
         <div className="absolute inset-0 z-10 grid grid-cols-3 grid-rows-8 md:grid-cols-4 md:grid-rows-6 lg:grid-cols-6 lg:grid-rows-4 gap-2 md:gap-3 lg:gap-4 pointer-events-none">
           {/* Main Title Area */}
           <main className="col-span-full row-start-4 md:row-start-3 lg:row-start-2 flex flex-col items-center justify-center text-center pointer-events-auto">
-            <h1 className="text-4xl md:text-6xl lg:text-[5rem] font-bold tracking-tight mb-2 md:mb-4 text-white">
+            <h1 className="text-4xl md:text-6xl font-normal tracking-tight mb-2 md:mb-4 text-white">
               Fly it to prove yourself
             </h1>
-            <p className="text-xs md:text-sm text-gray-400 max-w-100 leading-relaxed font-medium">
-              Join us, for ---------- Conquer yourself
+            <p className="text-sm max-w-100 font-medium">
+              Join us, for the love of flight. Conquer yourself.
             </p>
           </main>
 
