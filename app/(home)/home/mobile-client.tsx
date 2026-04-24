@@ -2,7 +2,6 @@ import Map from "react-map-gl/mapbox";
 import { MobileNavbar } from "../components/mobile-navbar";
 import { MapAttribution } from "../components/map-attribution";
 
-
 const getLightPreset = () => {
   const hour = new Date().getHours();
   if (hour >= 6 && hour < 9) return "dawn";
@@ -27,7 +26,11 @@ export function MobileClient() {
           attributionControl={false}
           logoPosition="bottom-left"
           onLoad={(e) => {
-            e.target.setConfigProperty("basemap", "lightPreset", getLightPreset());
+            e.target.setConfigProperty(
+              "basemap",
+              "lightPreset",
+              getLightPreset(),
+            );
           }}
         />
       </section>

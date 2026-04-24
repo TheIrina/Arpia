@@ -19,7 +19,7 @@ const NavButton = ({ id, Icon, activeTab, setActiveTab }: NavButtonProps) => {
   return (
     <button
       onClick={() => setActiveTab(id)}
-      className={`flex items-center justify-center p-3 rounded-full transition-all duration-300 ${
+      className={`flex items-center justify-center p-2 rounded-full transition-all duration-300 ${
         isActive
           ? "bg-black text-white shadow-lg scale-110"
           : "text-white hover:text-white hover:bg-white/10"
