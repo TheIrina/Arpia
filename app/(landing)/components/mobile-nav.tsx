@@ -77,7 +77,7 @@ export const MobileNav = () => {
         {/* Hamburger Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className={`p-4 flex items-center justify-center  rounded-full ${isOpen ? "bg-white text-black" : "bg-black/20 backdrop-blur-xs text-white"}`}
+          className={`p-2 flex items-center justify-center  rounded-full ${isOpen ? "bg-white text-black" : "bg-black/20 backdrop-blur-xs text-white"}`}
           aria-label="Toggle Menu"
         >
           {isOpen ? <XIcon size={24} /> : <ListIcon size={24} />}
