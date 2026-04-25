@@ -41,7 +41,7 @@ export function DesktopClient() {
       </div>
 
       {/* Solid Dark Sidebar (Floating Below Navbar) */}
-      <section className="absolute left-4 top-18 bottom-4 w-105 z-20 flex flex-col rounded-4xl bg-[#0a0a0a] border border-white/5 text-white/90 p-1 overflow-y-auto overflow-x-hidden scrollbar-none shadow-2xl">
+      <section className="absolute left-4 top-18 bottom-4 w-105 z-20 flex flex-col rounded-3xl bg-[#0a0a0a] border border-white/5 text-white/90 p-1 overflow-y-auto overflow-x-hidden scrollbar-none shadow-2xl">
         {/* Unified Bento Grid Layout */}
         <div className="flex-1 grid grid-cols-4 gap-1 font-light auto-rows-max">
           {/* Top Stats Row (4 items, 1 col each) */}
