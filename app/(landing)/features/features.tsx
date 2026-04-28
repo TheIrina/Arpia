@@ -1,8 +1,17 @@
 "use client";
 
 import { useRef } from "react";
-import gsap, { ScrollTrigger, useGSAP } from "@/lib/gsap";
+import gsap, { useGSAP } from "@/lib/gsap";
 import { SplitText } from "../components/common/split-text";
+import dynamic from "next/dynamic";
+const MapCardVisual = dynamic(
+  () => import("./cards/map").then((mod) => mod.MapCardVisual),
+  { ssr: false },
+);
+const WeatherCard = dynamic(
+  () => import("./cards/weather").then((mod) => mod.WeatherCard),
+  { ssr: false },
+);
 
 export const Features = () => {
   const containerRef = useRef<HTMLElement>(null);
@@ -35,62 +44,64 @@ export const Features = () => {
     >
       <div className="max-w-screen-2xl mx-auto flex flex-col gap-16">
         {/* Top Header Section */}
-        <div className="flex flex-col lg:flex-row justify-between gap-12 lg:gap-24">
+        <div className="grid grid-cols-1 md:grid-cols-8 lg:grid-cols-12 gap-x-4 gap-y-12">
           {/* Left: Tags & Big Title */}
-          <div className="w-full lg:w-1/2 flex flex-col items-start">
+          <div className="col-span-1 md:col-span-8 lg:col-span-5 flex flex-col items-start">
             {/* Tags / Pills */}
-            <div className="flex flex-wrap mb-8">
-              <span className="px-4 py-1.5 rounded-full bg-black text-white text-xs font-semibold tracking-wide uppercase">
+            <div className="flex flex-wrap gap-2 mb-8">
+              <span className="px-4 py-1.5 rounded-full bg-gray-950 text-white text-[10px] md:text-xs font-semibold tracking-wide uppercase">
                 Live Weather
               </span>
-              <span className="px-4 py-1.5 rounded-full bg-black text-white text-xs font-semibold tracking-wide uppercase">
+              <span className="px-4 py-1.5 rounded-full bg-gray-950 text-white text-[10px] md:text-xs font-semibold tracking-wide uppercase">
                 Launch Sites
               </span>
-              <span className="px-4 py-1.5 rounded-full bg-black text-white text-xs font-semibold tracking-wide uppercase">
+              <span className="px-4 py-1.5 rounded-full bg-gray-950 text-white text-[10px] md:text-xs font-semibold tracking-wide uppercase">
                 Thermal Maps
               </span>
             </div>
 
             {/* Big Headline */}
-            <h2 className="text-4xl md:text-5xl xl:text-6xl font-medium leading-[1.1] tracking-tighter font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
-              <SplitText text={headlineText} wordClassName="feature-word opacity-20" />
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-normal leading-[1.05] tracking-tighter font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
+              <SplitText
+                text={headlineText}
+                wordClassName="feature-word opacity-20"
+              />
             </h2>
           </div>
 
-          {/* Right: Two columns of descriptive text */}
-          <div className="w-full lg:w-1/2 flex flex-col md:flex-row gap-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium pt-2 lg:pt-16">
-            <div className="w-full md:w-1/2">
-              <p>
-                Live weather data and thermal maps are the backbone of any
-                cross-country flight. Our platform aggregates real-time wind
-                conditions, barometric pressure, and cloud cover to give you a
-                precise read on when and where to launch. Built by pilots, for
-                pilots.
-              </p>
-            </div>
-            <div className="w-full md:w-1/2">
-              <p>
-                We map out every certified launch site and safe landing zone in
-                the region. Each location profile includes difficulty ratings,
-                optimal wind orientations, and recent reviews from the local
-                community, ensuring you always know what to expect before you
-                arrive.
-              </p>
-            </div>
+          {/* Right: Text 1 */}
+          <div className="col-span-1 md:col-span-4 lg:col-start-7 lg:col-span-3 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium pt-2 lg:pt-24">
+            <p>
+              Live weather data and thermal maps are the backbone of any
+              cross-country flight. Our platform aggregates real-time wind
+              conditions, barometric pressure, and cloud cover to give you a
+              precise read on when and where to launch. Built by pilots, for
+              pilots.
+            </p>
+          </div>
+
+          {/* Right: Text 2 */}
+          <div className="col-span-1 md:col-span-4 lg:col-start-10 lg:col-span-3 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium pt-2 lg:pt-24">
+            <p>
+              We map out every certified launch site and safe landing zone in
+              the region. Each location profile includes difficulty ratings,
+              optimal wind orientations, and recent reviews from the local
+              community, ensuring you always know what to expect before you
+              arrive.
+            </p>
           </div>
         </div>
 
         {/* Bottom Cards / Gallery Section */}
-        {/* Horizontal scroll container (hide scrollbar for cleaner look) */}
         <div
-          className="flex overflow-x-auto gap-4 md:gap-8 pb-8 snap-x snap-mandatory scrollbar-hide"
+          className="flex overflow-x-auto gap-2 md:gap-3 lg:gap-4 pb-8 snap-x snap-mandatory scrollbar-hide"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
           {/* Card 1 */}
-          <div className="flex flex-col gap-4 min-w-[85vw] md:min-w-100 lg:min-w-112.5 shrink-0 snap-center">
-            <div className="w-full h-100 md:h-125 lg:h-150 rounded-2xl bg-blue-100"></div>
+          <div className="flex flex-col gap-4 w-[85vw] md:w-[calc(50%-8px)] lg:w-[calc(41.666667%-9.333px)] shrink-0 snap-start">
+            <WeatherCard />
             <div className="flex flex-col gap-1">
-              <h3 className="text-xl md:text-2xl font-medium font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
+              <h3 className="text-xl md:text-2xl font-normal font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
                 Live Weather Interface
               </h3>
               <p className="text-sm md:text-base text-[#5f666d]">
@@ -100,10 +111,10 @@ export const Features = () => {
           </div>
 
           {/* Card 2 */}
-          <div className="flex flex-col gap-4 min-w-[85vw] md:min-w-100 lg:min-w-112.5 shrink-0 snap-center">
+          <div className="flex flex-col gap-4 w-[85vw] md:w-[calc(50%-8px)] lg:w-[calc(41.666667%-9.333px)] shrink-0 snap-start">
             <div className="w-full h-100 md:h-125 lg:h-150 rounded-2xl bg-orange-100"></div>
             <div className="flex flex-col gap-1">
-              <h3 className="text-xl md:text-2xl font-medium font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
+              <h3 className="text-xl md:text-2xl font-normal font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
                 Thermal Tracking
               </h3>
               <p className="text-sm md:text-base text-[#5f666d]">
@@ -113,10 +124,10 @@ export const Features = () => {
           </div>
 
           {/* Card 3 */}
-          <div className="flex flex-col gap-4 min-w-[85vw] md:min-w-100 lg:min-w-112.5 shrink-0 snap-center">
+          <div className="flex flex-col gap-4 w-[85vw] md:w-[calc(50%-8px)] lg:w-[calc(41.666667%-9.333px)] shrink-0 snap-start">
             <div className="w-full h-100 md:h-125 lg:h-150 rounded-2xl bg-green-100"></div>
             <div className="flex flex-col gap-1">
-              <h3 className="text-xl md:text-2xl font-medium font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
+              <h3 className="text-xl md:text-2xl font-normal font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
                 Site Topography
               </h3>
               <p className="text-sm md:text-base text-[#5f666d]">
@@ -126,14 +137,27 @@ export const Features = () => {
           </div>
 
           {/* Card 4 */}
-          <div className="flex flex-col gap-4 min-w-[85vw] md:min-w-100 lg:min-w-112.5 shrink-0 snap-center">
+          <div className="flex flex-col gap-4 w-[85vw] md:w-[calc(50%-8px)] lg:w-[calc(41.666667%-9.333px)] shrink-0 snap-start">
             <div className="w-full h-100 md:h-125 lg:h-150 rounded-2xl bg-purple-100"></div>
             <div className="flex flex-col gap-1">
-              <h3 className="text-xl md:text-2xl font-medium font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
+              <h3 className="text-xl md:text-2xl font-normal font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
                 Pilot Community
               </h3>
               <p className="text-sm md:text-base text-[#5f666d]">
                 Connect with local experts and international flyers.
+              </p>
+            </div>
+          </div>
+
+          {/* Card 5 */}
+          <div className="flex flex-col gap-4 w-[85vw] md:w-[calc(50%-8px)] lg:w-[calc(41.666667%-9.333px)] shrink-0 snap-start">
+            <MapCardVisual />
+            <div className="flex flex-col gap-1">
+              <h3 className="text-xl md:text-2xl font-normal font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
+                Roldanillo Launch Sites
+              </h3>
+              <p className="text-sm md:text-base text-[#5f666d]">
+                Explore top launch sites and thermals around Roldanillo.
               </p>
             </div>
           </div>

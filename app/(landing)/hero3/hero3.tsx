@@ -23,7 +23,7 @@ export const Hero3 = () => {
         <div className="w-full lg:w-1/2 flex flex-col items-start gap-8 lg:gap-12 max-lg:contents order-3 lg:order-2">
           {/* Top: Pill & Headline */}
           <div className="flex flex-col gap-6 order-1 lg:order-1 w-full">
-            <span className="px-4 py-1.5 rounded-full bg-black text-white text-xs font-semibold tracking-wide uppercase self-start">
+            <span className="px-4 py-1.5 rounded-full bg-gray-950 text-white text-xs font-semibold tracking-wide uppercase self-start">
               Arpia App Beta
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-medium leading-none tracking-tighter font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
@@ -42,7 +42,7 @@ export const Hero3 = () => {
 
           {/* Bottom: CTA */}
           <div className="flex flex-col sm:flex-row items-start gap-4 order-4 lg:order-1 w-full">
-            <button className="bg-black text-white font-medium py-3.5 px-8 rounded-full text-base">
+            <button className="bg-gray-950 text-white font-medium py-3.5 px-8 rounded-full text-base">
               Get Early Access
             </button>
           </div>

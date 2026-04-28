@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { LenisProvider } from "./(landing)/components/lenis-provider";
 import ArpiaCookieBanner from "./(landing)/components/legal/CookieBanner";
-
+import { DevGrid } from "@/components/dev-grid";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -32,7 +32,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-slate-950 text-slate-300 selection:bg-cyan-500/30">
         <LenisProvider>{children}</LenisProvider>
         <ArpiaCookieBanner />
-      </body>
+        <DevGrid />      </body>
     </html>
   );
 }
