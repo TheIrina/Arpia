@@ -91,17 +91,17 @@ export const Footer = () => {
               <p>© 2026 Arpia.com All rights reserved.</p>
             </div>
             <div className="col-span-1 md:col-span-2 lg:col-start-7 lg:col-span-2">
-              <Link href="#" className="hover:underline">
+              <Link href="/privacy" className="hover:underline">
                 Privacy Policy
               </Link>
             </div>
             <div className="col-span-1 md:col-span-2 lg:col-start-9 lg:col-span-2">
-              <Link href="#" className="hover:underline">
+              <Link href="/terms" className="hover:underline">
                 Terms of Service
               </Link>
             </div>
             <div className="col-span-1 md:col-span-2 lg:col-start-11 lg:col-span-2 flex flex-col gap-2">
-              <Link href="#" className="hover:underline">
+              <Link href="/cookies" className="hover:underline">
                 Cookie Settings
               </Link>
             </div>
