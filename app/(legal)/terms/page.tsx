@@ -19,73 +19,138 @@ export default function TermsPage() {
     }, []);
 
     return (
-        <article ref={containerRef} className="space-y-8">
-            <header className="border-b border-cyan-500/20 pb-8 mb-12">
-                <span className="text-cyan-500 font-mono text-xs tracking-widest">[AR-LEG-00]</span>
-                <h1 className="text-4xl font-bold tracking-tighter text-white mt-2 uppercase">
-                    Términos y Condiciones
+        <article ref={containerRef} className="space-y-12 font-['Helvetica_Neue',Helvetica,Arial,sans-serif] text-white">
+            <header className="border-b border-gray-800 pb-8 mb-12">
+                <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-4 uppercase">
+                    Términos y Condiciones de Uso
                 </h1>
-                <p className="text-slate-400 mt-4 text-sm max-w-2xl">
-                    Última actualización: Abril 2026. Al utilizar el ecosistema técnico de Arpia, aceptas estar sujeto a las siguientes cláusulas operativas y legales.
+                <p className="text-gray-400 text-sm max-w-2xl leading-relaxed">
+                    Última actualización: Abril 2026
                 </p>
             </header>
 
-            <section className="p-8 rounded-2xl border border-white/5 bg-white/2 backdrop-blur-md transition-all hover:border-cyan-500/20 group">
+            <section className="group">
                 <div className="flex items-center gap-3 mb-4">
-                    <span className="font-mono text-cyan-400 text-[10px] py-1 px-2 border border-cyan-500/30 rounded bg-cyan-500/5">
-                        CL-01
-                    </span>
-                    <h2 className="text-lg font-semibold text-slate-100 uppercase tracking-tight">
-                        Responsabilidad Operativa y Riesgo Inherente
+                    <span className="text-gray-400 text-xs font-medium">01</span>
+                    <h2 className="text-xl font-semibold text-white tracking-tight uppercase">
+                        Información General y Aceptación
                     </h2>
                 </div>
-                <div className="text-slate-400 text-sm leading-relaxed space-y-4">
-                    <p>El vuelo en parapente es una actividad de alto riesgo. Arpia opera estrictamente como un ecosistema técnico de apoyo, telemetría y visualización espacial.</p>
-                    <p>La plataforma <strong className="text-cyan-400 font-medium">no reemplaza</strong> el criterio humano, la instrucción formal ni las fuentes meteorológicas oficiales de aviación. El piloto asume la total responsabilidad de la decisión final de despegue basándose en su nivel de experiencia y las condiciones climáticas del momento.</p>
+                <div className="text-gray-400 text-sm leading-relaxed space-y-4">
+                    <p>Los presentes Términos y Condiciones regulan el acceso y la utilización de la plataforma digital, cuyo propósito es proporcionar información meteorológica, horarios y directorios de servicios turísticos (alojamiento y gastronomía) dirigidos a la comunidad de parapentistas.</p>
+                    <p>El acceso, la navegación o el uso de la Plataforma por parte del usuario implicará la aceptación plena e incondicional de la totalidad de los términos aquí contenidos. En caso de no estar de acuerdo con estos Términos, el Usuario deberá abstenerse de utilizar el servicio.</p>
                 </div>
             </section>
 
-            <section className="p-8 rounded-2xl border border-white/5 bg-white/2 backdrop-blur-md transition-all hover:border-cyan-500/20 group">
+            <section className="group">
                 <div className="flex items-center gap-3 mb-4">
-                    <span className="font-mono text-cyan-400 text-[10px] py-1 px-2 border border-cyan-500/30 rounded bg-cyan-500/5">
-                        CL-02
-                    </span>
-                    <h2 className="text-lg font-semibold text-slate-100 uppercase tracking-tight">
-                        Uso de Datos Geoespaciales y Rutas
+                    <span className="text-gray-400 text-xs font-medium">02</span>
+                    <h2 className="text-xl font-semibold text-white tracking-tight uppercase">
+                        Objeto del Servicio
                     </h2>
                 </div>
-                <div className="text-slate-400 text-sm leading-relaxed space-y-4">
-                    <p>Las rutas de senderismo y las delimitaciones de las zonas de despegue mostradas son estrictamente referenciales. La topografía y la micro-meteorología local pueden variar drásticamente debido a dinámicas naturales o intervenciones humanas.</p>
-                    <p>Arpia no se responsabiliza por variaciones en el terreno, bloqueos en los accesos de hiking o condiciones adversas que no se reflejen en tiempo real en la plataforma.</p>
+                <div className="text-gray-400 text-sm leading-relaxed space-y-4">
+                    <p>La Plataforma opera exclusivamente como un agregador de contenido informativo y una herramienta de consulta. Su finalidad es proporcionar datos de soporte para la actividad del parapentismo, incluyendo:</p>
+                    <ul className="list-disc pl-6 space-y-2">
+                        <li>Reportes climáticos y predicciones meteorológicas.</li>
+                        <li>Directorios de establecimientos de terceros (alojamiento, gastronomía).</li>
+                        <li>Horarios de competencias.</li>
+                    </ul>
+                    <p>Se precisa que la Plataforma no constituye una empresa de turismo de aventura, una escuela de vuelo, ni un proveedor directo de servicios de alojamiento o alimentación.</p>
                 </div>
             </section>
 
-            <section className="p-8 rounded-2xl border border-white/5 bg-white/2 backdrop-blur-md transition-all hover:border-cyan-500/20 group">
+            <section className="group">
                 <div className="flex items-center gap-3 mb-4">
-                    <span className="font-mono text-cyan-400 text-[10px] py-1 px-2 border border-cyan-500/30 rounded bg-cyan-500/5">
-                        CL-03
-                    </span>
-                    <h2 className="text-lg font-semibold text-slate-100 uppercase tracking-tight">
-                        Regulaciones de Espacio Aéreo
+                    <span className="text-gray-400 text-xs font-medium">03</span>
+                    <h2 className="text-xl font-semibold text-white tracking-tight uppercase">
+                        Exención y Limitación de Responsabilidad
                     </h2>
                 </div>
-                <p className="text-slate-400 text-sm leading-relaxed">
-                    Al utilizar la telemetría, el usuario se compromete a respetar en todo momento las normativas locales aeronáuticas, incluyendo zonas de tránsito aéreo controladas (TMA), techos de vuelo máximos y restricciones temporales (NOTAMs). El uso indebido de nuestra herramienta para violar deliberadamente el espacio aéreo resultará en la baja de su cuenta.
-                </p>
+                <div className="text-gray-400 text-sm leading-relaxed space-y-4">
+                    <p>Dada la naturaleza inherente de riesgo asociada al parapentismo, se establecen las siguientes limitaciones:</p>
+                    <ul className="space-y-4">
+                        <li><strong className="text-white font-medium">Precisión de Datos Climáticos:</strong> La información meteorológica se obtiene de fuentes externas y modelos predictivos. La Plataforma no garantiza la exactitud ni la fiabilidad absoluta de dichos datos. El Usuario reconoce y acepta que las condiciones ambientales y climáticas en entornos de montaña son inherentemente variables y susceptibles a cambios repentinos.</li>
+                        <li><strong className="text-white font-medium">Decisión de Vuelo:</strong> La determinación de ejecutar una actividad de vuelo es responsabilidad exclusiva e indelegable del piloto o Usuario. La Plataforma se exonera de toda responsabilidad por cualquier accidente, lesión corporal, daño material o pérdida resultante de decisiones adoptadas por el Usuario basadas en la información provista.</li>
+                        <li><strong className="text-white font-medium">Servicios de Terceros:</strong> La Plataforma no garantiza la calidad, seguridad o disponibilidad de los servicios ofrecidos por terceros referenciados (tales como hoteles o restaurantes). Cualquier controversia o reclamación relacionada con dichos servicios deberá tramitarse directamente ante el prestador final correspondiente.</li>
+                    </ul>
+                </div>
             </section>
 
-            <section className="p-8 rounded-2xl border border-white/5 bg-white/2 backdrop-blur-md transition-all hover:border-cyan-500/20 group">
+            <section className="group">
                 <div className="flex items-center gap-3 mb-4">
-                    <span className="font-mono text-cyan-400 text-[10px] py-1 px-2 border border-cyan-500/30 rounded bg-cyan-500/5">
-                        CL-04
-                    </span>
-                    <h2 className="text-lg font-semibold text-slate-100 uppercase tracking-tight">
-                        Disponibilidad del Ecosistema
+                    <span className="text-gray-400 text-xs font-medium">04</span>
+                    <h2 className="text-xl font-semibold text-white tracking-tight uppercase">
+                        Propiedad Intelectual
                     </h2>
                 </div>
-                <p className="text-slate-400 text-sm leading-relaxed">
-                    Nuestro compromiso es garantizar el máximo tiempo de actividad del servicio en la nube. Sin embargo, Arpia se reserva el derecho de modificar o suspender módulos de la aplicación por mantenimiento técnico sin aviso previo. No garantizamos una precisión absoluta frente a interrupciones satelitales o latencias en los datos métricos.
-                </p>
+                <div className="text-gray-400 text-sm leading-relaxed space-y-4">
+                    <p>Todo el contenido disponible en la Plataforma, incluyendo, sin limitación, el diseño gráfico, el código fuente, los logotipos, las interfaces y las bases de datos, es propiedad intelectual de Arpia y de sus licenciantes.</p>
+                    <p>Se prohíbe de manera expresa y taxativa:</p>
+                    <ul className="list-disc pl-6 space-y-2">
+                        <li>La utilización de técnicas de rastreo web (scraping), minería de datos o cualquier método automatizado para la extracción de información de la base de datos.</li>
+                        <li>La reproducción, distribución o comunicación pública, total o parcial, del contenido con propósitos comerciales sin la previa y expresa autorización por escrito.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section className="group">
+                <div className="flex items-center gap-3 mb-4">
+                    <span className="text-gray-400 text-xs font-medium">05</span>
+                    <h2 className="text-xl font-semibold text-white tracking-tight uppercase">
+                        Protección de Datos Personales (Habeas Data)
+                    </h2>
+                </div>
+                <div className="text-gray-400 text-sm leading-relaxed space-y-4">
+                    <p>En cumplimiento de la Ley 1581 de 2012 (Colombia), el Usuario otorga su autorización para el tratamiento de sus datos personales con las siguientes finalidades:</p>
+                    <ul className="list-disc pl-6 space-y-2">
+                        <li>Gestión de la cuenta de usuario.</li>
+                        <li>Envío de alertas climáticas y notificaciones inherentes a la prestación del servicio.</li>
+                        <li>Personalización de la experiencia de usuario.</li>
+                    </ul>
+                    <p>El Usuario podrá ejercer sus derechos de Habeas Data, incluyendo los derechos de conocimiento, acceso, rectificación, actualización y supresión de sus datos personales, a través de los mecanismos de contacto dispuestos por la Plataforma.</p>
+                </div>
+            </section>
+
+            <section className="group">
+                <div className="flex items-center gap-3 mb-4">
+                    <span className="text-gray-400 text-xs font-medium">06</span>
+                    <h2 className="text-xl font-semibold text-white tracking-tight uppercase">
+                        Reglas de Conducta
+                    </h2>
+                </div>
+                <div className="text-gray-400 text-sm leading-relaxed space-y-4">
+                    <p>El Usuario se obliga formalmente a:</p>
+                    <ul className="list-disc pl-6 space-y-2">
+                        <li>Suministrar información exacta y veraz durante el proceso de registro.</li>
+                        <li>Abstenerse de utilizar la Plataforma para la ejecución de actividades ilícitas o que contravengan los derechos de terceros.</li>
+                        <li>No ejecutar acciones que comprometan la integridad o seguridad del sistema, incluyendo intentos de acceso no autorizado o ataques informáticos.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section className="group">
+                <div className="flex items-center gap-3 mb-4">
+                    <span className="text-gray-400 text-xs font-medium">07</span>
+                    <h2 className="text-xl font-semibold text-white tracking-tight uppercase">
+                        Ley Aplicable y Jurisdicción
+                    </h2>
+                </div>
+                <div className="text-gray-400 text-sm leading-relaxed space-y-4">
+                    <p>Los presentes Términos se rigen e interpretan conforme a las leyes de la República de Colombia. Cualquier controversia se someterá a la jurisdicción de los tribunales competentes en Colombia.</p>
+                </div>
+            </section>
+
+            <section className="group">
+                <div className="flex items-center gap-3 mb-4">
+                    <span className="text-gray-400 text-xs font-medium">08</span>
+                    <h2 className="text-xl font-semibold text-white tracking-tight uppercase">
+                        Modificaciones
+                    </h2>
+                </div>
+                <div className="text-gray-400 text-sm leading-relaxed space-y-4">
+                    <p>Arpía se reserva el derecho unilateral de modificar o actualizar los presentes Términos y Condiciones en cualquier momento. Dichas modificaciones entrarán en vigencia a partir de su inmediata publicación en la Plataforma.</p>
+                </div>
             </section>
         </article>
     );

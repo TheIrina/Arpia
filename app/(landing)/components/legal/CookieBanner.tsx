@@ -3,6 +3,8 @@ import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { useConsentStore } from '@/store/useConsentStore';
 
+import Link from 'next/link';
+
 export default function ArpiaCookieBanner() {
     const bannerRef = useRef(null);
     const { hasInteracted, setConsent } = useConsentStore();
@@ -32,7 +34,10 @@ export default function ArpiaCookieBanner() {
             <div className="bg-white/10 backdrop-blur-2xl border border-white/20 p-6 rounded-2xl shadow-2xl tracking-wide">
                 <h4 className="text-cyan-300 font-mono text-[10px] uppercase tracking-widest mb-2 italic">Personaliza tu experiencia</h4>
                 <p className="text-white text-sm mb-6 leading-relaxed font-medium text-shadow-sm">
-                    En nuestra plataforma queremos que encuentres todo en un solo lugar: desde el estado del viento hasta la mesa de ese restaurante que te encanta. Usamos cookies para personalizar tu búsqueda de competencias, hoteles y rutas. Al aceptar, nos permites mejorar tu experiencia de usuario y ofrecerte contenido relevante para tu próxima aventura.
+                    En nuestra plataforma queremos que encuentres todo en un solo lugar: desde el estado del viento hasta la mesa de ese restaurante que te encanta. Usamos cookies para personalizar tu búsqueda de competencias, hoteles y rutas. Al aceptar, nos permites mejorar tu experiencia de usuario y ofrecerte contenido relevante para tu próxima aventura.{' '}
+                    <Link href="/cookies" className="underline text-cyan-400 hover:text-cyan-300 transition-colors">
+                        Lee nuestra Política de Cookies
+                    </Link>.
                 </p>
                 <div className="flex gap-4 font-mono">
                     <button
