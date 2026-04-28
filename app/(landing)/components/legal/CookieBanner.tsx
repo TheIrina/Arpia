@@ -1,18 +1,38 @@
 "use client";
+import { useEffect } from "react";
 import { useConsentStore } from "@/store/useConsentStore";
+import { useLenis } from "../lenis-context";
 
 import Link from "next/link";
 import { ArrowUpRightIcon } from "@phosphor-icons/react/dist/ssr/ArrowUpRight";
 
 export default function ArpiaCookieBanner() {
   const { hasInteracted, setConsent } = useConsentStore();
+  const { lenisRef } = useLenis();
+
+  useEffect(() => {
+    const lenis = lenisRef.current;
+
+    if (!hasInteracted) {
+      document.body.classList.add("overflow-hidden");
+      if (lenis) lenis.stop();
+    } else {
+      document.body.classList.remove("overflow-hidden");
+      if (lenis) lenis.start();
+    }
+
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+      if (lenis) lenis.start();
+    };
+  }, [hasInteracted, lenisRef]);
 
   if (hasInteracted) return null;
 
   return (
     <>
       {/* Background Overlay */}
-      <div className="fixed inset-0 bg-black/30 backdrop-blur-sm z-90 animate-in fade-in duration-500" />
+      <div className="fixed inset-0 bg-black/30 backdrop-blur-sm z-90 animate-in fade-in duration-500 touch-none" />
 
       <div className="fixed bottom-4 right-4 z-100 w-[calc(100vw-2rem)] md:w-96 font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
         <div className="bg-black flex flex-col p-6 rounded-2xl shadow-2xl border border-white/10">
