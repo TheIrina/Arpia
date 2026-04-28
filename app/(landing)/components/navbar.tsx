@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { NAV_LINKS, AUTH_LINKS } from "@/lib/navigation";
+import { NAV_LINKS } from "@/lib/navigation";
 
 export const Navbar = () => {
   return (
@@ -24,7 +24,10 @@ export const Navbar = () => {
         </div>
 
         <div className="md:col-start-4 lg:col-start-6 flex items-start justify-end pointer-events-auto">
-          <Link href="/signup" className="hidden md:flex items-center gap-2 text-[11px] font-medium border border-white/30 rounded-full px-5 py-2 hover:bg-white hover:text-black transition-colors bg-black/10 backdrop-blur-sm">
+          <Link
+            href="/signup"
+            className="hidden md:flex items-center gap-2 text-[11px] font-medium border border-white/30 rounded-full px-5 py-2 hover:bg-white hover:text-black transition-colors bg-black/10 backdrop-blur-sm"
+          >
             Register now ↗
           </Link>
         </div>

@@ -1,29 +1,20 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
-import { gsap } from "gsap";
 import { useConsentStore } from "@/store/useConsentStore";
 
 import Link from "next/link";
 import { ArrowUpRightIcon } from "@phosphor-icons/react/dist/ssr/ArrowUpRight";
 
 export default function ArpiaCookieBanner() {
-  const bannerRef = useRef(null);
   const { hasInteracted, setConsent } = useConsentStore();
-  const [isMounted, setIsMounted] = useState(false);
 
-  // Evitamos problemas de hidratación con Zustand persist
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  if (!isMounted || hasInteracted) return null;
+  if (hasInteracted) return null;
 
   return (
     <>
       {/* Background Overlay */}
-      <div className="fixed inset-0 bg-black/30 backdrop-blur-sm z-[90] animate-in fade-in duration-500" />
+      <div className="fixed inset-0 bg-black/30 backdrop-blur-sm z-90 animate-in fade-in duration-500" />
 
-      <div className="fixed bottom-4 right-4 z-[100] w-[calc(100vw-2rem)] md:w-96 font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
+      <div className="fixed bottom-4 right-4 z-100 w-[calc(100vw-2rem)] md:w-96 font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
         <div className="bg-black flex flex-col p-6 rounded-2xl shadow-2xl border border-white/10">
           <p className="text-white text-sm mb-6 leading-relaxed font-normal text-left">
             Usamos cookies para personalizar tu experiencia. Al aceptar, nos
