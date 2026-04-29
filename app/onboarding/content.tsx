@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
-import { useSearchParams, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { CaretLeft } from "@phosphor-icons/react";
 import { StepIntro } from "./sections/StepIntro";
 import { StepName } from "./sections/StepName";
@@ -49,10 +49,8 @@ function StepRenderer({ stepId, formData, isLoading, onUpdate, onFinish }: StepR
   }
 }
 
-export default function OnboardingContent() {
-  const searchParams = useSearchParams();
+export default function OnboardingContent({ email = "" }: { email?: string }) {
   const router = useRouter();
-  const email = searchParams.get("email") || "";
 
   const [currentStep, setCurrentStep] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
