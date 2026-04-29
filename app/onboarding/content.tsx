@@ -86,6 +86,12 @@ export default function OnboardingContent() {
     if (data?.password) {
       setFormData(prev => ({ ...prev, password: "" }));
     }
+    
+    // Save map style to localStorage
+    if (formData.mapStyle) {
+      localStorage.setItem("arpia_map_style", formData.mapStyle);
+    }
+    
     setIsLoading(true);
     await new Promise((r) => setTimeout(r, 2000));
     setIsLoading(false);

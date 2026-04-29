@@ -1,40 +1,21 @@
 "use client";
 
-import Map from "react-map-gl/mapbox";
+import dynamic from "next/dynamic";
 import { MapAttribution } from "../components/map-attribution";
 import { DesktopNavbar } from "../components/desktop-navbar";
 
-const getLightPreset = () => {
-  const hour = new Date().getHours();
-  if (hour >= 6 && hour < 9) return "dawn";
-  if (hour >= 9 && hour < 17) return "day";
-  if (hour >= 17 && hour < 20) return "dusk";
-  return "night";
-};
+const MapboxMap = dynamic(() => import("../components/mapbox-map"), { 
+  ssr: false,
+  loading: () => <div className="w-full h-full bg-[#1e1e1e] animate-pulse" />
+});
 
 export function DesktopClient() {
-  const position = { latitude: 4.413611, longitude: -76.154722 };
-
   return (
     <main className="h-full w-full relative overflow-hidden bg-zinc-950">
       {/* Background Map */}
       <section className="absolute inset-0 w-full h-full z-0">
         <MapAttribution />
-        <Map
-          mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_PUBLIC_KEY || ""}
-          initialViewState={{ ...position, zoom: 12 }}
-          mapStyle="mapbox://styles/mapbox/standard"
-          style={{ width: "100%", height: "100%" }}
-          attributionControl={false}
-          logoPosition="bottom-right"
-          onLoad={(e) => {
-            e.target.setConfigProperty(
-              "basemap",
-              "lightPreset",
-              getLightPreset(),
-            );
-          }}
-        />
+        <MapboxMap logoPosition="bottom-right" />
       </section>
 
       {/* Top Floating Navbar */}

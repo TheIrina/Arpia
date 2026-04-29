@@ -14,7 +14,7 @@ export function StepIntro({ onNext }: StepProps) {
           Welcome to Arpia
         </h1>
         <p className="text-base md:text-lg text-black/60 font-light tracking-wide">
-          Personalize your flight and exploration experience in the best place in the world. Let's get started.
+          Personalize your flight and exploration experience in the best place in the world. Let&apos;s get started.
         </p>
       </div>
 
