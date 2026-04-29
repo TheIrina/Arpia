@@ -32,10 +32,10 @@ export default function ArpiaCookieBanner() {
   return (
     <>
       {/* Background Overlay */}
-      <div className="fixed inset-0 bg-black/30 backdrop-blur-sm z-90 animate-in fade-in duration-500 touch-none" />
+      <div className="fixed inset-0 bg-zinc-950/30 backdrop-blur-sm z-90 animate-in fade-in duration-500 touch-none" />
 
       <div className="fixed bottom-4 right-4 z-100 w-[calc(100vw-2rem)] md:w-96 font-sans">
-        <div className="bg-black flex flex-col p-6 rounded-2xl shadow-2xl border border-white/10">
+        <div className="bg-zinc-950 flex flex-col p-6 rounded-2xl shadow-2xl border border-white/10">
           <p className="text-white text-sm mb-6 leading-relaxed font-normal text-left">
             Usamos cookies para personalizar tu experiencia. Al aceptar, nos
             permites mejorar tu experiencia de usuario y ofrecerte contenido

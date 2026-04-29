@@ -1,4 +1,3 @@
-import React from "react";
 import Link from "next/link";
 
 export const Hero = () => {
@@ -68,5 +67,3 @@ export const Hero = () => {
     </section>
   );
 };
-
-export default Hero;

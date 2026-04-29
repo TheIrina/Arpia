@@ -28,7 +28,6 @@ export function StepName({ onNext, value }: StepProps) {
         className="flex flex-col items-center gap-12 w-full"
       >
         <input
-          autoFocus
           required
           name="name"
           defaultValue={value}
@@ -39,7 +38,7 @@ export function StepName({ onNext, value }: StepProps) {
 
         <button
           type="submit"
-          className="flex items-center gap-2 rounded-full bg-[#1A1A1A] text-white px-10 py-3.5 text-sm md:text-base hover:bg-black transition-all"
+          className="flex items-center gap-2 rounded-full bg-[#1A1A1A] text-white px-10 py-3.5 text-sm md:text-base hover:bg-zinc-950 transition-all"
         >
           Continue
           <ArrowRight size={18} weight="bold" />

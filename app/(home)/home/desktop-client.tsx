@@ -14,12 +14,12 @@ export function DesktopClient() {
   const position = { latitude: 4.413611, longitude: -76.154722 };
 
   return (
-    <main className="h-full w-full relative overflow-hidden bg-black">
+    <main className="h-full w-full relative overflow-hidden bg-zinc-950">
       {/* Background Map */}
       <section className="absolute inset-0 w-full h-full z-0">
         <MapAttribution />
         <Map
-          mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_PUBLIC_KEY}
+          mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_PUBLIC_KEY || ""}
           initialViewState={{ ...position, zoom: 12 }}
           mapStyle="mapbox://styles/mapbox/standard"
           style={{ width: "100%", height: "100%" }}
@@ -172,7 +172,7 @@ export function DesktopClient() {
               </div>
             </div>
 
-            <div className="h-12 w-full bg-black/20 rounded-md mb-4 flex items-center justify-center relative">
+            <div className="h-12 w-full bg-zinc-950/20 rounded-md mb-4 flex items-center justify-center relative">
               <div className="flex items-center gap-2">
                 <svg
                   width="14"
@@ -226,7 +226,7 @@ export function DesktopClient() {
               </div>
             </div>
 
-            <div className="h-12 w-full bg-black/20 rounded-md mb-4 flex items-center justify-center relative">
+            <div className="h-12 w-full bg-zinc-950/20 rounded-md mb-4 flex items-center justify-center relative">
               <span className="text-lg text-white font-medium tracking-wider">
                 147.400 <span className="text-[10px] text-white/60">MHz</span>
               </span>

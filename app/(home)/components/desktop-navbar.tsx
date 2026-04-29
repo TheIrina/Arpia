@@ -1,4 +1,4 @@
-import React from "react";
+import Link from "next/link";
 
 export const DesktopNavbar = () => {
   return (
@@ -23,42 +23,42 @@ export const DesktopNavbar = () => {
       <div className="bg-black/20 backdrop-blur-xs text-white px-5 py-2.5 rounded-full font-normal cursor-pointer">
         Live Map
       </div>
-      <a
-        href="#"
+      <Link
+        href="/"
         className="px-4 py-2.5 rounded-full hover:bg-black/20 hover:backdrop-blur-xs hover:text-white transition-all"
       >
         Fleet
-      </a>
-      <a
-        href="#"
+      </Link>
+      <Link
+        href="/"
         className="px-4 py-2.5 rounded-full hover:bg-black/20 hover:backdrop-blur-xs hover:text-white transition-all"
       >
         Routes
-      </a>
-      <a
-        href="#"
+      </Link>
+      <Link
+        href="/"
         className="px-4 py-2.5 rounded-full hover:bg-black/20 hover:backdrop-blur-xs hover:text-white transition-all"
       >
         Analytics
-      </a>
-      <a
-        href="#"
+      </Link>
+      <Link
+        href="/"
         className="px-4 py-2.5 rounded-full hover:bg-black/20 hover:backdrop-blur-xs hover:text-white transition-all"
       >
         Maintenance
-      </a>
-      <a
-        href="#"
+      </Link>
+      <Link
+        href="/"
         className="px-4 py-2.5 rounded-full hover:bg-black/20 hover:backdrop-blur-xs hover:text-white transition-all"
       >
         Incidents
-      </a>
-      <a
-        href="#"
+      </Link>
+      <Link
+        href="/"
         className="px-4 py-2.5 rounded-full hover:bg-black/20 hover:backdrop-blur-xs hover:text-white transition-all"
       >
         Crew
-      </a>
+      </Link>
     </nav>
   );
 };

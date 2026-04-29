@@ -43,7 +43,7 @@ export function StepInterests({ onNext, value }: StepProps) {
             onClick={() => toggle(item.id)}
             className={`flex items-center gap-2 px-6 py-3 rounded-full border-2 transition-all text-sm font-medium ${
               selected.includes(item.id)
-                ? "border-black bg-black text-white"
+                ? "border-black bg-zinc-950 text-white"
                 : "border-black/5 bg-[#FDFDFD] text-[#1A1A1A] hover:border-black/20"
             }`}
           >
@@ -55,7 +55,7 @@ export function StepInterests({ onNext, value }: StepProps) {
 
       <button
         onClick={() => onNext({ interests: selected })}
-        className="mt-4 flex items-center justify-center gap-2 rounded-full bg-[#1A1A1A] text-white px-10 py-3.5 text-sm md:text-base hover:bg-black transition-all"
+        className="mt-4 flex items-center justify-center gap-2 rounded-full bg-[#1A1A1A] text-white px-10 py-3.5 text-sm md:text-base hover:bg-zinc-950 transition-all"
       >
         Continue
         <ArrowRight size={18} weight="bold" />

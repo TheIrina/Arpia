@@ -77,7 +77,7 @@ export function StepRole({ onNext, value }: StepProps) {
         type="button"
         onClick={() => selectedRole && onNext({ role: selectedRole })}
         disabled={!selectedRole}
-        className="mt-4 flex items-center justify-center gap-2 rounded-full bg-[#1A1A1A] text-white px-10 py-3.5 text-sm md:text-base hover:bg-black transition-all disabled:opacity-20 disabled:cursor-not-allowed"
+        className="mt-4 flex items-center justify-center gap-2 rounded-full bg-[#1A1A1A] text-white px-10 py-3.5 text-sm md:text-base hover:bg-zinc-950 transition-all disabled:opacity-20 disabled:cursor-not-allowed"
       >
         Continue
         <ArrowRight size={18} weight="bold" />

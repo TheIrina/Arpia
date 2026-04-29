@@ -30,7 +30,7 @@ export default function RootLayout({
       lang="es"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-slate-950 text-slate-300 selection:bg-cyan-500/30">
+      <body className="min-h-full flex flex-col bg-slate-950 text-white selection:bg-cyan-500/30">
         <LenisProvider>
           {children}
           <ArpiaCookieBanner />

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { ArrowRight } from "@phosphor-icons/react";
 
 interface StepProps {
@@ -38,10 +39,12 @@ export function StepMapStyle({ onNext, value }: StepProps) {
             onClick={() => setSelectedStyle(style.id)}
             className="group relative aspect-[4/3] w-full overflow-hidden rounded-2xl transition-all outline-none shadow-sm"
           >
-            <img
+            <Image
               src={style.img}
               alt={style.label}
-              className="h-full w-full object-cover"
+              fill
+              sizes="(max-width: 768px) 50vw, 33vw"
+              className="object-cover"
             />
             {/* Overlay for text readability */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
@@ -50,7 +53,7 @@ export function StepMapStyle({ onNext, value }: StepProps) {
             <div
               className={`absolute inset-0 transition-all rounded-2xl ${
                 selectedStyle === style.id
-                  ? "ring-4 ring-inset ring-[#1A1A1A] bg-black/5"
+                  ? "ring-4 ring-inset ring-[#1A1A1A] bg-zinc-950/5"
                   : "group-hover:ring-2 group-hover:ring-inset group-hover:ring-black/10"
               }`}
             />
@@ -66,7 +69,7 @@ export function StepMapStyle({ onNext, value }: StepProps) {
         type="button"
         onClick={() => selectedStyle && onNext({ mapStyle: selectedStyle })}
         disabled={!selectedStyle}
-        className="mt-4 flex items-center justify-center gap-2 rounded-full bg-[#1A1A1A] text-white px-10 py-3.5 text-sm md:text-base hover:bg-black transition-all disabled:opacity-20 disabled:cursor-not-allowed"
+        className="mt-4 flex items-center justify-center gap-2 rounded-full bg-[#1A1A1A] text-white px-10 py-3.5 text-sm md:text-base hover:bg-zinc-950 transition-all disabled:opacity-20 disabled:cursor-not-allowed"
       >
         Continue
         <ArrowRight size={18} weight="bold" />

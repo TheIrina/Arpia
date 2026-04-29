@@ -44,7 +44,7 @@ export const MobileNav = () => {
         <div
           role="button"
           tabIndex={0}
-          className="fixed inset-0 bg-black/30 backdrop-blur-sm z-50 md:hidden animate-in fade-in duration-200"
+          className="fixed inset-0 bg-zinc-950/30 backdrop-blur-sm z-50 md:hidden animate-in fade-in duration-200"
           onClick={() => setIsOpen(false)}
           onKeyDown={(e) => {
             if (e.key === "Escape" || e.key === "Enter") setIsOpen(false);
@@ -56,7 +56,7 @@ export const MobileNav = () => {
       <div className="fixed bottom-4 right-4 z-60 md:hidden font-sans grid gap-4 justify-items-end">
         {/* Popup Window Menu */}
         {isOpen && (
-          <div className="bg-black flex flex-col p-6 rounded-2xl animate-in fade-in slide-in-from-bottom-4 duration-200 min-w-50">
+          <div className="bg-zinc-950 flex flex-col p-6 rounded-2xl animate-in fade-in slide-in-from-bottom-4 duration-200 min-w-50">
             {/* Links aligned to right */}
             <div className="flex flex-col items-end gap-4 w-full text-right">
               {links.map((link) => (
@@ -77,7 +77,7 @@ export const MobileNav = () => {
         {/* Hamburger Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className={`p-4 md:p-2 flex items-center justify-center  rounded-full ${isOpen ? "bg-white text-black" : "bg-black/20 backdrop-blur-xs text-white"}`}
+          className={`p-4 md:p-2 flex items-center justify-center  rounded-full ${isOpen ? "bg-white text-black" : "bg-zinc-950/20 backdrop-blur-xs text-white"}`}
           aria-label="Toggle Menu"
         >
           {isOpen ? <XIcon size={24} /> : <ListIcon size={24} />}

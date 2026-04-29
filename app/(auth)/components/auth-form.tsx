@@ -1,18 +1,34 @@
 "use client";
 
-import { useState } from "react";
+import { useReducer } from "react";
 import { useRouter } from "next/navigation";
 import { Eye, EyeSlash, GoogleLogo, ArrowLeft } from "@phosphor-icons/react";
 
 type AuthStep = "EMAIL" | "PASSWORD";
 
+type AuthState = {
+  step: AuthStep;
+  email: string;
+  password: string;
+  showPassword: boolean;
+  isLoading: boolean;
+};
+
+type AuthAction = Partial<AuthState>;
+
+const authReducer = (state: AuthState, action: AuthAction): AuthState => {
+  return { ...state, ...action };
+};
+
 export function AuthForm() {
   const router = useRouter();
-  const [step, setStep] = useState<AuthStep>("EMAIL");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const [state, dispatch] = useReducer(authReducer, {
+    step: "EMAIL",
+    email: "",
+    password: "",
+    showPassword: false,
+    isLoading: false,
+  });
 
   // Mock function to simulate email check
   const checkEmail = async (email: string) => {
@@ -24,26 +40,26 @@ export function AuthForm() {
 
   const handleContinue = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email) return;
+    if (!state.email) return;
 
-    setIsLoading(true);
-    const exists = await checkEmail(email);
-    setIsLoading(false);
+    dispatch({ isLoading: true });
+    const exists = await checkEmail(state.email);
+    dispatch({ isLoading: false });
 
     if (exists) {
-      setStep("PASSWORD");
+      dispatch({ step: "PASSWORD" });
     } else {
-      router.push(`/onboarding?email=${encodeURIComponent(email)}`);
+      router.push(`/onboarding?email=${encodeURIComponent(state.email)}`);
     }
   };
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!password) return;
-    setIsLoading(true);
+    if (!state.password) return;
+    dispatch({ isLoading: true });
     // TODO: integrate with better-auth
     await new Promise((r) => setTimeout(r, 1500));
-    setIsLoading(false);
+    dispatch({ isLoading: false });
     router.push("/home");
   };
 
@@ -52,16 +68,16 @@ export function AuthForm() {
       {/* Header */}
       <div className="flex flex-col gap-1 text-center lg:text-left">
         <h1 className="text-xl md:text-2xl font-normal tracking-tight text-[#1A1A1A] uppercase">
-          {step === "EMAIL" ? "BIENVENIDO" : "INGRESA TU CONTRASEÑA"}
+          {state.step === "EMAIL" ? "BIENVENIDO" : "INGRESA TU CONTRASEÑA"}
         </h1>
         <p className="text-[10px] md:text-xs text-[#5f666d] font-normal">
-          {step === "EMAIL"
+          {state.step === "EMAIL"
             ? "Inicia sesión o crea una cuenta para continuar"
-            : `Continuando como ${email}`}
+            : `Continuando como ${state.email}`}
         </p>
       </div>
 
-      {step === "EMAIL" ? (
+      {state.step === "EMAIL" ? (
         /* Step 1: Email */
         <form onSubmit={handleContinue} className="flex flex-col gap-3.5">
           <div className="flex flex-col gap-1.5">
@@ -76,8 +92,8 @@ export function AuthForm() {
               type="email"
               required
               autoComplete="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={state.email}
+              onChange={(e) => dispatch({ email: e.target.value })}
               placeholder="pilot@arpia.com"
               className="w-full rounded-full border border-black/10 bg-[#FDFDFD] px-4 py-2.5 text-xs md:text-sm text-[#1A1A1A] placeholder:text-black/25 outline-none focus:border-black/30 focus:bg-white transition-all duration-200 font-normal"
             />
@@ -85,10 +101,10 @@ export function AuthForm() {
 
           <button
             type="submit"
-            disabled={isLoading || !email}
-            className="mt-2 w-full rounded-full bg-[#1A1A1A] text-white font-normal py-2.5 text-xs md:text-sm hover:bg-black disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200 flex items-center justify-center gap-2"
+            disabled={state.isLoading || !state.email}
+            className="mt-2 w-full rounded-full bg-[#1A1A1A] text-white font-normal py-2.5 text-xs md:text-sm hover:bg-zinc-950 disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200 flex items-center justify-center gap-2"
           >
-            {isLoading ? (
+            {state.isLoading ? (
               <div className="w-3.5 h-3.5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
             ) : (
               "Continuar"
@@ -100,7 +116,7 @@ export function AuthForm() {
         <form onSubmit={handleLogin} className="flex flex-col gap-3.5">
           <button
             type="button"
-            onClick={() => setStep("EMAIL")}
+            onClick={() => dispatch({ step: "EMAIL" })}
             className="flex items-center gap-1.5 text-[10px] md:text-xs font-normal text-[#86868B] hover:text-[#1A1A1A] transition-colors duration-200 self-start mb-1"
           >
             <ArrowLeft size={14} />
@@ -119,21 +135,20 @@ export function AuthForm() {
             <div className="relative">
               <input
                 id="auth-password"
-                type={showPassword ? "text" : "password"}
+                type={state.showPassword ? "text" : "password"}
                 required
-                autoFocus
                 autoComplete="current-password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                value={state.password}
+                onChange={(e) => dispatch({ password: e.target.value })}
                 placeholder="••••••••"
                 className="w-full rounded-full border border-black/10 bg-[#FDFDFD] px-4 py-2.5 pr-11 text-xs md:text-sm text-[#1A1A1A] placeholder:text-black/25 outline-none focus:border-black/30 focus:bg-white transition-all duration-200 font-normal"
               />
               <button
                 type="button"
-                onClick={() => setShowPassword(!showPassword)}
+                onClick={() => dispatch({ showPassword: !state.showPassword })}
                 className="absolute right-4 top-1/2 -translate-y-1/2 text-black/25 hover:text-[#1A1A1A] transition-colors duration-200"
               >
-                {showPassword ? (
+                {state.showPassword ? (
                   <EyeSlash size={18} weight="light" />
                 ) : (
                   <Eye size={18} weight="light" />
@@ -144,10 +159,10 @@ export function AuthForm() {
 
           <button
             type="submit"
-            disabled={isLoading || !password}
-            className="mt-2 w-full rounded-full bg-[#1A1A1A] text-white font-normal py-2.5 text-xs md:text-sm hover:bg-black disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200 flex items-center justify-center gap-2"
+            disabled={state.isLoading || !state.password}
+            className="mt-2 w-full rounded-full bg-[#1A1A1A] text-white font-normal py-2.5 text-xs md:text-sm hover:bg-zinc-950 disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200 flex items-center justify-center gap-2"
           >
-            {isLoading ? (
+            {state.isLoading ? (
               <div className="w-3.5 h-3.5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
             ) : (
               "Iniciar sesión"

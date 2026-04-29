@@ -9,5 +9,5 @@ if (typeof window !== "undefined") {
 }
 
 export * from "gsap";
+export { default } from "gsap";
 export { ScrollTrigger, useGSAP };
-export default gsap;

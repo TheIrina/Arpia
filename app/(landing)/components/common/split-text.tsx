@@ -1,14 +1,16 @@
-import React from "react";
-
 interface SplitTextProps {
   text: string;
   className?: string;
   wordClassName?: string;
 }
 
-export const SplitText = ({ text, className = "", wordClassName = "" }: SplitTextProps) => {
+export const SplitText = ({
+  text,
+  className = "",
+  wordClassName = "",
+}: SplitTextProps) => {
   const wordsArray = text.split(" ");
-  
+
   return (
     <span className={className}>
       {wordsArray.map((word, wordPos) => (

@@ -31,7 +31,6 @@ export function StepPassword({ onFinish, isLoading }: StepProps) {
       >
         <div className="relative w-full">
           <input
-            autoFocus
             required
             type={showPassword ? "text" : "password"}
             value={password}
@@ -52,7 +51,7 @@ export function StepPassword({ onFinish, isLoading }: StepProps) {
         <button
           type="submit"
           disabled={isLoading || password.length < 8}
-          className="w-full max-w-sm flex items-center justify-center gap-3 rounded-full bg-[#1A1A1A] text-white py-4 text-sm md:text-base hover:bg-black disabled:opacity-30 transition-all font-medium"
+          className="w-full max-w-sm flex items-center justify-center gap-3 rounded-full bg-[#1A1A1A] text-white py-4 text-sm md:text-base hover:bg-zinc-950 disabled:opacity-30 transition-all font-medium"
         >
           {isLoading ? (
             <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />

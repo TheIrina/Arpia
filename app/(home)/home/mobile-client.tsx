@@ -19,7 +19,7 @@ export function MobileClient() {
       <section className="absolute inset-0 w-full h-full">
         <MapAttribution />
         <Map
-          mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_PUBLIC_KEY}
+          mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_PUBLIC_KEY || ""}
           initialViewState={{ ...position, zoom: 12 }}
           mapStyle="mapbox://styles/mapbox/standard"
           style={{ width: "100%", height: "100%" }}
