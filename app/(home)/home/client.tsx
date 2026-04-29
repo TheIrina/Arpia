@@ -1,3 +1,5 @@
+"use client";
+
 import "mapbox-gl/dist/mapbox-gl.css";
 import { MobileClient } from "./mobile-client";
 import { DesktopClient } from "./desktop-client";

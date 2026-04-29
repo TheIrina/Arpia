@@ -6,8 +6,7 @@ export const NAV_LINKS = [
   { label: "Contact Us", href: "/contact", hasIcon: false },
 ];
 
-export const AUTH_LINKS = [
+export const ALL_LINKS = [
+  ...NAV_LINKS,
   { label: "Register now", href: "/register", hasIcon: false },
 ];
-
-export const ALL_LINKS = [...NAV_LINKS, ...AUTH_LINKS];

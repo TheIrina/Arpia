@@ -1,3 +1,5 @@
+"use client";
+
 import Map from "react-map-gl/mapbox";
 import { MapAttribution } from "../components/map-attribution";
 import { DesktopNavbar } from "../components/desktop-navbar";

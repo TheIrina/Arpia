@@ -1,10 +1,7 @@
-import { RoldanilloMapBg } from "./map-bg";
-
 export function MapCardVisual() {
   return (
     <div className="relative w-full h-100 md:h-125 lg:h-150 rounded-2xl bg-[#fbfbfb] overflow-hidden flex items-center justify-center border border-gray-200">
-      {/* Fondo SVG simulando el mapa de Roldanillo / topografía */}
-      <RoldanilloMapBg />
+
 
       {/* Nodos flotantes (Emojis tipo mensaje) */}
 

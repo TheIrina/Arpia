@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, Suspense, useMemo } from "react";
+import React, { useState, useMemo } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { CaretLeft } from "@phosphor-icons/react";
 import { StepName } from "./sections/StepName";
@@ -19,7 +19,34 @@ type OnboardingData = {
   password: "";
 };
 
-function OnboardingManager() {
+type StepId = "name" | "role" | "mapStyle" | "interests" | "password";
+
+interface StepRendererProps {
+  stepId: StepId | undefined;
+  formData: OnboardingData;
+  isLoading: boolean;
+  onUpdate: (data: Partial<OnboardingData>) => void;
+  onFinish: (data?: { password: string }) => void;
+}
+
+function StepRenderer({ stepId, formData, isLoading, onUpdate, onFinish }: StepRendererProps) {
+  switch (stepId) {
+    case "name":
+      return <StepName value={formData.name} onNext={(data) => onUpdate(data)} />;
+    case "role":
+      return <StepRole value={formData.role} onNext={(data) => onUpdate(data as Partial<OnboardingData>)} />;
+    case "mapStyle":
+      return <StepMapStyle value={formData.mapStyle} onNext={(data) => onUpdate(data)} />;
+    case "interests":
+      return <StepInterests value={formData.interests} onNext={(data) => onUpdate(data)} />;
+    case "password":
+      return <StepPassword isLoading={isLoading} onFinish={onFinish} />;
+    default:
+      return null;
+  }
+}
+
+export function OnboardingContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const email = searchParams.get("email") || "";
@@ -61,24 +88,6 @@ function OnboardingManager() {
     router.push("/home");
   };
 
-  const renderStep = () => {
-    const stepId = steps[currentStep]?.id;
-    switch (stepId) {
-      case "name":
-        return <StepName value={formData.name} onNext={(data) => updateData(data)} />;
-      case "role":
-        return <StepRole value={formData.role} onNext={(data) => updateData(data as Partial<OnboardingData>)} />;
-      case "mapStyle":
-        return <StepMapStyle value={formData.mapStyle} onNext={(data) => updateData(data)} />;
-      case "interests":
-        return <StepInterests value={formData.interests} onNext={(data) => updateData(data)} />;
-      case "password":
-        return <StepPassword isLoading={isLoading} onFinish={handleFinish} />;
-      default:
-        return null;
-    }
-  };
-
   const sideContent = formData.role === "hiker" ? "/videos/hero2.mp4" : "/videos/hero1.mp4";
 
   return (
@@ -108,17 +117,25 @@ function OnboardingManager() {
           <div className="w-10" />
         </header>
         <main className="flex-1 flex flex-col items-center justify-center px-6 md:px-12 lg:px-20 w-full py-20 text-center">
-          <div className="w-full max-w-4xl flex flex-col items-center justify-center">{renderStep()}</div>
+          <div className="w-full max-w-4xl flex flex-col items-center justify-center">
+            <StepRenderer
+              stepId={steps[currentStep]?.id}
+              formData={formData}
+              isLoading={isLoading}
+              onUpdate={updateData}
+              onFinish={handleFinish}
+            />
+          </div>
         </main>
       </div>
     </div>
   );
 }
 
-export default function OnboardingPage() {
+export default function OnboardingClient() {
   return (
-    <Suspense fallback={<div className="min-h-screen flex items-center justify-center font-sans uppercase tracking-widest text-xs animate-pulse">Initializing Experience...</div>}>
-      <OnboardingManager />
-    </Suspense>
+    <React.Suspense fallback={<div className="min-h-screen flex items-center justify-center font-sans uppercase tracking-widest text-xs animate-pulse">Initializing Experience...</div>}>
+      <OnboardingContent />
+    </React.Suspense>
   );
 }

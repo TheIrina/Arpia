@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useRef } from "react";
-import { RoldanilloMapBg } from "./map-bg";
 import { useGSAP, gsap } from "../../../../lib/gsap";
 
 export function WeatherCard() {
@@ -78,8 +77,6 @@ export function WeatherCard() {
       ref={containerRef}
       className="relative w-full h-100 md:h-125 lg:h-150 rounded-2xl bg-[#fbfbfb] overflow-hidden flex items-center justify-center border border-gray-200 shadow-sm"
     >
-      {/* Background Map Layer */}
-      <RoldanilloMapBg />
 
       {/* Wind Particles Container */}
       <div className="absolute inset-0 z-10 pointer-events-none overflow-hidden">
