@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { CaretLeft } from "@phosphor-icons/react";
+import { StepIntro } from "./sections/StepIntro";
 import { StepName } from "./sections/StepName";
 import { StepRole } from "./sections/StepRole";
 import { StepMapStyle } from "./sections/StepMapStyle";
@@ -19,7 +20,7 @@ type OnboardingData = {
   password: "";
 };
 
-type StepId = "name" | "role" | "mapStyle" | "interests" | "password";
+type StepId = "intro" | "name" | "role" | "mapStyle" | "interests" | "password";
 
 interface StepRendererProps {
   stepId: StepId | undefined;
@@ -31,6 +32,8 @@ interface StepRendererProps {
 
 function StepRenderer({ stepId, formData, isLoading, onUpdate, onFinish }: StepRendererProps) {
   switch (stepId) {
+    case "intro":
+      return <StepIntro onNext={() => onUpdate({})} />;
     case "name":
       return <StepName value={formData.name} onNext={(data) => onUpdate(data)} />;
     case "role":
@@ -64,6 +67,7 @@ export default function OnboardingContent() {
   }));
 
   const steps = useMemo(() => [
+    { id: "intro" as const },
     { id: "name" as const },
     { id: "role" as const },
     { id: "mapStyle" as const },
@@ -89,6 +93,7 @@ export default function OnboardingContent() {
   };
 
   const sideContent = formData.role === "hiker" ? "/videos/hero2.mp4" : "/videos/hero1.mp4";
+  const currentStepId = steps[currentStep]?.id;
 
   return (
     <div className="flex flex-col lg:flex-row w-full min-h-screen font-sans bg-white overflow-hidden">
@@ -106,20 +111,28 @@ export default function OnboardingContent() {
       </div>
       <div className="flex flex-col w-full lg:w-1/2 min-h-screen relative">
         <header className="absolute top-0 left-0 right-0 p-6 flex items-center justify-between z-20">
-          <button onClick={() => currentStep > 0 ? setCurrentStep((c) => c - 1) : router.back()} className="w-10 h-10 flex items-center justify-center bg-[#1A1A1A] text-white rounded-full hover:bg-zinc-950 transition-all shadow-sm" aria-label="Go back">
-            <CaretLeft size={20} weight="bold" />
-          </button>
-          <div className="flex gap-1.5">
-            {steps.map((step, i) => (
-              <div key={step.id} className={`h-1 w-8 rounded-full transition-all duration-500 ${i <= currentStep ? "bg-zinc-950" : "bg-zinc-950/10"}`} />
-            ))}
-          </div>
+          {currentStepId !== "intro" ? (
+            <button onClick={() => currentStep > 0 ? setCurrentStep((c) => c - 1) : router.back()} className="w-10 h-10 flex items-center justify-center bg-[#1A1A1A] text-white rounded-full hover:bg-zinc-950 transition-all shadow-sm" aria-label="Go back">
+              <CaretLeft size={20} weight="bold" />
+            </button>
+          ) : (
+            <div className="w-10" />
+          )}
+          
+          {currentStepId !== "intro" && (
+            <div className="flex gap-1.5">
+              {steps.filter(s => s.id !== "intro").map((step, i) => (
+                <div key={step.id} className={`h-1 w-8 rounded-full transition-all duration-500 ${(i + 1) <= currentStep ? "bg-zinc-950" : "bg-zinc-950/10"}`} />
+              ))}
+            </div>
+          )}
+          
           <div className="w-10" />
         </header>
         <main className="flex-1 flex flex-col items-center justify-center px-6 md:px-12 lg:px-20 w-full py-20 text-center">
           <div className="w-full max-w-4xl flex flex-col items-center justify-center">
             <StepRenderer
-              stepId={steps[currentStep]?.id}
+              stepId={currentStepId}
               formData={formData}
               isLoading={isLoading}
               onUpdate={updateData}
