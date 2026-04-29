@@ -38,12 +38,12 @@ export const WhoWeAre = () => {
       {/* Block 1 */}
       <div className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4">
         {/* Short phrase on the left */}
-        <div className="lg:col-start-1 lg:col-span-4 text-2xl md:text-3xl lg:text-4xl font-normal leading-[1.05] tracking-tighter font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
+        <div className="lg:col-start-1 lg:col-span-4 text-2xl md:text-3xl lg:text-4xl font-normal leading-[1.05] tracking-tighter font-sans">
           About us
         </div>
 
         {/* Text starts at col 5 */}
-        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-2xl md:text-3xl lg:text-4xl font-normal leading-[1.05] tracking-tighter font-['Helvetica_Neue',Helvetica,Arial,sans-serif] text-start">
+        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-2xl md:text-3xl lg:text-4xl font-normal leading-[1.05] tracking-tighter font-sans text-start">
           <p>
             <SplitText text={text1} wordClassName="word opacity-20" />
           </p>
@@ -81,7 +81,7 @@ export const WhoWeAre = () => {
       {/* Block 2 */}
       <div className="grid grid-cols-1 md:grid-cols-8 lg:grid-cols-12 gap-x-4">
         {/* Text starts at col 1 and spans very wide horizontally */}
-        <div className="col-span-1 md:col-span-8 lg:col-start-1 lg:col-span-12 text-2xl md:text-3xl lg:text-4xl font-regular leading-[1.05] tracking-tighter font-['Helvetica_Neue',Helvetica,Arial,sans-serif] text-start">
+        <div className="col-span-1 md:col-span-8 lg:col-start-1 lg:col-span-12 text-2xl md:text-3xl lg:text-4xl font-regular leading-[1.05] tracking-tighter font-sans text-start">
           <p>
             <SplitText text={text2} wordClassName="word opacity-20" />
           </p>

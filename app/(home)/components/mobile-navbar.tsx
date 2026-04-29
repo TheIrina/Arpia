@@ -34,7 +34,7 @@ export const MobileNavbar = () => {
   const [activeTab, setActiveTab] = useState("map");
 
   return (
-    <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 font-[Helvetica_Neue,Helvetica,Arial,sans-serif]">
+    <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 font-sans">
       {/* Main Bottom Pill */}
       <div className="flex items-center gap-3 p-2 bg-black/20 backdrop-blur-xs rounded-full ">
         <NavButton

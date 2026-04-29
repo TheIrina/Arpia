@@ -8,7 +8,7 @@ export const Hero2 = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-10 lg:gap-x-12 h-full w-full content-between flex-1">
           {/* 1. Title (Mobile: Top, Desktop: Bottom) */}
           <div className="order-1 lg:order-3 lg:col-span-12 flex items-end pt-4 lg:pt-0">
-            <h1 className="text-9xl font-medium leading-[0.8] tracking-tighter font-['Helvetica_Neue',Helvetica,Arial,sans-serif] -ml-2 lg:-ml-4">
+            <h1 className="text-9xl font-medium leading-[0.8] tracking-tighter font-sans -ml-2 lg:-ml-4">
               Arpia.com
             </h1>
           </div>
@@ -33,7 +33,7 @@ export const Hero2 = () => {
 
           {/* 3. Text & Button (Mobile: Bottom, Desktop: Left) */}
           <div className="order-3 lg:order-1 lg:col-span-5 flex flex-col justify-start items-start gap-6">
-            <p className="text-sm md:text-base text-gray-600 font-normal leading-relaxed tracking-tight font-['Helvetica_Neue',Helvetica,Arial,sans-serif] w-full max-w-xl">
+            <p className="text-sm md:text-base text-gray-600 font-normal leading-relaxed tracking-tight font-sans w-full max-w-xl">
               As a dedicated platform for the paragliding community, Arpia
               collaborates with elite pilots to build tools that transform
               standard weather and topographical data into actionable insights,

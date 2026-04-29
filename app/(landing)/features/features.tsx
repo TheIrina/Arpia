@@ -61,7 +61,7 @@ export const Features = () => {
             </div>
 
             {/* Big Headline */}
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-normal leading-[1.05] tracking-tighter font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-normal leading-[1.05] tracking-tighter font-sans">
               <SplitText
                 text={headlineText}
                 wordClassName="feature-word opacity-20"
@@ -101,7 +101,7 @@ export const Features = () => {
           <div className="flex flex-col gap-4 w-[85vw] md:w-[calc(50%-8px)] lg:w-[calc(41.666667%-9.333px)] shrink-0 snap-start">
             <WeatherCard />
             <div className="flex flex-col gap-1">
-              <h3 className="text-xl md:text-2xl font-normal font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
+              <h3 className="text-xl md:text-2xl font-normal font-sans">
                 Live Weather Interface
               </h3>
               <p className="text-sm md:text-base text-[#5f666d]">
@@ -114,7 +114,7 @@ export const Features = () => {
           <div className="flex flex-col gap-4 w-[85vw] md:w-[calc(50%-8px)] lg:w-[calc(41.666667%-9.333px)] shrink-0 snap-start">
             <div className="w-full h-100 md:h-125 lg:h-150 rounded-2xl bg-orange-100"></div>
             <div className="flex flex-col gap-1">
-              <h3 className="text-xl md:text-2xl font-normal font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
+              <h3 className="text-xl md:text-2xl font-normal font-sans">
                 Thermal Tracking
               </h3>
               <p className="text-sm md:text-base text-[#5f666d]">
@@ -127,7 +127,7 @@ export const Features = () => {
           <div className="flex flex-col gap-4 w-[85vw] md:w-[calc(50%-8px)] lg:w-[calc(41.666667%-9.333px)] shrink-0 snap-start">
             <div className="w-full h-100 md:h-125 lg:h-150 rounded-2xl bg-green-100"></div>
             <div className="flex flex-col gap-1">
-              <h3 className="text-xl md:text-2xl font-normal font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
+              <h3 className="text-xl md:text-2xl font-normal font-sans">
                 Site Topography
               </h3>
               <p className="text-sm md:text-base text-[#5f666d]">
@@ -140,7 +140,7 @@ export const Features = () => {
           <div className="flex flex-col gap-4 w-[85vw] md:w-[calc(50%-8px)] lg:w-[calc(41.666667%-9.333px)] shrink-0 snap-start">
             <div className="w-full h-100 md:h-125 lg:h-150 rounded-2xl bg-purple-100"></div>
             <div className="flex flex-col gap-1">
-              <h3 className="text-xl md:text-2xl font-normal font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
+              <h3 className="text-xl md:text-2xl font-normal font-sans">
                 Pilot Community
               </h3>
               <p className="text-sm md:text-base text-[#5f666d]">
@@ -153,7 +153,7 @@ export const Features = () => {
           <div className="flex flex-col gap-4 w-[85vw] md:w-[calc(50%-8px)] lg:w-[calc(41.666667%-9.333px)] shrink-0 snap-start">
             <MapCardVisual />
             <div className="flex flex-col gap-1">
-              <h3 className="text-xl md:text-2xl font-normal font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
+              <h3 className="text-xl md:text-2xl font-normal font-sans">
                 Roldanillo Launch Sites
               </h3>
               <p className="text-sm md:text-base text-[#5f666d]">

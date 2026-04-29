@@ -26,14 +26,14 @@ export const Hero3 = () => {
             <span className="px-4 py-1.5 rounded-full bg-gray-950 text-white text-xs font-semibold tracking-wide uppercase self-start">
               Arpia App Beta
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-medium leading-none tracking-tighter font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-medium leading-none tracking-tighter font-sans">
               Master the skies.
             </h1>
           </div>
 
           {/* Description */}
           <div className="order-3 lg:order-1 w-full">
-            <p className="text-sm md:text-base text-gray-500 max-w-lg leading-relaxed font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
+            <p className="text-sm md:text-base text-gray-500 max-w-lg leading-relaxed font-sans">
               Elevate your cross-country flights with real-time thermal
               tracking, hyper-local weather data, and the world&apos;s largest
               paragliding community.

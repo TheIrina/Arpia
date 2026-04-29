@@ -53,7 +53,7 @@ export const MobileNav = () => {
         />
       )}
 
-      <div className="fixed bottom-4 right-4 z-60 md:hidden font-['Helvetica_Neue',Helvetica,Arial,sans-serif] grid gap-4 justify-items-end">
+      <div className="fixed bottom-4 right-4 z-60 md:hidden font-sans grid gap-4 justify-items-end">
         {/* Popup Window Menu */}
         {isOpen && (
           <div className="bg-black flex flex-col p-6 rounded-2xl animate-in fade-in slide-in-from-bottom-4 duration-200 min-w-50">

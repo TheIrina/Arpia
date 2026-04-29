@@ -10,7 +10,7 @@ export const Cta = () => {
               <div className="w-8 h-8 bg-white rounded-full mb-8"></div>
 
               {/* Title */}
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-white mb-4 font-['Helvetica_Neue',Helvetica,Arial,sans-serif] tracking-tight">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-white mb-4 font-sans tracking-tight">
                 Ready to take off? Join the Arpia community
               </h2>
 

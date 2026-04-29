@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const Hero = () => {
   return (
-    <section className="relative w-full h-screen p-4 md:py-6 lg:py-8 md:px-8 lg:px-12 text-white font-['Helvetica_Neue',Helvetica,Arial,sans-serif] flex flex-col overflow-hidden selection:bg-white selection:text-black">
+    <section className="relative w-full h-screen p-4 md:py-6 lg:py-8 md:px-8 lg:px-12 text-white font-sans flex flex-col overflow-hidden selection:bg-white selection:text-black">
       {/* Background Video */}
       <video
         autoPlay
@@ -36,7 +36,10 @@ export const Hero = () => {
 
           {/* Button Area */}
           <div className="col-span-full lg:col-start-3 lg:col-span-2 row-start-5 md:row-start-4 lg:row-start-3 flex flex-col items-center justify-start pointer-events-auto">
-            <Link href="/signup" className="bg-white text-black font-medium text-[11px] md:text-xs rounded-full px-6 py-2.5 hover:bg-gray-200 transition-colors flex items-center gap-2">
+            <Link
+              href="/login"
+              className="bg-white text-black font-medium text-[11px] md:text-xs rounded-full px-6 py-2.5 hover:bg-gray-200 transition-colors flex items-center gap-2"
+            >
               Register now ↗
             </Link>
           </div>

@@ -23,7 +23,7 @@ export const MapAttribution = () => {
         />
       )}
 
-      <div className="absolute top-4 right-4 z-60 font-[Helvetica_Neue,Helvetica,Arial,sans-serif] flex flex-row items-start gap-4 justify-end">
+      <div className="absolute top-4 right-4 z-60 font-sans flex flex-row items-start gap-4 justify-end">
         {/* Popup Window Menu */}
         {isOpen && (
           <div className="bg-black flex flex-col p-6 rounded-2xl animate-in fade-in slide-in-from-right-4 duration-200 min-w-50">
