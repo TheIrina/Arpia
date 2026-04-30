@@ -130,7 +130,6 @@ export function AuthForm() {
               id="auth-email"
               type="email"
               required
-              autoFocus
               autoComplete="email"
               value={state.email}
               onChange={(e) => dispatch({ email: e.target.value })}
@@ -165,7 +164,6 @@ export function AuthForm() {
                 id="auth-password"
                 type={state.showPassword ? "text" : "password"}
                 required
-                autoFocus
                 autoComplete="current-password"
                 value={state.password}
                 onChange={(e) => dispatch({ password: e.target.value })}

@@ -33,7 +33,7 @@ export function StepIntro({ onNext }: StepProps) {
 
   const nextSlide = () => {
     if (slide < slides.length - 1) {
-      setSlide(slide + 1);
+      setSlide((prev) => prev + 1);
     } else {
       onNext();
     }
@@ -72,9 +72,9 @@ export function StepIntro({ onNext }: StepProps) {
 
           {/* Dots - Positioned above button on mobile, below text on desktop */}
           <div className="flex gap-2 justify-center lg:justify-start">
-            {slides.map((_, i) => (
+            {slides.map((slideItem, i) => (
               <div
-                key={i}
+                key={slideItem.title}
                 className={`h-1.5 rounded-full transition-all duration-300 ${i === slide ? "w-8 bg-black" : "w-1.5 bg-black/10"}`}
               />
             ))}
