@@ -2,9 +2,10 @@
 
 import { useReducer } from "react";
 import { useRouter } from "next/navigation";
-import { Eye, EyeSlash, GoogleLogo, ArrowLeft } from "@phosphor-icons/react";
+import { Eye, EyeSlash, ArrowRight, CaretLeft } from "@phosphor-icons/react";
+import { GoogleIcon } from "./google-icon";
 
-type AuthStep = "EMAIL" | "PASSWORD";
+type AuthStep = "METHOD" | "EMAIL" | "PASSWORD";
 
 type AuthState = {
   step: AuthStep;
@@ -23,18 +24,15 @@ const authReducer = (state: AuthState, action: AuthAction): AuthState => {
 export function AuthForm() {
   const router = useRouter();
   const [state, dispatch] = useReducer(authReducer, {
-    step: "EMAIL",
+    step: "METHOD",
     email: "",
     password: "",
     showPassword: false,
     isLoading: false,
   });
 
-  // Mock function to simulate email check
   const checkEmail = async (email: string) => {
     await new Promise((r) => setTimeout(r, 800));
-    // Simulate: email exists if it ends with '@arpia.com'
-    // Otherwise, it's a new user
     return email.endsWith("@arpia.com");
   };
 
@@ -57,139 +55,152 @@ export function AuthForm() {
     e.preventDefault();
     if (!state.password) return;
     dispatch({ isLoading: true });
-    // TODO: integrate with better-auth
     await new Promise((r) => setTimeout(r, 1500));
     dispatch({ isLoading: false });
     router.push("/home");
   };
 
   return (
-    <div className="w-full flex flex-col gap-6 py-8">
-      {/* Header */}
-      <div className="flex flex-col gap-1 text-center lg:text-left">
-        <h1 className="text-xl md:text-2xl font-normal tracking-tight text-[#1A1A1A] uppercase">
-          {state.step === "EMAIL" ? "BIENVENIDO" : "INGRESA TU CONTRASEÑA"}
-        </h1>
-        <p className="text-[10px] md:text-xs text-[#5f666d] font-normal">
-          {state.step === "EMAIL"
-            ? "Inicia sesión o crea una cuenta para continuar"
-            : `Continuando como ${state.email}`}
-        </p>
-      </div>
+    <div className="w-full h-full flex flex-col items-center">
+      {/* Dynamic Header with Back Button only for internal steps */}
+      {state.step !== "METHOD" && (
+        <header className="absolute top-0 left-0 right-0 p-6 flex items-center justify-between z-20 max-w-7xl mx-auto w-full">
+          <button
+            onClick={() =>
+              dispatch({ step: state.step === "PASSWORD" ? "EMAIL" : "METHOD" })
+            }
+            className="w-10 h-10 flex items-center justify-center bg-[#1A1A1A] text-white rounded-full hover:bg-zinc-900 transition-all shadow-sm"
+            aria-label="Go back"
+          >
+            <CaretLeft size={20} weight="bold" />
+          </button>
+          <div className="w-10" />
+        </header>
+      )}
 
-      {state.step === "EMAIL" ? (
-        /* Step 1: Email */
-        <form onSubmit={handleContinue} className="flex flex-col gap-3.5">
-          <div className="flex flex-col gap-1.5">
-            <label
-              htmlFor="auth-email"
-              className="text-[10px] md:text-xs font-normal text-[#86868B] uppercase tracking-wider"
-            >
-              Email
-            </label>
+      <div className="flex-1 flex flex-col items-center justify-center w-full animate-in fade-in slide-in-from-right-4 duration-500">
+        {/* Header Text */}
+        <div className="flex flex-col gap-2 text-center mb-12">
+          <h1 className="text-lg md:text-xl font-medium tracking-tight text-[#1A1A1A]">
+            {state.step === "METHOD"
+              ? "Welcome back"
+              : state.step === "EMAIL"
+                ? "Sign in with email"
+                : "Enter your password"}
+          </h1>
+        </div>
+
+        {state.step === "METHOD" && (
+          <div className="fixed bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-white via-white to-transparent lg:relative lg:p-0 lg:bg-none lg:mt-12 w-full flex flex-col items-center">
+            <div className="flex flex-col gap-4 w-full max-w-sm px-4">
+              <button
+                onClick={() => {
+                  /* TODO: Google Auth */
+                }}
+                className="w-full flex items-center justify-center gap-3 rounded-full border border-black/10 bg-white py-4 text-sm md:text-base font-medium text-[#1A1A1A] hover:bg-zinc-50 transition-all duration-200"
+              >
+                <GoogleIcon className="w-5 h-5" />
+                Continue with Google
+              </button>
+
+              <button
+                onClick={() => router.push("/onboarding")}
+                className="w-full flex items-center justify-center gap-3 rounded-full bg-[#1A1A1A] text-white py-4 text-sm md:text-base font-medium hover:bg-zinc-900 transition-all duration-200"
+              >
+                Take a quick tour
+                <ArrowRight size={18} weight="bold" />
+              </button>
+
+              <button
+                onClick={() => dispatch({ step: "EMAIL" })}
+                className="mt-2 text-sm text-black/40 hover:text-black transition-colors"
+              >
+                Sign in with email
+              </button>
+            </div>
+          </div>
+        )}
+
+        {state.step === "EMAIL" && (
+          <form
+            onSubmit={handleContinue}
+            className="flex flex-col items-center gap-12 w-full max-w-4xl px-4"
+          >
             <input
               id="auth-email"
               type="email"
               required
+              autoFocus
               autoComplete="email"
               value={state.email}
               onChange={(e) => dispatch({ email: e.target.value })}
-              placeholder="pilot@arpia.com"
-              className="w-full rounded-full border border-black/10 bg-[#FDFDFD] px-4 py-2.5 text-xs md:text-sm text-[#1A1A1A] placeholder:text-black/25 outline-none focus:border-black/30 focus:bg-white transition-all duration-200 font-normal"
+              placeholder="Email address"
+              className="w-full bg-transparent py-4 text-4xl md:text-6xl text-[#1A1A1A] outline-none transition-colors font-medium placeholder:text-black/10 caret-black text-center"
             />
-          </div>
 
-          <button
-            type="submit"
-            disabled={state.isLoading || !state.email}
-            className="mt-2 w-full rounded-full bg-[#1A1A1A] text-white font-normal py-2.5 text-xs md:text-sm hover:bg-zinc-950 disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200 flex items-center justify-center gap-2"
-          >
-            {state.isLoading ? (
-              <div className="w-3.5 h-3.5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
-            ) : (
-              "Continuar"
-            )}
-          </button>
-        </form>
-      ) : (
-        /* Step 2: Password */
-        <form onSubmit={handleLogin} className="flex flex-col gap-3.5">
-          <button
-            type="button"
-            onClick={() => dispatch({ step: "EMAIL" })}
-            className="flex items-center gap-1.5 text-[10px] md:text-xs font-normal text-[#86868B] hover:text-[#1A1A1A] transition-colors duration-200 self-start mb-1"
-          >
-            <ArrowLeft size={14} />
-            Cambiar email
-          </button>
+            <button
+              type="submit"
+              disabled={state.isLoading || !state.email}
+              className="w-full max-w-sm flex items-center justify-center gap-2 rounded-full bg-[#1A1A1A] text-white py-3.5 text-sm md:text-base hover:bg-zinc-900 disabled:opacity-30 transition-all font-medium"
+            >
+              {state.isLoading ? (
+                <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
+              ) : (
+                <>
+                  Continue
+                  <ArrowRight size={18} weight="bold" />
+                </>
+              )}
+            </button>
+          </form>
+        )}
 
-          <div className="flex flex-col gap-1.5">
-            <div className="flex items-center justify-between">
-              <label
-                htmlFor="auth-password"
-                className="text-[10px] md:text-xs font-normal text-[#86868B] uppercase tracking-wider"
-              >
-                Contraseña
-              </label>
-            </div>
-            <div className="relative">
+        {state.step === "PASSWORD" && (
+          <form
+            onSubmit={handleLogin}
+            className="flex flex-col items-center gap-12 w-full max-w-4xl px-4"
+          >
+            <div className="relative w-full">
               <input
                 id="auth-password"
                 type={state.showPassword ? "text" : "password"}
                 required
+                autoFocus
                 autoComplete="current-password"
                 value={state.password}
                 onChange={(e) => dispatch({ password: e.target.value })}
-                placeholder="••••••••"
-                className="w-full rounded-full border border-black/10 bg-[#FDFDFD] px-4 py-2.5 pr-11 text-xs md:text-sm text-[#1A1A1A] placeholder:text-black/25 outline-none focus:border-black/30 focus:bg-white transition-all duration-200 font-normal"
+                placeholder="Password"
+                className="w-full bg-transparent py-4 text-4xl md:text-6xl text-[#1A1A1A] outline-none transition-colors font-medium placeholder:text-black/10 caret-black text-center"
               />
               <button
                 type="button"
                 onClick={() => dispatch({ showPassword: !state.showPassword })}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-black/25 hover:text-[#1A1A1A] transition-colors duration-200"
+                className="absolute right-0 top-1/2 -translate-y-1/2 text-black/20 hover:text-black transition-colors px-2"
               >
                 {state.showPassword ? (
-                  <EyeSlash size={18} weight="light" />
+                  <EyeSlash size={32} />
                 ) : (
-                  <Eye size={18} weight="light" />
+                  <Eye size={32} />
                 )}
               </button>
             </div>
-          </div>
 
-          <button
-            type="submit"
-            disabled={state.isLoading || !state.password}
-            className="mt-2 w-full rounded-full bg-[#1A1A1A] text-white font-normal py-2.5 text-xs md:text-sm hover:bg-zinc-950 disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200 flex items-center justify-center gap-2"
-          >
-            {state.isLoading ? (
-              <div className="w-3.5 h-3.5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
-            ) : (
-              "Iniciar sesión"
-            )}
-          </button>
-        </form>
-      )}
-
-      {/* Divider */}
-      <div className="relative flex items-center justify-center">
-        <div className="absolute inset-0 flex items-center">
-          <div className="w-full border-t border-black/5" />
-        </div>
-        <span className="relative bg-white px-3 text-[10px] md:text-xs text-[#86868B] uppercase tracking-widest font-normal">
-          o
-        </span>
-      </div>
-
-      {/* Footer Actions */}
-      <div className="flex flex-col gap-5">
-        <button
-          type="button"
-          className="w-full flex items-center justify-center gap-2.5 rounded-full border border-black/10 bg-[#FDFDFD] px-4 py-2.5 text-xs md:text-sm font-normal text-[#1A1A1A] hover:bg-gray-50 transition-colors duration-200"
-        >
-          <GoogleLogo size={20} weight="bold" />
-          Continuar con Google
-        </button>
+            <button
+              type="submit"
+              disabled={state.isLoading || !state.password}
+              className="w-full max-w-sm flex items-center justify-center gap-2 rounded-full bg-[#1A1A1A] text-white py-3.5 text-sm md:text-base hover:bg-zinc-900 disabled:opacity-30 transition-all font-medium"
+            >
+              {state.isLoading ? (
+                <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
+              ) : (
+                <>
+                  Sign in
+                  <ArrowRight size={18} weight="bold" />
+                </>
+              )}
+            </button>
+          </form>
+        )}
       </div>
     </div>
   );

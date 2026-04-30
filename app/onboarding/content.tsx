@@ -30,18 +30,41 @@ interface StepRendererProps {
   onFinish: (data?: { password: string }) => void;
 }
 
-function StepRenderer({ stepId, formData, isLoading, onUpdate, onFinish }: StepRendererProps) {
+function StepRenderer({
+  stepId,
+  formData,
+  isLoading,
+  onUpdate,
+  onFinish,
+}: StepRendererProps) {
   switch (stepId) {
     case "intro":
       return <StepIntro onNext={() => onUpdate({})} />;
     case "name":
-      return <StepName value={formData.name} onNext={(data) => onUpdate(data)} />;
+      return (
+        <StepName value={formData.name} onNext={(data) => onUpdate(data)} />
+      );
     case "role":
-      return <StepRole value={formData.role} onNext={(data) => onUpdate(data as Partial<OnboardingData>)} />;
+      return (
+        <StepRole
+          value={formData.role}
+          onNext={(data) => onUpdate(data as Partial<OnboardingData>)}
+        />
+      );
     case "mapStyle":
-      return <StepMapStyle value={formData.mapStyle} onNext={(data) => onUpdate(data)} />;
+      return (
+        <StepMapStyle
+          value={formData.mapStyle}
+          onNext={(data) => onUpdate(data)}
+        />
+      );
     case "interests":
-      return <StepInterests value={formData.interests} onNext={(data) => onUpdate(data)} />;
+      return (
+        <StepInterests
+          value={formData.interests}
+          onNext={(data) => onUpdate(data)}
+        />
+      );
     case "password":
       return <StepPassword isLoading={isLoading} onFinish={onFinish} />;
     default:
@@ -54,7 +77,7 @@ export default function OnboardingContent({ email = "" }: { email?: string }) {
 
   const [currentStep, setCurrentStep] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
-  
+
   const [formData, setFormData] = useState<OnboardingData>(() => ({
     email,
     name: "",
@@ -64,14 +87,17 @@ export default function OnboardingContent({ email = "" }: { email?: string }) {
     password: "",
   }));
 
-  const steps = useMemo(() => [
-    { id: "intro" as const },
-    { id: "name" as const },
-    { id: "role" as const },
-    { id: "mapStyle" as const },
-    { id: "interests" as const },
-    { id: "password" as const },
-  ], []);
+  const steps = useMemo(
+    () => [
+      { id: "intro" as const },
+      { id: "name" as const },
+      { id: "role" as const },
+      { id: "mapStyle" as const },
+      { id: "interests" as const },
+      { id: "password" as const },
+    ],
+    [],
+  );
 
   const updateData = (newData: Partial<OnboardingData>) => {
     setFormData((prev) => ({ ...prev, ...newData }));
@@ -82,58 +108,60 @@ export default function OnboardingContent({ email = "" }: { email?: string }) {
 
   const handleFinish = async (data?: { password: string }) => {
     if (data?.password) {
-      setFormData(prev => ({ ...prev, password: "" }));
+      setFormData((prev) => ({ ...prev, password: "" }));
     }
-    
+
     // Save map style to localStorage
     if (formData.mapStyle) {
       localStorage.setItem("arpia_map_style", formData.mapStyle);
     }
-    
+
     setIsLoading(true);
     await new Promise((r) => setTimeout(r, 2000));
     setIsLoading(false);
     router.push("/home");
   };
 
-  const sideContent = formData.role === "hiker" ? "/videos/hero2.mp4" : "/videos/hero1.mp4";
   const currentStepId = steps[currentStep]?.id;
 
   return (
-    <div className="flex flex-col lg:flex-row w-full min-h-screen font-sans bg-white overflow-hidden">
-      <div className="hidden lg:flex relative w-1/2 min-h-screen p-4">
-        <div className="relative w-full h-full overflow-hidden rounded-3xl shadow-2xl bg-zinc-950">
-          <video key={sideContent} autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover opacity-60 transition-opacity duration-1000">
-            <source src={sideContent} type="video/mp4" />
-          </video>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-          <div className="absolute bottom-12 left-12 right-12">
-            <h2 className="text-4xl font-normal text-white uppercase tracking-tighter leading-none mb-2">Arpia <br /> Roldanillo</h2>
-            <p className="text-white/60 text-sm font-light tracking-wide max-w-xs">Personalizing your flight and exploration experience in the best place in the world.</p>
-          </div>
-        </div>
-      </div>
-      <div className="flex flex-col w-full lg:w-1/2 min-h-screen relative">
-        <header className="absolute top-0 left-0 right-0 p-6 flex items-center justify-between z-20">
+    <div className="flex flex-col w-full min-h-screen font-sans bg-white">
+      <div className="flex-1 flex flex-col items-center justify-center relative w-full">
+        <header className="absolute top-0 left-0 right-0 p-6 flex items-center justify-between z-20 max-w-7xl mx-auto w-full">
           {currentStepId !== "intro" ? (
-            <button onClick={() => currentStep > 0 ? setCurrentStep((c) => c - 1) : router.back()} className="w-10 h-10 flex items-center justify-center bg-[#1A1A1A] text-white rounded-full hover:bg-zinc-950 transition-all shadow-sm" aria-label="Go back">
+            <button
+              onClick={() =>
+                currentStep > 0 ? setCurrentStep((c) => c - 1) : router.back()
+              }
+              className="w-10 h-10 flex items-center justify-center bg-[#1A1A1A] text-white rounded-full hover:bg-zinc-900 transition-all shadow-sm"
+              aria-label="Go back"
+            >
               <CaretLeft size={20} weight="bold" />
             </button>
           ) : (
             <div className="w-10" />
           )}
-          
+
           {currentStepId !== "intro" && (
             <div className="flex gap-1.5">
-              {steps.filter(s => s.id !== "intro").map((step, i) => (
-                <div key={step.id} className={`h-1 w-8 rounded-full transition-all duration-500 ${(i + 1) <= currentStep ? "bg-zinc-950" : "bg-zinc-950/10"}`} />
-              ))}
+              {steps
+                .filter((s) => s.id !== "intro")
+                .map((step) => {
+                  const stepIndex = steps.findIndex((s) => s.id === step.id);
+                  return (
+                    <div
+                      key={step.id}
+                      className={`h-1 w-8 rounded-full transition-all duration-500 ${stepIndex <= currentStep ? "bg-zinc-950" : "bg-zinc-950/10"}`}
+                    />
+                  );
+                })}
             </div>
           )}
-          
+
           <div className="w-10" />
         </header>
-        <main className="flex-1 flex flex-col items-center justify-center px-6 md:px-12 lg:px-20 w-full py-20 text-center">
+
+        <main className="flex-1 flex flex-col items-center justify-center px-6 md:px-12 lg:px-20 w-full py-12 md:py-16 text-center">
           <div className="w-full max-w-4xl flex flex-col items-center justify-center">
             <StepRenderer
               stepId={currentStepId}
