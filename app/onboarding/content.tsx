@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useRef } from "react";
 import { useRouter } from "next/navigation";
+import gsap, { useGSAP } from "@/lib/gsap";
 import { CaretLeft } from "@phosphor-icons/react";
 import { StepIntro } from "./sections/StepIntro";
 import { StepName } from "./sections/StepName";
@@ -74,6 +75,20 @@ function StepRenderer({
 
 export default function OnboardingContent({ email = "" }: { email?: string }) {
   const router = useRouter();
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      // Fade out the black curtain to reveal the onboarding content
+      gsap.to(".entrance-curtain", {
+        autoAlpha: 0,
+        duration: 0.8,
+        ease: "power2.inOut",
+        delay: 0.1,
+      });
+    },
+    { scope: containerRef },
+  );
 
   const [currentStep, setCurrentStep] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
@@ -125,7 +140,10 @@ export default function OnboardingContent({ email = "" }: { email?: string }) {
   const currentStepId = steps[currentStep]?.id;
 
   return (
-    <div className="flex flex-col w-full min-h-screen font-sans bg-white">
+    <div ref={containerRef} className="flex flex-col w-full min-h-screen font-sans bg-white">
+      {/* Entrance transition curtain */}
+      <div className="entrance-curtain fixed inset-0 bg-[#0A0A0A] z-[100] pointer-events-none" />
+
       <div className="flex-1 flex flex-col items-center justify-center relative w-full">
         <header className="absolute top-0 left-0 right-0 p-6 flex items-center justify-between z-20 max-w-7xl mx-auto w-full">
           {currentStepId !== "intro" ? (
