@@ -36,7 +36,7 @@ export const Hero = () => {
           {/* Button Area */}
           <div className="col-span-full lg:col-start-3 lg:col-span-2 row-start-5 md:row-start-4 lg:row-start-3 flex flex-col items-center justify-start pointer-events-auto">
             <Link
-              href="/onboarding"
+              href="/login"
               className="bg-white text-black font-medium text-[11px] md:text-xs rounded-full px-6 py-2.5 hover:bg-gray-200 transition-colors flex items-center gap-2"
             >
               Get started now ↗
