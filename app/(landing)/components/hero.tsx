@@ -1,20 +1,18 @@
 import Link from "next/link";
+import { HlsVideo } from "@/components/ui/hls-video";
 
 export const Hero = () => {
   return (
     <section className="relative w-full h-screen p-4 md:py-6 lg:py-8 md:px-8 lg:px-12 text-white font-sans flex flex-col overflow-hidden selection:bg-white selection:text-black">
       {/* Background Video */}
-      <video
+      <HlsVideo
+        src="/videos/hls/hero3/hero3.m3u8"
         autoPlay
         loop
         muted
         playsInline
-        preload="auto"
-        poster="/videos/hero1-poster.avif"
         className="absolute inset-0 w-full h-full object-cover z-0"
-      >
-        <source src="/videos/hero1.webm" type="video/webm" />
-      </video>
+      />
 
       {/* Dark Overlay for Readability */}
       <div className="absolute inset-0 bg-black/20 z-0"></div>

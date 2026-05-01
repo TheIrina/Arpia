@@ -39,7 +39,7 @@ export const Cta = () => {
                 muted
                 playsInline
                 className="absolute top-0 left-0 w-full h-full object-cover"
-                src="/videos/hls/hero3/hero3.m3u8"
+                src="/videos/hls/hero2/hero2.m3u8"
               />
             </div>
           </div>
