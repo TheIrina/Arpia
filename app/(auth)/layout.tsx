@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { CaretLeft } from "@phosphor-icons/react";
+import { HlsVideo } from "@/components/ui/hls-video";
 
 export default function AuthLayout({
   children,
@@ -11,15 +12,14 @@ export default function AuthLayout({
   return (
     <div className="min-h-screen w-full bg-black flex flex-col relative overflow-hidden">
       {/* Background Video */}
-      <video
+      <HlsVideo
+        src="/videos/hls/login/login.m3u8"
         autoPlay
         loop
         muted
         playsInline
         className="absolute inset-0 w-full h-full object-cover z-0"
-      >
-        <source src="/videos/login.mp4" type="video/mp4" />
-      </video>
+      />
       
       {/* Dark Overlay for readability */}
       <div className="absolute inset-0 bg-black/40 z-0" />

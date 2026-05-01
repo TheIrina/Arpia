@@ -1,3 +1,5 @@
+import { HlsVideo } from "@/components/ui/hls-video";
+
 export const Cta = () => {
   return (
     <section className="relative w-full bg-white text-black px-4 py-24 md:px-8 lg:px-12">
@@ -31,18 +33,15 @@ export const Cta = () => {
           </div>
           <div className="w-full lg:w-1/2 p-4 flex min-h-[400px]">
             <div className="relative w-full rounded-lg overflow-hidden">
-              <video
+              <HlsVideo
                 autoPlay
                 loop
                 muted
                 playsInline
-                preload="metadata"
                 poster="/videos/hero2-poster.avif"
                 className="absolute top-0 left-0 w-full h-full object-cover"
-              >
-                <source src="/videos/hero2.webm" type="video/webm" />
-                <source src="/videos/hero2.mp4" type="video/mp4" />
-              </video>
+                src="/videos/hls/hero2/hero2.m3u8"
+              />
             </div>
           </div>
         </div>
