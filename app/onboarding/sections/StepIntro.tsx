@@ -10,6 +10,27 @@ import {
 import gsap, { useGSAP } from "@/lib/gsap";
 import { StepAction } from "../components/StepAction";
 
+const slides = [
+  {
+    title: "Discover Roldanillo",
+    desc: "Fly and explore the world's best paragliding spot with real-time thermal tracking.",
+    icon: <Wind size={48} weight="light" className="text-black/20" />,
+    color: "bg-zinc-50",
+  },
+  {
+    title: "Master the Skies",
+    desc: "Hyper-local weather data and airspace safety tools at your fingertips.",
+    icon: <Sparkle size={48} weight="light" className="text-black/20" />,
+    color: "bg-zinc-50",
+  },
+  {
+    title: "Join the Community",
+    desc: "Connect with pilots and hikers, share routes, and conquer yourself.",
+    icon: <MapTrifold size={48} weight="light" className="text-black/20" />,
+    color: "bg-zinc-50",
+  },
+];
+
 interface StepProps {
   onNext: () => void;
   onBack: () => void;
@@ -21,27 +42,6 @@ export function StepIntro({ onNext, onBack }: StepProps) {
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
   const isAnimating = useRef(false);
-
-  const slides = [
-    {
-      title: "Discover Roldanillo",
-      desc: "Fly and explore the world's best paragliding spot with real-time thermal tracking.",
-      icon: <Wind size={48} weight="light" className="text-black/20" />,
-      color: "bg-zinc-50",
-    },
-    {
-      title: "Master the Skies",
-      desc: "Hyper-local weather data and airspace safety tools at your fingertips.",
-      icon: <Sparkle size={48} weight="light" className="text-black/20" />,
-      color: "bg-zinc-50",
-    },
-    {
-      title: "Join the Community",
-      desc: "Connect with pilots and hikers, share routes, and conquer yourself.",
-      icon: <MapTrifold size={48} weight="light" className="text-black/20" />,
-      color: "bg-zinc-50",
-    },
-  ];
 
   const goToSlide = useCallback(
     (index: number, direction: "left" | "right" = "right") => {
@@ -75,7 +75,7 @@ export function StepIntro({ onNext, onBack }: StepProps) {
         },
       });
     },
-    [slides.length],
+    [],
   );
 
   const nextSlide = useCallback(() => {
@@ -84,7 +84,7 @@ export function StepIntro({ onNext, onBack }: StepProps) {
     } else {
       onNext();
     }
-  }, [slide, slides.length, goToSlide, onNext]);
+  }, [slide, goToSlide, onNext]);
 
   const prevSlide = useCallback(() => {
     if (slide > 0) {
