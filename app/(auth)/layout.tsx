@@ -1,16 +1,33 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import { CaretLeft } from "@phosphor-icons/react";
+import { useRef } from "react";
 import { HlsVideo } from "@/components/ui/hls-video";
+import gsap, { useGSAP } from "@/lib/gsap";
 
 export default function AuthLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      gsap.to(".entrance-curtain", {
+        autoAlpha: 0,
+        duration: 0.8,
+        ease: "power2.inOut",
+        delay: 0.1,
+      });
+    },
+    { scope: containerRef },
+  );
+
   return (
-    <div className="h-dvh w-full bg-black flex flex-col relative overflow-hidden">
+    <div ref={containerRef} className="h-dvh w-full bg-black flex flex-col relative overflow-hidden">
+      {/* Entrance transition curtain */}
+      <div className="entrance-curtain fixed inset-0 bg-[#0A0A0A] z-[100] pointer-events-none" />
+
       {/* Background Video */}
       <HlsVideo
         src="/videos/hls/login/login.m3u8"

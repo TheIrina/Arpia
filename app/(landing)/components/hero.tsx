@@ -51,7 +51,7 @@ export const Hero = () => {
           <footer className="col-span-full row-start-8 md:row-start-6 lg:row-start-4 self-end grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 md:gap-3 lg:gap-4 items-end text-[8px] md:text-[9px] font-bold tracking-widest uppercase text-white/80 pointer-events-auto pb-4 lg:pb-0">
             <div className="hidden md:flex md:col-start-1">The Irina</div>
 
-            <div className="col-span-3 md:col-start-2 md:col-span-2 lg:col-start-3 lg:col-span-2 flex items-center justify-between w-full">
+            {/* <div className="col-span-3 md:col-start-2 md:col-span-2 lg:col-start-3 lg:col-span-2 flex items-center justify-between w-full">
               <div className="flex items-center gap-1.5 md:gap-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#d62828] mb-px"></div>
                 <span>48 DAYS</span>
@@ -59,7 +59,7 @@ export const Hero = () => {
               <span>23 HOURS</span>
               <span>42 MINUTES</span>
               <span>11 SECONDS</span>
-            </div>
+            </div> */}
 
             <div className="hidden md:flex justify-between w-full md:col-start-4 lg:col-start-6">
               <span>4&deg; 24&apos; 49&quot; N</span>

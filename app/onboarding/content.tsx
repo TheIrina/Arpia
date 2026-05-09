@@ -29,6 +29,7 @@ interface StepRendererProps {
   isLoading: boolean;
   onUpdate: (data: Partial<OnboardingData>) => void;
   onFinish: (data?: { password: string }) => void;
+  onBack: () => void;
 }
 
 function StepRenderer({
@@ -37,10 +38,11 @@ function StepRenderer({
   isLoading,
   onUpdate,
   onFinish,
+  onBack,
 }: StepRendererProps) {
   switch (stepId) {
     case "intro":
-      return <StepIntro onNext={() => onUpdate({})} />;
+      return <StepIntro onNext={() => onUpdate({})} onBack={onBack} />;
     case "name":
       return (
         <StepName value={formData.name} onNext={(data) => onUpdate(data)} />
@@ -137,6 +139,17 @@ export default function OnboardingContent({ email = "" }: { email?: string }) {
     router.push("/home");
   };
 
+  const handleBack = () => {
+    gsap.to(".entrance-curtain", {
+      autoAlpha: 1,
+      duration: 0.8,
+      ease: "power2.inOut",
+      onComplete: () => {
+        router.push("/login");
+      },
+    });
+  };
+
   const currentStepId = steps[currentStep]?.id;
 
   return (
@@ -187,6 +200,7 @@ export default function OnboardingContent({ email = "" }: { email?: string }) {
               isLoading={isLoading}
               onUpdate={updateData}
               onFinish={handleFinish}
+              onBack={handleBack}
             />
           </div>
         </main>
