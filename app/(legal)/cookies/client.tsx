@@ -1,25 +1,6 @@
-"use client";
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-
 export default function CookiesPage() {
-  const containerRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from("section", {
-        y: 30,
-        opacity: 0,
-        stagger: 0.1,
-        duration: 0.8,
-        ease: "power3.out",
-      });
-    }, containerRef);
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <article ref={containerRef} className="space-y-24 font-sans text-black">
+    <article className="space-y-24 font-sans text-black">
       <header className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4">
         <div className="col-span-2 md:col-span-8 lg:col-span-5">
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-normal tracking-tighter leading-[1.05] uppercase">
