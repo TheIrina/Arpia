@@ -19,24 +19,30 @@ export default function TermsPage() {
   }, []);
 
   return (
-    <article ref={containerRef} className="space-y-12 font-sans text-black">
-      <header className="border-b border-gray-800 pb-8 mb-12">
-        <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-black mb-4 uppercase">
-          Términos y Condiciones de Uso
-        </h1>
-        <p className="text-black text-sm max-w-2xl leading-relaxed">
-          Última actualización: Abril 2026
-        </p>
+    <article ref={containerRef} className="space-y-24 font-sans text-black">
+      <header className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4">
+        <div className="col-span-2 md:col-span-8 lg:col-span-5">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-normal tracking-tighter leading-[1.05] uppercase">
+            Términos y Condiciones de Uso
+          </h1>
+        </div>
+        <div className="col-span-2 md:col-span-8 lg:col-start-7 lg:col-span-6 mt-4 lg:mt-0">
+          <p className="text-sm md:text-base text-[#5f666d] leading-relaxed font-medium">
+            Última actualización: Abril 2026
+          </p>
+        </div>
       </header>
 
-      <section className="group">
-        <div className="flex items-center gap-3 mb-4">
-          <span className="text-black text-xs font-medium">01</span>
-          <h2 className="text-xl font-semibold text-black tracking-tight uppercase">
+      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4">
+        <div className="col-span-2 md:col-span-8 lg:col-span-4 mb-4 lg:mb-0">
+          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase block mb-2">
+            01
+          </span>
+          <h2 className="text-xl md:text-2xl font-normal tracking-tight leading-[1.05] uppercase">
             Información General y Aceptación
           </h2>
         </div>
-        <div className="text-black text-sm leading-relaxed space-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium space-y-4">
           <p>
             Los presentes Términos y Condiciones regulan el acceso y la
             utilización de la plataforma digital, cuyo propósito es proporcionar
@@ -54,14 +60,16 @@ export default function TermsPage() {
         </div>
       </section>
 
-      <section className="group">
-        <div className="flex items-center gap-3 mb-4">
-          <span className="text-black text-xs font-medium">02</span>
-          <h2 className="text-xl font-semibold text-black tracking-tight uppercase">
+      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4">
+        <div className="col-span-2 md:col-span-8 lg:col-span-4 mb-4 lg:mb-0">
+          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase block mb-2">
+            02
+          </span>
+          <h2 className="text-xl md:text-2xl font-normal tracking-tight leading-[1.05] uppercase">
             Objeto del Servicio
           </h2>
         </div>
-        <div className="text-black text-sm leading-relaxed space-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium space-y-4">
           <p>
             La Plataforma opera exclusivamente como un agregador de contenido
             informativo y una herramienta de consulta. Su finalidad es
@@ -84,21 +92,23 @@ export default function TermsPage() {
         </div>
       </section>
 
-      <section className="group">
-        <div className="flex items-center gap-3 mb-4">
-          <span className="text-black text-xs font-medium">03</span>
-          <h2 className="text-xl font-semibold text-black tracking-tight uppercase">
+      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4">
+        <div className="col-span-2 md:col-span-8 lg:col-span-4 mb-4 lg:mb-0">
+          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase block mb-2">
+            03
+          </span>
+          <h2 className="text-xl md:text-2xl font-normal tracking-tight leading-[1.05] uppercase">
             Exención y Limitación de Responsabilidad
           </h2>
         </div>
-        <div className="text-black text-sm leading-relaxed space-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium space-y-4">
           <p>
             Dada la naturaleza inherente de riesgo asociada al parapentismo, se
             establecen las siguientes limitaciones:
           </p>
           <ul className="space-y-4">
             <li>
-              <strong className="text-white font-medium">
+              <strong className="text-black font-medium">
                 Precisión de Datos Climáticos:
               </strong>{" "}
               La información meteorológica se obtiene de fuentes externas y
@@ -109,7 +119,7 @@ export default function TermsPage() {
               repentinos.
             </li>
             <li>
-              <strong className="text-white font-medium">
+              <strong className="text-black font-medium">
                 Decisión de Vuelo:
               </strong>{" "}
               La determinación de ejecutar una actividad de vuelo es
@@ -120,7 +130,7 @@ export default function TermsPage() {
               provista.
             </li>
             <li>
-              <strong className="text-white font-medium">
+              <strong className="text-black font-medium">
                 Servicios de Terceros:
               </strong>{" "}
               La Plataforma no garantiza la calidad, seguridad o disponibilidad
@@ -133,14 +143,16 @@ export default function TermsPage() {
         </div>
       </section>
 
-      <section className="group">
-        <div className="flex items-center gap-3 mb-4">
-          <span className="text-black text-xs font-medium">04</span>
-          <h2 className="text-xl font-semibold text-black tracking-tight uppercase">
+      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4">
+        <div className="col-span-2 md:col-span-8 lg:col-span-4 mb-4 lg:mb-0">
+          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase block mb-2">
+            04
+          </span>
+          <h2 className="text-xl md:text-2xl font-normal tracking-tight leading-[1.05] uppercase">
             Propiedad Intelectual
           </h2>
         </div>
-        <div className="text-black text-sm leading-relaxed space-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium space-y-4">
           <p>
             Todo el contenido disponible en la Plataforma, incluyendo, sin
             limitación, el diseño gráfico, el código fuente, los logotipos, las
@@ -163,14 +175,16 @@ export default function TermsPage() {
         </div>
       </section>
 
-      <section className="group">
-        <div className="flex items-center gap-3 mb-4">
-          <span className="text-black text-xs font-medium">05</span>
-          <h2 className="text-xl font-semibold text-black tracking-tight uppercase">
+      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4">
+        <div className="col-span-2 md:col-span-8 lg:col-span-4 mb-4 lg:mb-0">
+          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase block mb-2">
+            05
+          </span>
+          <h2 className="text-xl md:text-2xl font-normal tracking-tight leading-[1.05] uppercase">
             Protección de Datos Personales (Habeas Data)
           </h2>
         </div>
-        <div className="text-black text-sm leading-relaxed space-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium space-y-4">
           <p>
             En cumplimiento de la Ley 1581 de 2012 (Colombia), el Usuario otorga
             su autorización para el tratamiento de sus datos personales con las
@@ -193,14 +207,16 @@ export default function TermsPage() {
         </div>
       </section>
 
-      <section className="group">
-        <div className="flex items-center gap-3 mb-4">
-          <span className="text-black text-xs font-medium">06</span>
-          <h2 className="text-xl font-semibold text-black tracking-tight uppercase">
+      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4">
+        <div className="col-span-2 md:col-span-8 lg:col-span-4 mb-4 lg:mb-0">
+          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase block mb-2">
+            06
+          </span>
+          <h2 className="text-xl md:text-2xl font-normal tracking-tight leading-[1.05] uppercase">
             Reglas de Conducta
           </h2>
         </div>
-        <div className="text-black text-sm leading-relaxed space-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium space-y-4">
           <p>El Usuario se obliga formalmente a:</p>
           <ul className="list-disc pl-6 space-y-2">
             <li>
@@ -220,14 +236,16 @@ export default function TermsPage() {
         </div>
       </section>
 
-      <section className="group">
-        <div className="flex items-center gap-3 mb-4">
-          <span className="text-black text-xs font-medium">07</span>
-          <h2 className="text-xl font-semibold text-black tracking-tight uppercase">
+      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4">
+        <div className="col-span-2 md:col-span-8 lg:col-span-4 mb-4 lg:mb-0">
+          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase block mb-2">
+            07
+          </span>
+          <h2 className="text-xl md:text-2xl font-normal tracking-tight leading-[1.05] uppercase">
             Ley Aplicable y Jurisdicción
           </h2>
         </div>
-        <div className="text-black text-sm leading-relaxed space-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium space-y-4">
           <p>
             Los presentes Términos se rigen e interpretan conforme a las leyes
             de la República de Colombia. Cualquier controversia se someterá a la
@@ -236,14 +254,16 @@ export default function TermsPage() {
         </div>
       </section>
 
-      <section className="group">
-        <div className="flex items-center gap-3 mb-4">
-          <span className="text-black text-xs font-medium">08</span>
-          <h2 className="text-xl font-semibold text-black tracking-tight uppercase">
+      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4">
+        <div className="col-span-2 md:col-span-8 lg:col-span-4 mb-4 lg:mb-0">
+          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase block mb-2">
+            08
+          </span>
+          <h2 className="text-xl md:text-2xl font-normal tracking-tight leading-[1.05] uppercase">
             Modificaciones
           </h2>
         </div>
-        <div className="text-black text-sm leading-relaxed space-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium space-y-4">
           <p>
             Arpía se reserva el derecho unilateral de modificar o actualizar los
             presentes Términos y Condiciones en cualquier momento. Dichas
