@@ -76,8 +76,15 @@ export function AuthForm() {
     router.push("/home");
   };
 
+  const isEmailStep = state.step === "EMAIL" || state.step === "PASSWORD";
+
   return (
     <div ref={containerRef} className="w-full h-full flex flex-col items-center">
+      {/* White background for email/password steps */}
+      {isEmailStep && (
+        <div className="fixed inset-0 bg-white z-10 animate-in fade-in duration-300" />
+      )}
+
       {/* Dynamic Header with Back Button only for internal steps */}
       {state.step !== "METHOD" && (
         <header className="absolute top-0 left-0 right-0 p-6 flex items-center justify-between z-20 max-w-7xl mx-auto w-full">
@@ -85,7 +92,7 @@ export function AuthForm() {
             onClick={() =>
               dispatch({ step: state.step === "PASSWORD" ? "EMAIL" : "METHOD" })
             }
-            className="w-10 h-10 flex items-center justify-center bg-white/10 text-white backdrop-blur-md border border-white/10 rounded-full hover:bg-white/20 transition-all shadow-sm"
+            className="w-10 h-10 flex items-center justify-center bg-[#1A1A1A] text-white rounded-full hover:bg-zinc-900 transition-all shadow-sm"
             aria-label="Go back"
           >
             <CaretLeft size={20} weight="bold" />
@@ -94,10 +101,10 @@ export function AuthForm() {
         </header>
       )}
 
-      <div className="flex-1 flex flex-col items-center justify-center w-full animate-in fade-in slide-in-from-right-4 duration-500">
+      <div className="flex-1 flex flex-col items-center justify-center w-full animate-in fade-in slide-in-from-right-4 duration-500 relative z-20">
         {/* Header Text */}
         <div className="flex flex-col gap-2 text-center mb-12">
-          <h1 className="text-lg md:text-xl font-medium tracking-tight text-white">
+          <h1 className={`text-lg md:text-xl font-medium tracking-tight ${isEmailStep ? "text-[#1A1A1A]" : "text-white"}`}>
             {state.step === "METHOD"
               ? "Welcome back"
               : state.step === "EMAIL"
@@ -121,13 +128,13 @@ export function AuthForm() {
               value={state.email}
               onChange={(e) => dispatch({ email: e.target.value })}
               placeholder="Email address"
-              className="w-full bg-transparent py-4 text-4xl md:text-6xl text-white outline-none transition-colors font-medium placeholder:text-white/30 caret-white text-center"
+              className="w-full bg-transparent py-4 text-4xl md:text-6xl text-[#1A1A1A] outline-none transition-colors font-medium placeholder:text-[#1A1A1A]/30 caret-[#1A1A1A] text-center"
             />
 
             <button
               type="submit"
               disabled={state.isLoading || !state.email}
-              className="w-full max-w-sm flex items-center justify-center gap-2 rounded-full bg-white text-black py-3.5 text-sm md:text-base hover:bg-white/90 disabled:opacity-30 transition-all font-medium"
+              className="w-full max-w-sm flex items-center justify-center gap-2 rounded-full bg-[#1A1A1A] text-white py-3.5 text-sm md:text-base hover:bg-zinc-900 disabled:opacity-30 transition-all font-medium"
             >
               {state.isLoading ? (
                 <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
@@ -155,12 +162,12 @@ export function AuthForm() {
                 value={state.password}
                 onChange={(e) => dispatch({ password: e.target.value })}
                 placeholder="Password"
-                className="w-full bg-transparent py-4 text-4xl md:text-6xl text-white outline-none transition-colors font-medium placeholder:text-white/30 caret-white text-center"
+                className="w-full bg-transparent py-4 text-4xl md:text-6xl text-[#1A1A1A] outline-none transition-colors font-medium placeholder:text-[#1A1A1A]/30 caret-[#1A1A1A] text-center"
               />
               <button
                 type="button"
                 onClick={() => dispatch({ showPassword: !state.showPassword })}
-                className="absolute right-0 top-1/2 -translate-y-1/2 text-white/40 hover:text-white transition-colors px-2"
+                className="absolute right-0 top-1/2 -translate-y-1/2 text-[#1A1A1A]/40 hover:text-[#1A1A1A] transition-colors px-2"
               >
                 {state.showPassword ? (
                   <EyeSlash size={32} />
@@ -173,7 +180,7 @@ export function AuthForm() {
             <button
               type="submit"
               disabled={state.isLoading || !state.password}
-              className="w-full max-w-sm flex items-center justify-center gap-2 rounded-full bg-white text-black py-3.5 text-sm md:text-base hover:bg-white/90 disabled:opacity-30 transition-all font-medium"
+              className="w-full max-w-sm flex items-center justify-center gap-2 rounded-full bg-[#1A1A1A] text-white py-3.5 text-sm md:text-base hover:bg-zinc-900 disabled:opacity-30 transition-all font-medium"
             >
               {state.isLoading ? (
                 <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
@@ -204,7 +211,7 @@ export function AuthForm() {
 
             <button
               onClick={handleTourClick}
-              className="w-full flex items-center justify-center gap-3 rounded-full bg-transparent border border-white/40 text-white py-4 text-sm md:text-base font-medium hover:bg-white/10 hover:border-white/60 transition-all duration-200"
+              className="w-full flex items-center justify-center gap-3 rounded-full bg-zinc-950/20 backdrop-blur-xs text-white py-4 text-sm md:text-base font-medium hover:bg-zinc-950/30 transition-all duration-200"
             >
               Take a quick tour
               <ArrowRight size={18} weight="bold" />
