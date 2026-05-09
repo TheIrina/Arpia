@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Cloud, Tree, MapTrifold, Rocket, ArrowRight } from "@phosphor-icons/react";
+import { ArrowRight } from "@phosphor-icons/react";
 
 interface StepProps {
   onNext: (data: { role: string }) => void;
@@ -16,25 +16,25 @@ export function StepRole({ onNext, value }: StepProps) {
       id: "pilot",
       label: "Pilot",
       desc: "I'm here to fly in Roldanillo",
-      icon: <Cloud size={32} weight="light" />,
+      img: "/logo/para.avif",
     },
     {
       id: "tourist",
       label: "Tourist",
       desc: "I want to know the town and its people",
-      icon: <Tree size={32} weight="light" />,
+      img: "/logo/hat.png",
     },
     {
       id: "hiker",
       label: "Hiker",
       desc: "I'm looking for the best hiking routes",
-      icon: <MapTrifold size={32} weight="light" />,
+      img: "/logo/hiking-boots.png",
     },
     {
       id: "beginner",
       label: "Beginner",
       desc: "I want to try paragliding for the first time",
-      icon: <Rocket size={32} weight="light" />,
+      img: "/logo/baby-pacifier.png",
     },
   ];
 
@@ -52,17 +52,19 @@ export function StepRole({ onNext, value }: StepProps) {
             key={role.id}
             type="button"
             onClick={() => setSelectedRole(role.id)}
-            className={`flex flex-col items-center gap-3 p-5 rounded-2xl border-2 transition-all text-center outline-none ${
+            className={`flex flex-col items-center justify-center gap-4 aspect-square p-5 rounded-2xl border-2 transition-all text-center outline-none ${
               selectedRole === role.id
                 ? "border-[#1A1A1A] bg-[#1A1A1A] text-white shadow-lg"
                 : "border-black/5 bg-[#FDFDFD] text-[#1A1A1A] hover:border-black/10"
             }`}
           >
-            <div
-              className={`${selectedRole === role.id ? "text-white" : "text-black/40"}`}
-            >
-              {role.icon}
-            </div>
+            <img
+              src={role.img}
+              alt={role.label}
+              width={64}
+              height={64}
+              className="object-contain"
+            />
             <div className="flex flex-col">
               <span
                 className={`text-sm md:text-base font-medium ${selectedRole === role.id ? "text-white" : "text-[#1A1A1A]"}`}
