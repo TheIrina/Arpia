@@ -53,10 +53,10 @@ export function StepRole({ onNext, value }: StepProps) {
             key={role.id}
             type="button"
             onClick={() => setSelectedRole(role.id)}
-            className={`flex flex-col items-center justify-center gap-3 md:gap-4 p-5 md:p-6 min-h-45 md:min-h-55 rounded-2xl transition-all text-center outline-none ${
+            className={`flex flex-col items-center justify-center gap-3 md:gap-4 p-5 md:p-6 min-h-45 md:min-h-55 rounded-2xl transition-all text-center outline-none border ${
               selectedRole === role.id
                 ? "border-[#1A1A1A] bg-[#1A1A1A] text-white"
-                : "border border-black/3 bg-zinc-50 text-[#1A1A1A] hover:border-black/10"
+                : "border-black/3 bg-zinc-50 text-[#1A1A1A] hover:border-black/10"
             }`}
           >
             <Image

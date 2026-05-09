@@ -41,13 +41,12 @@ export function StepInterests({ onNext, value }: StepProps) {
           <button
             key={item.id}
             onClick={() => toggle(item.id)}
-            className={`flex items-center gap-2 px-6 py-3 rounded-full transition-all text-sm font-medium ${
+            className={`flex items-center gap-2 px-6 py-3 rounded-full transition-all text-sm font-medium border ${
               selected.includes(item.id)
                 ? "border-[#1A1A1A] bg-[#1A1A1A] text-white"
-                : "border border-black/3 bg-zinc-50 text-[#1A1A1A] hover:border-black/10"
+                : "border-black/3 bg-zinc-50 text-[#1A1A1A] hover:border-black/10"
             }`}
           >
-            
             {item.label}
           </button>
         ))}
