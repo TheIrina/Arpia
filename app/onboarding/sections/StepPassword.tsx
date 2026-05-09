@@ -74,20 +74,22 @@ export function StepPassword({ onFinish, isLoading }: StepProps) {
           </div>
         </div>
 
-        <button
-          type="submit"
-          disabled={isLoading || password.length < 8 || !email.includes("@")}
-          className="w-full max-w-sm flex items-center justify-center gap-3 rounded-full bg-[#1A1A1A] text-white py-4 text-sm md:text-base hover:bg-zinc-950 disabled:opacity-30 transition-all font-medium mt-4"
-        >
-          {isLoading ? (
-            <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
-          ) : (
-            <>
-              <CheckCircle size={20} weight="fill" />
-              Finish Registration
-            </>
-          )}
-        </button>
+        <div className="fixed bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-white via-white to-transparent lg:relative lg:p-0 lg:bg-none lg:mt-12">
+          <button
+            type="submit"
+            disabled={isLoading || password.length < 8 || !email.includes("@")}
+            className="w-full lg:w-fit lg:px-12 flex items-center justify-center gap-3 rounded-full bg-[#1A1A1A] text-white py-4 text-sm md:text-base hover:bg-zinc-950 disabled:opacity-30 transition-all font-medium shadow-xl lg:shadow-none"
+          >
+            {isLoading ? (
+              <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
+            ) : (
+              <>
+                <CheckCircle size={20} weight="fill" />
+                Finish Registration
+              </>
+            )}
+          </button>
+        </div>
       </form>
     </div>
   );

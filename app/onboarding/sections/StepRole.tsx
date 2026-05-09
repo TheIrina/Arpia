@@ -39,20 +39,20 @@ export function StepRole({ onNext, value }: StepProps) {
   ];
 
   return (
-    <div className="flex flex-col items-center gap-12 w-full animate-in fade-in slide-in-from-right-4 duration-500">
+    <div className="flex flex-col items-center gap-6 md:gap-12 w-full animate-in fade-in slide-in-from-right-4 duration-500">
       <div className="flex flex-col gap-2 text-center">
         <h1 className="text-lg md:text-xl font-medium tracking-tight text-[#1A1A1A]">
           What is your plan?
         </h1>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 w-full max-w-4xl">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 w-full max-w-4xl">
         {roles.map((role) => (
           <button
             key={role.id}
             type="button"
             onClick={() => setSelectedRole(role.id)}
-            className={`flex flex-col items-center justify-center gap-4 aspect-square p-5 rounded-2xl border-2 transition-all text-center outline-none ${
+            className={`flex flex-col items-center justify-center gap-1.5 md:gap-2 p-3 md:p-5 rounded-2xl border-2 transition-all text-center outline-none ${
               selectedRole === role.id
                 ? "border-[#1A1A1A] bg-[#1A1A1A] text-white shadow-lg"
                 : "border-black/5 bg-[#FDFDFD] text-[#1A1A1A] hover:border-black/10"
@@ -63,7 +63,7 @@ export function StepRole({ onNext, value }: StepProps) {
               alt={role.label}
               width={64}
               height={64}
-              className="object-contain"
+              className="object-contain w-12 h-12 md:w-16 md:h-16"
             />
             <div className="flex flex-col">
               <span
@@ -81,15 +81,17 @@ export function StepRole({ onNext, value }: StepProps) {
         ))}
       </div>
 
-      <button
-        type="button"
-        onClick={() => selectedRole && onNext({ role: selectedRole })}
-        disabled={!selectedRole}
-        className="mt-4 flex items-center justify-center gap-2 rounded-full bg-[#1A1A1A] text-white px-10 py-3.5 text-sm md:text-base hover:bg-zinc-950 transition-all disabled:opacity-20 disabled:cursor-not-allowed"
-      >
-        Continue
-        <ArrowRight size={18} weight="bold" />
-      </button>
+      <div className="fixed bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-white via-white to-transparent lg:relative lg:p-0 lg:bg-none lg:mt-12">
+        <button
+          type="button"
+          onClick={() => selectedRole && onNext({ role: selectedRole })}
+          disabled={!selectedRole}
+          className="w-full lg:w-fit lg:px-12 flex items-center justify-center gap-2 rounded-full bg-[#1A1A1A] text-white py-4 text-sm md:text-base hover:bg-zinc-950 transition-all disabled:opacity-20 disabled:cursor-not-allowed font-medium shadow-xl lg:shadow-none"
+        >
+          Continue
+          <ArrowRight size={18} weight="bold" />
+        </button>
+      </div>
     </div>
   );
 }

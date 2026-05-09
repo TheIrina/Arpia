@@ -53,13 +53,15 @@ export function StepInterests({ onNext, value }: StepProps) {
         ))}
       </div>
 
-      <button
-        onClick={() => onNext({ interests: selected })}
-        className="mt-4 flex items-center justify-center gap-2 rounded-full bg-[#1A1A1A] text-white px-10 py-3.5 text-sm md:text-base hover:bg-zinc-950 transition-all"
-      >
-        Continue
-        <ArrowRight size={18} weight="bold" />
-      </button>
+      <div className="fixed bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-white via-white to-transparent lg:relative lg:p-0 lg:bg-none lg:mt-12">
+        <button
+          onClick={() => onNext({ interests: selected })}
+          className="w-full lg:w-fit lg:px-12 flex items-center justify-center gap-2 rounded-full bg-[#1A1A1A] text-white py-4 text-sm md:text-base hover:bg-zinc-950 transition-all font-medium shadow-xl lg:shadow-none"
+        >
+          Continue
+          <ArrowRight size={18} weight="bold" />
+        </button>
+      </div>
     </div>
   );
 }
