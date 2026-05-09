@@ -34,11 +34,14 @@ export const Hero = () => {
 
           {/* Button Area */}
           <div className="col-span-full lg:col-start-3 lg:col-span-2 row-start-5 md:row-start-4 lg:row-start-3 flex flex-col items-center justify-start pointer-events-auto">
-            <Link href="/login" className="group flex items-center rounded-full">
-              <span className="bg-white text-black font-medium text-[11px] md:text-xs rounded-full px-6 py-2.5 group-hover:bg-gray-200 transition-colors">
+            <Link
+              href="/login"
+              className="group flex items-center rounded-full"
+            >
+              <span className="bg-white text-black rounded-full font-medium py-3 px-8 text-sm md:text-base">
                 Get started now
               </span>
-              <span className="flex items-center justify-center w-9 h-9 rounded-full bg-white text-black group-hover:bg-gray-200 transition-colors text-sm">
+              <span className="flex items-center justify-center w-11 h-11 rounded-full bg-white text-black text-sm md:text-base">
                 <ArrowUpRightIcon weight="bold" />
               </span>
             </Link>

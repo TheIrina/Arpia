@@ -31,7 +31,7 @@ export const Cta = () => {
               </button>
             </div>
           </div>
-          <div className="w-full lg:w-1/2 p-4 flex min-h-[400px]">
+          <div className="w-full lg:w-1/2 p-4 flex min-h-100">
             <div className="relative w-full rounded-lg overflow-hidden">
               <HlsVideo
                 autoPlay
