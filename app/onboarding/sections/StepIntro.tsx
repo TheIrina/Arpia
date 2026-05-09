@@ -2,13 +2,13 @@
 
 import { useState, useRef, useCallback } from "react";
 import {
-  ArrowRight,
   CaretLeft,
   Sparkle,
   Wind,
   MapTrifold,
 } from "@phosphor-icons/react";
 import gsap, { useGSAP } from "@/lib/gsap";
+import { StepAction } from "../components/StepAction";
 
 interface StepProps {
   onNext: () => void;
@@ -173,15 +173,7 @@ export function StepIntro({ onNext, onBack }: StepProps) {
         </div>
 
         {/* Navigation Area */}
-        <div className="mt-8 lg:mt-12">
-          <button
-            onClick={nextSlide}
-            className="w-full lg:w-fit lg:px-12 flex items-center justify-center gap-2 rounded-full bg-[#1A1A1A] text-white py-4 text-sm md:text-base hover:bg-zinc-900 transition-all font-medium shadow-xl lg:shadow-none"
-          >
-            Continue
-            <ArrowRight size={18} weight="bold" />
-          </button>
-        </div>
+        <StepAction onClick={nextSlide} />
       </div>
     </div>
   );

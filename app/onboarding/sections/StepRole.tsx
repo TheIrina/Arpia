@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { ArrowRight } from "@phosphor-icons/react";
+import { StepAction } from "../components/StepAction";
 
 interface StepProps {
   onNext: (data: { role: string }) => void;
@@ -84,17 +84,10 @@ export function StepRole({ onNext, value }: StepProps) {
         ))}
       </div>
 
-      <div className="mt-8 lg:mt-12 w-full flex justify-center">
-        <button
-          type="button"
-          onClick={() => selectedRole && onNext({ role: selectedRole })}
-          disabled={!selectedRole}
-          className="w-full max-w-sm lg:w-fit lg:px-12 flex items-center justify-center gap-2 rounded-full bg-[#1A1A1A] text-white py-4 text-sm md:text-base hover:bg-zinc-950 transition-all disabled:opacity-20 disabled:cursor-not-allowed font-medium shadow-xl lg:shadow-none"
-        >
-          Continue
-          <ArrowRight size={18} weight="bold" />
-        </button>
-      </div>
+      <StepAction
+        onClick={() => selectedRole && onNext({ role: selectedRole })}
+        disabled={!selectedRole}
+      />
     </div>
   );
 }
