@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Cloud, Tree, MapTrifold, ArrowRight } from "@phosphor-icons/react";
+import { Cloud, Tree, MapTrifold, Rocket, ArrowRight } from "@phosphor-icons/react";
 
 interface StepProps {
   onNext: (data: { role: string }) => void;
@@ -30,6 +30,12 @@ export function StepRole({ onNext, value }: StepProps) {
       desc: "I'm looking for the best hiking routes",
       icon: <MapTrifold size={32} weight="light" />,
     },
+    {
+      id: "beginner",
+      label: "Beginner",
+      desc: "I want to try paragliding for the first time",
+      icon: <Rocket size={32} weight="light" />,
+    },
   ];
 
   return (
@@ -40,13 +46,13 @@ export function StepRole({ onNext, value }: StepProps) {
         </h1>
       </div>
 
-      <div className="grid grid-cols-1 gap-3 w-full max-w-md">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 w-full max-w-4xl">
         {roles.map((role) => (
           <button
             key={role.id}
             type="button"
             onClick={() => setSelectedRole(role.id)}
-            className={`flex items-center gap-4 p-5 rounded-2xl border-2 transition-all text-left outline-none ${
+            className={`flex flex-col items-center gap-3 p-5 rounded-2xl border-2 transition-all text-center outline-none ${
               selectedRole === role.id
                 ? "border-[#1A1A1A] bg-[#1A1A1A] text-white shadow-lg"
                 : "border-black/5 bg-[#FDFDFD] text-[#1A1A1A] hover:border-black/10"

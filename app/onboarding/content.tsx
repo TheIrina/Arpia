@@ -11,7 +11,7 @@ import { StepMapStyle } from "./sections/StepMapStyle";
 import { StepInterests } from "./sections/StepInterests";
 import { StepPassword } from "./sections/StepPassword";
 
-type Role = "pilot" | "hiker" | "";
+type Role = "pilot" | "tourist" | "hiker" | "beginner" | "";
 type OnboardingData = {
   email: string;
   name: string;
