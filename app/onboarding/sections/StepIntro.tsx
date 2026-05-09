@@ -122,7 +122,7 @@ export function StepIntro({ onNext, onBack }: StepProps) {
   return (
     <div
       ref={containerRef}
-      className="flex flex-col lg:flex-row items-center justify-center w-full max-w-7xl mx-auto h-full gap-8 lg:gap-20"
+      className="flex flex-col lg:flex-row items-center justify-center w-full max-w-7xl mx-auto h-full gap-6 lg:gap-20"
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
@@ -140,7 +140,7 @@ export function StepIntro({ onNext, onBack }: StepProps) {
 
       {/* Visual Concept Area */}
       <div
-        className={`w-full lg:w-1/2 flex-[1.5] min-h-[45vh] lg:flex-none lg:aspect-square lg:max-h-125 rounded-2xl ${currentSlide.color} flex items-center justify-center overflow-hidden relative border border-black/[0.03]`}
+        className={`w-full lg:w-1/2 flex-1 min-h-[35vh] lg:flex-none lg:aspect-square lg:max-h-125 rounded-2xl ${currentSlide.color} flex items-center justify-center overflow-hidden relative border border-black/[0.03]`}
       >
         <div className="slide-content flex flex-col items-center gap-6">
           {currentSlide.icon}
@@ -173,7 +173,7 @@ export function StepIntro({ onNext, onBack }: StepProps) {
         </div>
 
         {/* Navigation Area */}
-        <div className="fixed bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-white via-white to-transparent lg:relative lg:p-0 lg:bg-none lg:mt-12">
+        <div className="mt-8 lg:mt-12">
           <button
             onClick={nextSlide}
             className="w-full lg:w-fit lg:px-12 flex items-center justify-center gap-2 rounded-full bg-[#1A1A1A] text-white py-4 text-sm md:text-base hover:bg-zinc-900 transition-all font-medium shadow-xl lg:shadow-none"

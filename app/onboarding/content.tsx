@@ -155,7 +155,7 @@ export default function OnboardingContent({ email = "" }: { email?: string }) {
   return (
     <div
       ref={containerRef}
-      className="flex flex-col w-full h-dvh overflow-hidden font-sans bg-white"
+      className="flex flex-col w-full h-dvh font-sans bg-white"
     >
       {/* Entrance transition curtain */}
       <div className="entrance-curtain fixed inset-0 bg-[#0A0A0A] z-100 pointer-events-none" />
