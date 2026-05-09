@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Check, ArrowRight } from "@phosphor-icons/react";
+import { ArrowRight } from "@phosphor-icons/react";
 
 interface StepProps {
   onNext: (data: { interests: string[] }) => void;
@@ -41,13 +41,13 @@ export function StepInterests({ onNext, value }: StepProps) {
           <button
             key={item.id}
             onClick={() => toggle(item.id)}
-            className={`flex items-center gap-2 px-6 py-3 rounded-full border-2 transition-all text-sm font-medium ${
+            className={`flex items-center gap-2 px-6 py-3 rounded-full transition-all text-sm font-medium ${
               selected.includes(item.id)
-                ? "border-black bg-zinc-950 text-white"
-                : "border-black/5 bg-[#FDFDFD] text-[#1A1A1A] hover:border-black/20"
+                ? "border-[#1A1A1A] bg-[#1A1A1A] text-white"
+                : "border border-black/3 bg-zinc-50 text-[#1A1A1A] hover:border-black/10"
             }`}
           >
-            {selected.includes(item.id) && <Check size={16} weight="bold" />}
+            
             {item.label}
           </button>
         ))}

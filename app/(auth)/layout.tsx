@@ -24,9 +24,12 @@ export default function AuthLayout({
   );
 
   return (
-    <div ref={containerRef} className="h-dvh w-full bg-black flex flex-col relative overflow-hidden">
+    <div
+      ref={containerRef}
+      className="h-dvh w-full bg-black flex flex-col relative overflow-hidden"
+    >
       {/* Entrance transition curtain */}
-      <div className="entrance-curtain fixed inset-0 bg-[#0A0A0A] z-[100] pointer-events-none" />
+      <div className="entrance-curtain fixed inset-0 bg-[#0A0A0A] z-100 pointer-events-none" />
 
       {/* Background Video */}
       <HlsVideo

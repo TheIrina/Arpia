@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { ArrowRight } from "@phosphor-icons/react";
 
 interface StepProps {
@@ -16,7 +17,7 @@ export function StepRole({ onNext, value }: StepProps) {
       id: "pilot",
       label: "Pilot",
       desc: "I'm here to fly in Roldanillo",
-      img: "/logo/para.avif",
+      img: "/logo/paraglider-backpack.png",
     },
     {
       id: "tourist",
@@ -46,33 +47,35 @@ export function StepRole({ onNext, value }: StepProps) {
         </h1>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 w-full max-w-4xl">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 w-full max-w-4xl px-2 md:px-0">
         {roles.map((role) => (
           <button
             key={role.id}
             type="button"
             onClick={() => setSelectedRole(role.id)}
-            className={`flex flex-col items-center justify-center gap-1.5 md:gap-2 p-3 md:p-5 rounded-2xl border-2 transition-all text-center outline-none ${
+            className={`flex flex-col items-center justify-center gap-3 md:gap-4 p-5 md:p-6 min-h-45 md:min-h-55 rounded-2xl transition-all text-center outline-none ${
               selectedRole === role.id
-                ? "border-[#1A1A1A] bg-[#1A1A1A] text-white shadow-lg"
-                : "border-black/5 bg-[#FDFDFD] text-[#1A1A1A] hover:border-black/10"
+                ? "border-[#1A1A1A] bg-[#1A1A1A] text-white"
+                : "border border-black/3 bg-zinc-50 text-[#1A1A1A] hover:border-black/10"
             }`}
           >
-            <img
+            <Image
               src={role.img}
               alt={role.label}
               width={64}
               height={64}
-              className="object-contain w-12 h-12 md:w-16 md:h-16"
+              className="object-contain w-16 h-16 md:w-20 md:h-20"
+              quality={100}
+              priority
             />
             <div className="flex flex-col">
               <span
-                className={`text-sm md:text-base font-medium ${selectedRole === role.id ? "text-white" : "text-[#1A1A1A]"}`}
+                className={`text-base md:text-lg font-medium ${selectedRole === role.id ? "text-white" : "text-[#1A1A1A]"}`}
               >
                 {role.label}
               </span>
               <span
-                className={`text-[10px] md:text-xs ${selectedRole === role.id ? "text-white/70" : "text-[#5f666d]"}`}
+                className={`text-xs md:text-sm mt-1 ${selectedRole === role.id ? "text-white/70" : "text-[#5f666d]"}`}
               >
                 {role.desc}
               </span>

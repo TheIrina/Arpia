@@ -95,6 +95,7 @@ export function StepIntro({ onNext, onBack }: StepProps) {
   // Touch event handlers for swipe
   const handleTouchStart = useCallback((e: React.TouchEvent) => {
     touchStartX.current = e.touches[0]?.clientX ?? 0;
+    touchEndX.current = e.touches[0]?.clientX ?? 0;
   }, []);
 
   const handleTouchMove = useCallback((e: React.TouchEvent) => {
@@ -139,7 +140,7 @@ export function StepIntro({ onNext, onBack }: StepProps) {
 
       {/* Visual Concept Area */}
       <div
-        className={`w-full lg:w-1/2 flex-[1.5] min-h-[45vh] lg:flex-none lg:aspect-square lg:max-h-[500px] rounded-2xl ${currentSlide.color} flex items-center justify-center overflow-hidden relative border border-black/[0.03]`}
+        className={`w-full lg:w-1/2 flex-[1.5] min-h-[45vh] lg:flex-none lg:aspect-square lg:max-h-125 rounded-2xl ${currentSlide.color} flex items-center justify-center overflow-hidden relative border border-black/[0.03]`}
       >
         <div className="slide-content flex flex-col items-center gap-6">
           {currentSlide.icon}
@@ -177,7 +178,7 @@ export function StepIntro({ onNext, onBack }: StepProps) {
             onClick={nextSlide}
             className="w-full lg:w-fit lg:px-12 flex items-center justify-center gap-2 rounded-full bg-[#1A1A1A] text-white py-4 text-sm md:text-base hover:bg-zinc-900 transition-all font-medium shadow-xl lg:shadow-none"
           >
-            {slide === slides.length - 1 ? "Get Started" : "Continue"}
+            Continue
             <ArrowRight size={18} weight="bold" />
           </button>
         </div>
