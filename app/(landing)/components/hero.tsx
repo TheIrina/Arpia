@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { HlsVideo } from "@/components/ui/hls-video";
+import { ArrowUpRightIcon } from "@phosphor-icons/react/dist/ssr/ArrowUpRight";
 
 export const Hero = () => {
   return (
-    <section className="relative w-full h-screen p-4 md:py-6 lg:py-8 md:px-8 lg:px-12 text-white font-sans flex flex-col overflow-hidden selection:bg-white selection:text-black">
+    <section className="relative w-full h-dvh p-4 md:py-6 lg:py-8 md:px-8 lg:px-12 text-white font-sans flex flex-col overflow-hidden selection:bg-white selection:text-black">
       {/* Background Video */}
       <HlsVideo
         src="/videos/hls/hero3/hero3.m3u8"
@@ -33,11 +34,13 @@ export const Hero = () => {
 
           {/* Button Area */}
           <div className="col-span-full lg:col-start-3 lg:col-span-2 row-start-5 md:row-start-4 lg:row-start-3 flex flex-col items-center justify-start pointer-events-auto">
-            <Link
-              href="/login"
-              className="bg-white text-black font-medium text-[11px] md:text-xs rounded-full px-6 py-2.5 hover:bg-gray-200 transition-colors flex items-center gap-2"
-            >
-              Get started now ↗
+            <Link href="/login" className="group flex items-center rounded-full">
+              <span className="bg-white text-black font-medium text-[11px] md:text-xs rounded-full px-6 py-2.5 group-hover:bg-gray-200 transition-colors">
+                Get started now
+              </span>
+              <span className="flex items-center justify-center w-9 h-9 rounded-full bg-white text-black group-hover:bg-gray-200 transition-colors text-sm">
+                <ArrowUpRightIcon weight="bold" />
+              </span>
             </Link>
           </div>
 
