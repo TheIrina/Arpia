@@ -161,7 +161,7 @@ export default function OnboardingContent({ email = "" }: { email?: string }) {
       <div className="entrance-curtain fixed inset-0 bg-[#0A0A0A] z-100 pointer-events-none" />
 
       <div className="flex-1 flex flex-col items-center justify-center relative w-full">
-        <header className="absolute top-0 left-0 right-0 p-6 flex items-center justify-between z-20 max-w-7xl mx-auto w-full">
+        <header className="absolute top-0 left-0 right-0 p-4 md:p-6 flex items-center justify-between z-20 max-w-7xl mx-auto w-full">
           {currentStepId !== "intro" ? (
             <button
               onClick={() =>

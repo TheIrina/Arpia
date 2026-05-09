@@ -131,7 +131,7 @@ export function StepIntro({ onNext, onBack }: StepProps) {
       {slide === 0 && (
         <button
           onClick={onBack}
-          className="absolute top-6 left-6 z-20 w-10 h-10 flex items-center justify-center bg-[#1A1A1A] text-white rounded-full hover:bg-zinc-900 transition-all shadow-sm"
+          className="absolute top-4 left-4 md:top-6 md:left-6 z-20 w-10 h-10 flex items-center justify-center bg-[#1A1A1A] text-white rounded-full hover:bg-zinc-900 transition-all shadow-sm"
           aria-label="Go back"
         >
           <CaretLeft size={20} weight="bold" />

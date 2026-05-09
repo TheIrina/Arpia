@@ -21,7 +21,7 @@ export function StepAction({
   className = "",
 }: StepActionProps) {
   return (
-    <div className="fixed bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-white via-white to-transparent lg:relative lg:p-0 lg:bg-none lg:mt-12">
+    <div className="fixed bottom-0 left-0 right-0 p-4 md:p-6 bg-gradient-to-t from-white via-white to-transparent lg:relative lg:p-0 lg:bg-none lg:mt-12">
       <button
         type={type}
         onClick={onClick}
