@@ -1,29 +1,29 @@
 export default function TermsPage() {
   return (
-    <article className="space-y-24 font-sans text-black">
-      <header className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4">
+    <article className="flex flex-col gap-24 font-sans text-black">
+      <header className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4 gap-y-4">
         <div className="col-span-2 md:col-span-8 lg:col-span-5">
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-normal tracking-tighter leading-[1.05] uppercase">
             Términos y Condiciones de Uso
           </h1>
         </div>
-        <div className="col-span-2 md:col-span-8 lg:col-start-7 lg:col-span-6 mt-4 lg:mt-0">
+        <div className="col-span-2 md:col-span-8 lg:col-start-7 lg:col-span-6">
           <p className="text-sm md:text-base text-[#5f666d] leading-relaxed font-medium">
             Última actualización: Abril 2026
           </p>
         </div>
       </header>
 
-      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4">
-        <div className="col-span-2 md:col-span-8 lg:col-span-4 mb-4 lg:mb-0">
-          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase block mb-2">
+      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4 gap-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-span-4 flex flex-col gap-2">
+          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase">
             01
           </span>
           <h2 className="text-xl md:text-2xl font-normal tracking-tight leading-[1.05] uppercase">
             Información General y Aceptación
           </h2>
         </div>
-        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium space-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium flex flex-col gap-4">
           <p>
             Los presentes Términos y Condiciones regulan el acceso y la
             utilización de la plataforma digital, cuyo propósito es proporcionar
@@ -41,23 +41,23 @@ export default function TermsPage() {
         </div>
       </section>
 
-      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4">
-        <div className="col-span-2 md:col-span-8 lg:col-span-4 mb-4 lg:mb-0">
-          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase block mb-2">
+      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4 gap-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-span-4 flex flex-col gap-2">
+          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase">
             02
           </span>
           <h2 className="text-xl md:text-2xl font-normal tracking-tight leading-[1.05] uppercase">
             Objeto del Servicio
           </h2>
         </div>
-        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium space-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium flex flex-col gap-4">
           <p>
             La Plataforma opera exclusivamente como un agregador de contenido
             informativo y una herramienta de consulta. Su finalidad es
             proporcionar datos de soporte para la actividad del parapentismo,
             incluyendo:
           </p>
-          <ul className="list-disc pl-6 space-y-2">
+          <ul className="list-disc pl-6 flex flex-col gap-2">
             <li>Reportes climáticos y predicciones meteorológicas.</li>
             <li>
               Directorios de establecimientos de terceros (alojamiento,
@@ -73,21 +73,21 @@ export default function TermsPage() {
         </div>
       </section>
 
-      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4">
-        <div className="col-span-2 md:col-span-8 lg:col-span-4 mb-4 lg:mb-0">
-          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase block mb-2">
+      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4 gap-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-span-4 flex flex-col gap-2">
+          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase">
             03
           </span>
           <h2 className="text-xl md:text-2xl font-normal tracking-tight leading-[1.05] uppercase">
             Exención y Limitación de Responsabilidad
           </h2>
         </div>
-        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium space-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium flex flex-col gap-4">
           <p>
             Dada la naturaleza inherente de riesgo asociada al parapentismo, se
             establecen las siguientes limitaciones:
           </p>
-          <ul className="space-y-4">
+          <ul className="flex flex-col gap-4">
             <li>
               <strong className="text-black font-medium">
                 Precisión de Datos Climáticos:
@@ -124,16 +124,16 @@ export default function TermsPage() {
         </div>
       </section>
 
-      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4">
-        <div className="col-span-2 md:col-span-8 lg:col-span-4 mb-4 lg:mb-0">
-          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase block mb-2">
+      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4 gap-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-span-4 flex flex-col gap-2">
+          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase">
             04
           </span>
           <h2 className="text-xl md:text-2xl font-normal tracking-tight leading-[1.05] uppercase">
             Propiedad Intelectual
           </h2>
         </div>
-        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium space-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium flex flex-col gap-4">
           <p>
             Todo el contenido disponible en la Plataforma, incluyendo, sin
             limitación, el diseño gráfico, el código fuente, los logotipos, las
@@ -141,7 +141,7 @@ export default function TermsPage() {
             de sus licenciantes.
           </p>
           <p>Se prohíbe de manera expresa y taxativa:</p>
-          <ul className="list-disc pl-6 space-y-2">
+          <ul className="list-disc pl-6 flex flex-col gap-2">
             <li>
               La utilización de técnicas de rastreo web (scraping), minería de
               datos o cualquier método automatizado para la extracción de
@@ -156,22 +156,22 @@ export default function TermsPage() {
         </div>
       </section>
 
-      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4">
-        <div className="col-span-2 md:col-span-8 lg:col-span-4 mb-4 lg:mb-0">
-          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase block mb-2">
+      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4 gap-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-span-4 flex flex-col gap-2">
+          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase">
             05
           </span>
           <h2 className="text-xl md:text-2xl font-normal tracking-tight leading-[1.05] uppercase">
             Protección de Datos Personales (Habeas Data)
           </h2>
         </div>
-        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium space-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium flex flex-col gap-4">
           <p>
             En cumplimiento de la Ley 1581 de 2012 (Colombia), el Usuario otorga
             su autorización para el tratamiento de sus datos personales con las
             siguientes finalidades:
           </p>
-          <ul className="list-disc pl-6 space-y-2">
+          <ul className="list-disc pl-6 flex flex-col gap-2">
             <li>Gestión de la cuenta de usuario.</li>
             <li>
               Envío de alertas climáticas y notificaciones inherentes a la
@@ -188,18 +188,18 @@ export default function TermsPage() {
         </div>
       </section>
 
-      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4">
-        <div className="col-span-2 md:col-span-8 lg:col-span-4 mb-4 lg:mb-0">
-          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase block mb-2">
+      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4 gap-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-span-4 flex flex-col gap-2">
+          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase">
             06
           </span>
           <h2 className="text-xl md:text-2xl font-normal tracking-tight leading-[1.05] uppercase">
             Reglas de Conducta
           </h2>
         </div>
-        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium space-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium flex flex-col gap-4">
           <p>El Usuario se obliga formalmente a:</p>
-          <ul className="list-disc pl-6 space-y-2">
+          <ul className="list-disc pl-6 flex flex-col gap-2">
             <li>
               Suministrar información exacta y veraz durante el proceso de
               registro.
@@ -217,16 +217,16 @@ export default function TermsPage() {
         </div>
       </section>
 
-      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4">
-        <div className="col-span-2 md:col-span-8 lg:col-span-4 mb-4 lg:mb-0">
-          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase block mb-2">
+      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4 gap-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-span-4 flex flex-col gap-2">
+          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase">
             07
           </span>
           <h2 className="text-xl md:text-2xl font-normal tracking-tight leading-[1.05] uppercase">
             Ley Aplicable y Jurisdicción
           </h2>
         </div>
-        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium space-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium flex flex-col gap-4">
           <p>
             Los presentes Términos se rigen e interpretan conforme a las leyes
             de la República de Colombia. Cualquier controversia se someterá a la
@@ -235,16 +235,16 @@ export default function TermsPage() {
         </div>
       </section>
 
-      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4">
-        <div className="col-span-2 md:col-span-8 lg:col-span-4 mb-4 lg:mb-0">
-          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase block mb-2">
+      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4 gap-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-span-4 flex flex-col gap-2">
+          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase">
             08
           </span>
           <h2 className="text-xl md:text-2xl font-normal tracking-tight leading-[1.05] uppercase">
             Modificaciones
           </h2>
         </div>
-        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium space-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium flex flex-col gap-4">
           <p>
             Arpía se reserva el derecho unilateral de modificar o actualizar los
             presentes Términos y Condiciones en cualquier momento. Dichas

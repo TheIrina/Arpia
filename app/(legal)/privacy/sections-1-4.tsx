@@ -3,16 +3,16 @@ import Link from "next/link";
 export function PrivacySections1to4() {
   return (
     <>
-      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4">
-        <div className="col-span-2 md:col-span-8 lg:col-span-4 mb-4 lg:mb-0">
-          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase block mb-2">
+      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4 gap-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-span-4 flex flex-col gap-2">
+          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase">
             01
           </span>
           <h2 className="text-xl md:text-2xl font-normal tracking-tight leading-[1.05] uppercase">
             Identificación del Responsable del Tratamiento
           </h2>
         </div>
-        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium space-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium flex flex-col gap-4">
           <p>
             El responsable del tratamiento de los datos personales es [Insertar
             Nombre o Razón Social del Responsable Legal de ARPÍA] con domicilio
@@ -21,21 +21,21 @@ export function PrivacySections1to4() {
         </div>
       </section>
 
-      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4">
-        <div className="col-span-2 md:col-span-8 lg:col-span-4 mb-4 lg:mb-0">
-          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase block mb-2">
+      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4 gap-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-span-4 flex flex-col gap-2">
+          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase">
             02
           </span>
           <h2 className="text-xl md:text-2xl font-normal tracking-tight leading-[1.05] uppercase">
             Datos Personales Objeto de Tratamiento
           </h2>
         </div>
-        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium space-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium flex flex-col gap-4">
           <p>
             ARPÍA recopila información en diferentes momentos de la interacción
             del Usuario con la Plataforma, incluyendo:
           </p>
-          <ul className="space-y-4">
+          <ul className="flex flex-col gap-4">
             <li>
               <strong className="text-black font-medium">
                 Datos de Identificación y Contacto:
@@ -76,21 +76,21 @@ export function PrivacySections1to4() {
         </div>
       </section>
 
-      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4">
-        <div className="col-span-2 md:col-span-8 lg:col-span-4 mb-4 lg:mb-0">
-          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase block mb-2">
+      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4 gap-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-span-4 flex flex-col gap-2">
+          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase">
             03
           </span>
           <h2 className="text-xl md:text-2xl font-normal tracking-tight leading-[1.05] uppercase">
             Finalidades del Tratamiento de Datos
           </h2>
         </div>
-        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium space-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium flex flex-col gap-4">
           <p>
             Los datos personales de los Usuarios son tratados con las siguientes
             finalidades:
           </p>
-          <ul className="space-y-4">
+          <ul className="flex flex-col gap-4">
             <li>
               <strong className="text-black font-medium">
                 3.1. Prestación del Servicio Principal:
@@ -127,21 +127,21 @@ export function PrivacySections1to4() {
         </div>
       </section>
 
-      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4">
-        <div className="col-span-2 md:col-span-8 lg:col-span-4 mb-4 lg:mb-0">
-          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase block mb-2">
+      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4 gap-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-span-4 flex flex-col gap-2">
+          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase">
             04
           </span>
           <h2 className="text-xl md:text-2xl font-normal tracking-tight leading-[1.05] uppercase">
             Base Legal para el Tratamiento
           </h2>
         </div>
-        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium space-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium flex flex-col gap-4">
           <p>
             ARPÍA trata los datos personales basándose en las siguientes
             legitimaciones:
           </p>
-          <ul className="space-y-4">
+          <ul className="flex flex-col gap-4">
             <li>
               <strong className="text-black font-medium">
                 Ejecución de un Contrato:

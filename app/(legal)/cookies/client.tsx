@@ -1,29 +1,29 @@
 export default function CookiesPage() {
   return (
-    <article className="space-y-24 font-sans text-black">
-      <header className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4">
+    <article className="flex flex-col gap-24 font-sans text-black">
+      <header className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4 gap-y-4">
         <div className="col-span-2 md:col-span-8 lg:col-span-5">
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-normal tracking-tighter leading-[1.05] uppercase">
             Política de Uso de Cookies
           </h1>
         </div>
-        <div className="col-span-2 md:col-span-8 lg:col-start-7 lg:col-span-6 mt-4 lg:mt-0">
+        <div className="col-span-2 md:col-span-8 lg:col-start-7 lg:col-span-6">
           <p className="text-sm md:text-base text-[#5f666d] leading-relaxed font-medium">
             Fecha de la última revisión: Abril 2026
           </p>
         </div>
       </header>
 
-      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4">
-        <div className="col-span-2 md:col-span-8 lg:col-span-4 mb-4 lg:mb-0">
-          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase block mb-2">
+      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4 gap-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-span-4 flex flex-col gap-2">
+          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase">
             01
           </span>
           <h2 className="text-xl md:text-2xl font-normal tracking-tight leading-[1.05] uppercase">
             Definición y Función de las Cookies
           </h2>
         </div>
-        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium space-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium flex flex-col gap-4">
           <p>
             Una cookie es un fichero o dispositivo que se descarga en el equipo
             terminal de un Usuario (ordenador, teléfono móvil, tableta, etc.) al
@@ -34,18 +34,18 @@ export default function CookiesPage() {
         </div>
       </section>
 
-      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4">
-        <div className="col-span-2 md:col-span-8 lg:col-span-4 mb-4 lg:mb-0">
-          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase block mb-2">
+      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4 gap-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-span-4 flex flex-col gap-2">
+          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase">
             02
           </span>
           <h2 className="text-xl md:text-2xl font-normal tracking-tight leading-[1.05] uppercase">
             Tipología de Cookies Utilizadas
           </h2>
         </div>
-        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium space-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium flex flex-col gap-4">
           <p>ARPÍA emplea las siguientes categorías de cookies:</p>
-          <ul className="space-y-4">
+          <ul className="flex flex-col gap-4">
             <li>
               <strong className="text-black font-medium">
                 Cookies Estrictamente Necesarias (Técnicas):
@@ -93,16 +93,16 @@ export default function CookiesPage() {
         </div>
       </section>
 
-      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4">
-        <div className="col-span-2 md:col-span-8 lg:col-span-4 mb-4 lg:mb-0">
-          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase block mb-2">
+      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4 gap-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-span-4 flex flex-col gap-2">
+          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase">
             03
           </span>
           <h2 className="text-xl md:text-2xl font-normal tracking-tight leading-[1.05] uppercase">
             Consentimiento y Gestión de Cookies
           </h2>
         </div>
-        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium space-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium flex flex-col gap-4">
           <p>
             Al acceder a la Plataforma por primera vez, el Usuario es informado
             sobre el uso de cookies y otorga su consentimiento expreso e
@@ -121,16 +121,16 @@ export default function CookiesPage() {
         </div>
       </section>
 
-      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4">
-        <div className="col-span-2 md:col-span-8 lg:col-span-4 mb-4 lg:mb-0">
-          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase block mb-2">
+      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4 gap-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-span-4 flex flex-col gap-2">
+          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase">
             04
           </span>
           <h2 className="text-xl md:text-2xl font-normal tracking-tight leading-[1.05] uppercase">
             Conservación de Datos
           </h2>
         </div>
-        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium space-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium flex flex-col gap-4">
           <p>
             Las cookies mantendrán un periodo de conservación específico que se
             determinará en función de su finalidad. En cualquier circunstancia,

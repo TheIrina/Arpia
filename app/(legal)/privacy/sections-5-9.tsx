@@ -1,21 +1,21 @@
 export function PrivacySections5to9() {
   return (
     <>
-      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4">
-        <div className="col-span-2 md:col-span-8 lg:col-span-4 mb-4 lg:mb-0">
-          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase block mb-2">
+      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4 gap-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-span-4 flex flex-col gap-2">
+          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase">
             05
           </span>
           <h2 className="text-xl md:text-2xl font-normal tracking-tight leading-[1.05] uppercase">
             Comunicación y Transferencia de Datos a Terceros
           </h2>
         </div>
-        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium space-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium flex flex-col gap-4">
           <p>
             ARPÍA no cederá los datos personales de los Usuarios a terceros,
             salvo en los siguientes supuestos:
           </p>
-          <ul className="space-y-4">
+          <ul className="flex flex-col gap-4">
             <li>
               <strong className="text-black font-medium">
                 Proveedores de Servicios:
@@ -45,16 +45,16 @@ export function PrivacySections5to9() {
         </div>
       </section>
 
-      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4">
-        <div className="col-span-2 md:col-span-8 lg:col-span-4 mb-4 lg:mb-0">
-          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase block mb-2">
+      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4 gap-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-span-4 flex flex-col gap-2">
+          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase">
             06
           </span>
           <h2 className="text-xl md:text-2xl font-normal tracking-tight leading-[1.05] uppercase">
             Ejercicio de Derechos del Usuario
           </h2>
         </div>
-        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium space-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium flex flex-col gap-4">
           <p>
             El Usuario podrá ejercer en cualquier momento sus derechos de
             acceso, rectificación, cancelación, oposición, limitación y
@@ -73,16 +73,16 @@ export function PrivacySections5to9() {
         </div>
       </section>
 
-      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4">
-        <div className="col-span-2 md:col-span-8 lg:col-span-4 mb-4 lg:mb-0">
-          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase block mb-2">
+      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4 gap-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-span-4 flex flex-col gap-2">
+          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase">
             07
           </span>
           <h2 className="text-xl md:text-2xl font-normal tracking-tight leading-[1.05] uppercase">
             Plazo de Conservación de Datos
           </h2>
         </div>
-        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium space-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium flex flex-col gap-4">
           <p>
             Los datos personales serán conservados mientras el Usuario mantenga
             activa su cuenta en la Plataforma. Una vez que la cuenta sea
@@ -94,16 +94,16 @@ export function PrivacySections5to9() {
         </div>
       </section>
 
-      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4">
-        <div className="col-span-2 md:col-span-8 lg:col-span-4 mb-4 lg:mb-0">
-          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase block mb-2">
+      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4 gap-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-span-4 flex flex-col gap-2">
+          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase">
             08
           </span>
           <h2 className="text-xl md:text-2xl font-normal tracking-tight leading-[1.05] uppercase">
             Medidas de Seguridad
           </h2>
         </div>
-        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium space-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium flex flex-col gap-4">
           <p>
             ARPÍA adopta las medidas de seguridad técnicas y organizativas
             necesarias para garantizar la seguridad de los datos personales y
@@ -115,16 +115,16 @@ export function PrivacySections5to9() {
         </div>
       </section>
 
-      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4">
-        <div className="col-span-2 md:col-span-8 lg:col-span-4 mb-4 lg:mb-0">
-          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase block mb-2">
+      <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4 gap-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-span-4 flex flex-col gap-2">
+          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase">
             09
           </span>
           <h2 className="text-xl md:text-2xl font-normal tracking-tight leading-[1.05] uppercase">
             Modificaciones a la Política de Privacidad
           </h2>
         </div>
-        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium space-y-4">
+        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium flex flex-col gap-4">
           <p>
             ARPÍA se reserva el derecho de modificar esta Política de Privacidad
             en cualquier momento. Las modificaciones serán notificadas a los
