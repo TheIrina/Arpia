@@ -1,7 +1,13 @@
 "use client";
 
 import { useState, useRef, useCallback } from "react";
-import { ArrowRight, CaretLeft, Sparkle, Wind, MapTrifold } from "@phosphor-icons/react";
+import {
+  ArrowRight,
+  CaretLeft,
+  Sparkle,
+  Wind,
+  MapTrifold,
+} from "@phosphor-icons/react";
 import gsap, { useGSAP } from "@/lib/gsap";
 
 interface StepProps {
@@ -115,7 +121,7 @@ export function StepIntro({ onNext, onBack }: StepProps) {
   return (
     <div
       ref={containerRef}
-      className="flex flex-col lg:flex-row items-center justify-center w-full max-w-7xl mx-auto h-full lg:gap-20"
+      className="flex flex-col lg:flex-row items-center justify-center w-full max-w-7xl mx-auto h-full gap-8 lg:gap-20"
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
@@ -133,7 +139,7 @@ export function StepIntro({ onNext, onBack }: StepProps) {
 
       {/* Visual Concept Area */}
       <div
-        className={`w-full lg:w-1/2 aspect-square max-h-[35vh] lg:max-h-[500px] rounded-[2.5rem] ${currentSlide.color} flex items-center justify-center overflow-hidden relative shadow-sm border border-black/[0.03] mb-8 lg:mb-0`}
+        className={`w-full lg:w-1/2 flex-[1.5] min-h-[45vh] lg:flex-none lg:aspect-square lg:max-h-[500px] rounded-2xl ${currentSlide.color} flex items-center justify-center overflow-hidden relative border border-black/[0.03]`}
       >
         <div className="slide-content flex flex-col items-center gap-6">
           {currentSlide.icon}
@@ -141,7 +147,7 @@ export function StepIntro({ onNext, onBack }: StepProps) {
       </div>
 
       {/* Content Area */}
-      <div className="flex flex-col gap-8 w-full lg:w-1/2 text-center lg:text-left h-full">
+      <div className="flex flex-col justify-center gap-6 lg:gap-8 w-full lg:w-1/2 text-center lg:text-left">
         <div className="flex flex-col gap-6 lg:gap-8">
           <div className="slide-content flex flex-col gap-3">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight text-[#1A1A1A]">
@@ -175,7 +181,6 @@ export function StepIntro({ onNext, onBack }: StepProps) {
             <ArrowRight size={18} weight="bold" />
           </button>
         </div>
-
       </div>
     </div>
   );

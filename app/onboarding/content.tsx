@@ -153,7 +153,10 @@ export default function OnboardingContent({ email = "" }: { email?: string }) {
   const currentStepId = steps[currentStep]?.id;
 
   return (
-    <div ref={containerRef} className="flex flex-col w-full min-h-screen font-sans bg-white">
+    <div
+      ref={containerRef}
+      className="flex flex-col w-full h-dvh overflow-hidden font-sans bg-white"
+    >
       {/* Entrance transition curtain */}
       <div className="entrance-curtain fixed inset-0 bg-[#0A0A0A] z-[100] pointer-events-none" />
 
