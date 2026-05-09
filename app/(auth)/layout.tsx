@@ -10,7 +10,7 @@ export default function AuthLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="min-h-screen w-full bg-black flex flex-col relative overflow-hidden">
+    <div className="h-dvh w-full bg-black flex flex-col relative overflow-hidden">
       {/* Background Video */}
       <HlsVideo
         src="/videos/hls/login/login.m3u8"
