@@ -1,27 +1,13 @@
 "use client";
 
-import { Clock, Broadcast, Phone } from "@phosphor-icons/react";
-
-interface JeepInfo {
-  departureTime: string;
-  meetingPoint: string;
-  spots: number;
-  status: "operating" | "standby";
-}
+import { Broadcast, Phone } from "@phosphor-icons/react";
 
 interface LogisticsData {
-  jeep: JeepInfo;
   radio: { frequency: string; channel?: string };
   emergency: { label: string; phone: string };
 }
 
 const MOCK: LogisticsData = {
-  jeep: {
-    departureTime: "08:30 AM",
-    meetingPoint: "Parque Principal",
-    spots: 4,
-    status: "operating",
-  },
   radio: {
     frequency: "147.400",
     channel: "VHF Local",
@@ -33,40 +19,12 @@ const MOCK: LogisticsData = {
 };
 
 export function Logistics() {
-  const { jeep, radio, emergency } = MOCK;
+  const { radio, emergency } = MOCK;
 
   return (
     <div className="bg-white/5 rounded-3xl divide-y divide-white/[0.04]">
-      {/* Jeep */}
-      <div className="flex items-center gap-3 px-4 py-3 group cursor-pointer hover:bg-white/[0.03] transition-colors">
-        <Clock weight="regular" className="w-3.5 h-3.5 text-white/30 shrink-0" />
-        <div className="flex-1 min-w-0">
-          <div className="flex items-center justify-between">
-            <span className="text-[12px] font-normal text-white">Jeeps al despegue</span>
-            <div className="flex items-center gap-1.5">
-              <div className={[
-                "w-1.5 h-1.5 rounded-full",
-                jeep.status === "operating"
-                  ? "bg-green-500 shadow-[0_0_5px_rgba(34,197,94,0.8)]"
-                  : "bg-yellow-500 shadow-[0_0_5px_rgba(234,179,8,0.8)]",
-              ].join(" ")} />
-              <span className="text-[9px] text-white/40">
-                {jeep.status === "operating" ? "Operando" : "En espera"}
-              </span>
-            </div>
-          </div>
-          <div className="flex items-center gap-3 mt-1">
-            <span className="text-[11px] text-white/60">{jeep.departureTime}</span>
-            <span className="text-[9px] text-white/30">{jeep.meetingPoint}</span>
-          </div>
-        </div>
-        <span className="text-[11px] text-white/30 shrink-0 tabular-nums">
-          {jeep.spots} cupos
-        </span>
-      </div>
-
       {/* Radio */}
-      <div className="flex items-center gap-3 px-4 py-3 cursor-pointer hover:bg-white/[0.03] transition-colors">
+      <div className="flex items-center gap-3 px-4 py-3 cursor-pointer hover:bg-white/[0.03] transition-colors rounded-t-3xl">
         <Broadcast weight="regular" className="w-3.5 h-3.5 text-white/30 shrink-0" />
         <div className="flex-1 min-w-0">
           <div className="flex items-center justify-between">

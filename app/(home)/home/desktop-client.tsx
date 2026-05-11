@@ -7,13 +7,14 @@ import { MapAttribution } from "../components/map-attribution";
 import { DesktopNavbar } from "../components/desktop-navbar";
 import { FlyDecision } from "../components/sidebar/FlyDecision";
 import { LaunchSites } from "../components/sidebar/LaunchSites";
+import { JeepBento } from "../components/sidebar/JeepBento";
 import { ThermalForecast } from "../components/sidebar/ThermalForecast";
 import { Logistics } from "../components/sidebar/Logistics";
 import { PilotReports } from "../components/sidebar/PilotReports";
 
 const MapboxMap = dynamic(() => import("../components/mapbox-map"), {
   ssr: false,
-  loading: () => <div className="w-full h-full bg-[#1e1e1e] animate-pulse" />,
+  loading: () => <div className="w-full h-full bg-[#1e1e1e] animate-pulse" />
 });
 
 const PANEL_LEFT = "calc(1rem + 26.25rem + 0.75rem)";
@@ -34,21 +35,22 @@ export function DesktopClient() {
         <DesktopNavbar />
       </div>
 
-      {/* Sidebar: Atmospheric conditions */}
-      <section className="absolute left-4 top-18 bottom-4 w-105 z-20 flex flex-col gap-2.5 rounded-3xl bg-[#0a0a0a] border border-white/5 text-white/90 p-3 overflow-y-auto overflow-x-hidden scrollbar-none shadow-2xl">
+      {/* Sidebar */}
+      <section className="absolute left-4 top-18 bottom-4 w-105 z-20 flex flex-col gap-2.5 rounded-3xl bg-[#0a0a0a] border border-white/5 text-white/90 p-3 overflow-y-auto overflow-x-hidden shadow-2xl">
         <FlyDecision />
         <LaunchSites />
         <ThermalForecast />
+        <JeepBento />
       </section>
 
-      {/* Services: Toggle + Panel (floating to the right of sidebar) */}
+      {/* Services: Toggle + Panel */}
       <div
         className="absolute top-18 z-20 flex flex-col gap-2.5"
         style={{ left: PANEL_LEFT }}
       >
         <button
           onClick={() => setServicesOpen((prev) => !prev)}
-          className="flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-black/20 backdrop-blur-xs cursor-pointer transition-colors text-[11px] text-white shrink-0 w-fit"
+          className="flex items-center gap-1.5 px-3 py-2 rounded-full bg-[#0a0a0a] border border-white/5 hover:bg-white/[0.03] transition-colors text-[11px] text-white/30 hover:text-white/50 cursor-pointer shadow-lg shrink-0 w-fit"
         >
           {servicesOpen ? (
             <CaretUp weight="regular" className="w-3 h-3" />
