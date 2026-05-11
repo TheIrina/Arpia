@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export const DesktopNavbar = () => {
   return (
-    <nav className="flex items-center gap-2 text-[12px] font-light text-white/50 tracking-wide">
+    <nav className="flex items-center gap-2 text-[12px] font-light text-white tracking-wide">
       <div className="mr-2 flex items-center justify-center p-2 rounded-full bg-black/20 backdrop-blur-xs cursor-pointer">
         {/* Diagonal lines logo */}
         <svg
