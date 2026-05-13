@@ -1,13 +1,12 @@
 import Link from "next/link";
-import { HlsVideo } from "@/components/ui/hls-video";
 import { ArrowUpRightIcon } from "@phosphor-icons/react/dist/ssr/ArrowUpRight";
 
 export const Hero = () => {
   return (
-    <section className="relative w-full h-dvh p-4 md:py-6 lg:py-8 md:px-8 lg:px-12 text-white font-sans flex flex-col overflow-hidden selection:bg-white selection:text-black">
+    <section className="relative w-full aspect-[4/3] min-h-[100dvh] bg-black text-white font-sans flex flex-col selection:bg-white selection:text-black">
       {/* Background Video */}
-      <HlsVideo
-        src="/videos/hls/hero3/hero3.m3u8"
+      <video
+        src="/videos/hero-43.mp4"
         autoPlay
         loop
         muted
@@ -16,12 +15,16 @@ export const Hero = () => {
       />
 
       {/* Dark Overlay for Readability */}
-      <div className="absolute inset-0 bg-black/20 z-0"></div>
+      <div className="absolute inset-0 bg-black/20 z-0 pointer-events-none"></div>
 
-      {/* Grid Container */}
-      <div className="relative z-10 flex-1 w-full overflow-hidden">
+      {/* Fade-out gradient (Hidden from initial view, visible on scroll) */}
+      <div className="absolute top-[100dvh] left-0 w-full h-[calc(100%-100dvh)] bg-white backdrop-blur-xs mask-[linear-gradient(to_bottom,transparent,black_90%)] z-0 pointer-events-none"></div>
+      {/* <div className="absolute top-[100dvh] left-0 w-full h-[calc(100%-100dvh)] bg-gradient-to-b from-white/0 via-white/80 to-white z-0 pointer-events-none"></div> */}
+
+      {/* Grid Container Anchored to Initial Viewport */}
+      <div className="absolute top-0 left-0 w-full h-[100dvh] p-4 md:py-6 lg:py-8 md:px-8 lg:px-12 z-10 overflow-hidden pointer-events-none">
         {/* Foreground Content Grid */}
-        <div className="absolute inset-0 z-10 grid grid-cols-3 grid-rows-8 md:grid-cols-4 md:grid-rows-6 lg:grid-cols-6 lg:grid-rows-4 gap-2 md:gap-3 lg:gap-4 pointer-events-none">
+        <div className="w-full h-full grid grid-cols-3 grid-rows-8 md:grid-cols-4 md:grid-rows-6 lg:grid-cols-6 lg:grid-rows-4 gap-2 md:gap-3 lg:gap-4">
           {/* Main Title Area */}
           <main className="col-span-full row-start-4 md:row-start-3 lg:row-start-2 flex flex-col items-center justify-center text-center pointer-events-auto">
             <h1 className="text-4xl md:text-6xl font-normal tracking-tight mb-2 md:mb-4 text-white">
