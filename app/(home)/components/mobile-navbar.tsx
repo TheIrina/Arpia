@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { MapAttribution } from "./map-attribution";
 import {
   MapTrifoldIcon,
   UserIcon,
@@ -55,6 +56,7 @@ export const MobileNavbar = () => {
           activeTab={activeTab}
           setActiveTab={setActiveTab}
         />
+        <MapAttribution />
       </div>
     </div>
   );

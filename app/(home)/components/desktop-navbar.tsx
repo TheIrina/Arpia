@@ -1,8 +1,12 @@
 import Link from "next/link";
+import { MapAttribution } from "./map-attribution";
 
 export const DesktopNavbar = () => {
   return (
-    <nav className="flex items-center gap-2 text-[12px] font-light text-white tracking-wide">
+    <>
+      <div className="fixed top-0 left-0 w-full h-24 bg-zinc-950/20 backdrop-blur-xs [mask-image:linear-gradient(to_bottom,black_20%,transparent)] z-40 pointer-events-none" />
+      <nav className="flex items-center justify-between w-full text-[12px] font-light text-white tracking-wide relative z-50">
+      <div className="flex items-center gap-2">
       <div className="mr-2 flex items-center justify-center p-2 rounded-full bg-black/20 backdrop-blur-xs cursor-pointer">
         {/* Diagonal lines logo */}
         <svg
@@ -59,6 +63,9 @@ export const DesktopNavbar = () => {
       >
         Crew
       </Link>
+      </div>
+      <MapAttribution />
     </nav>
+    </>
   );
 };
