@@ -5,7 +5,6 @@ import { CaretDown, CaretUp } from "@phosphor-icons/react";
 import { FlyDecision } from "./sidebar/FlyDecision";
 import { LaunchSites } from "./sidebar/LaunchSites";
 import { JeepBento } from "./sidebar/JeepBento";
-import { ThermalForecast } from "./sidebar/ThermalForecast";
 import { Logistics } from "./sidebar/Logistics";
 import { PilotReports } from "./sidebar/PilotReports";
 
@@ -19,7 +18,6 @@ export function DesktopSidebar() {
         <div className="flex flex-col gap-2.5 h-max">
           <FlyDecision />
           <LaunchSites />
-          <ThermalForecast />
           <JeepBento />
         </div>
       </section>

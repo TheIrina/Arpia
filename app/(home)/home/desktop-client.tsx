@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 import { DesktopNavbar } from "../components/desktop-navbar";
 import { DesktopSidebar } from "../components/desktop-sidebar";
+import { ThermalForecast } from "../components/sidebar/ThermalForecast";
 
 const MapboxMap = dynamic(() => import("../components/mapbox-map"), {
   ssr: false,
@@ -23,6 +24,11 @@ export function DesktopClient() {
       </div>
 
       <DesktopSidebar />
+
+      {/* Bottom Thermal Panel */}
+      <div className="absolute bottom-4 left-[28.5rem] right-4 z-20 bg-[#0a0a0a] border border-white/5 p-2 rounded-3xl shadow-2xl pointer-events-auto">
+        <ThermalForecast />
+      </div>
     </main>
   );
 }

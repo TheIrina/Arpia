@@ -24,16 +24,18 @@ const MOCK: ThermalData = {
   ],
 };
 
-function Bar({ rate, maxRate, isCurrent }: { rate: number; maxRate: number; isCurrent: boolean }) {
+function Line({ rate, maxRate, isCurrent }: { rate: number; maxRate: number; isCurrent: boolean }) {
   const height = Math.max((rate / maxRate) * 100, 4);
   return (
-    <div
-      className={[
-        "w-1.5 rounded-full transition-all duration-500",
-        isCurrent ? "bg-white shadow-[0_0_4px_rgba(255,255,255,0.3)]" : "bg-white/20",
-      ].join(" ")}
-      style={{ height: `${height}%` }}
-    />
+    <div className="flex flex-col justify-end items-center h-full w-4 group pb-2">
+      <div
+        className={[
+          "w-[1px] transition-all duration-500",
+          isCurrent ? "bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)]" : "bg-white/30 group-hover:bg-white/60",
+        ].join(" ")}
+        style={{ height: height + '%' }}
+      />
+    </div>
   );
 }
 
@@ -42,49 +44,33 @@ export function ThermalForecast() {
   const currentIndex = forecast.findIndex((f) => f.rate === currentClimbRate);
 
   return (
-    <div className="bg-white/5 rounded-3xl p-5">
-      {/* Header */}
-      <div className="flex items-center gap-2 mb-4">
-        <TrendUp weight="regular" className="w-3.5 h-3.5 text-white/30 shrink-0" />
-        <span className="text-[10px] tracking-widest uppercase text-white/30">
-          Térmica
-        </span>
-      </div>
-
-      {/* Current Climb Rate + Cloudbase */}
-      <div className="flex items-end justify-between mb-5">
-        <div>
-          <div className="flex items-baseline gap-1">
-            <span className="text-3xl font-light text-white tracking-tight">
-              {currentClimbRate}
-            </span>
-            <span className="text-xs text-white/50">m/s</span>
-          </div>
-          <div className="text-[10px] text-white/30 mt-1">
-            Máx hoy {maxClimbRate} m/s
-          </div>
+    <div className="w-full flex items-end justify-between gap-12 h-[80px] px-6">
+      
+      {/* Left Column: Data */}
+      <div className="flex flex-col justify-end pb-1 drop-shadow-md">
+        <div className="flex items-baseline gap-1.5">
+          <span className="text-4xl font-light text-white tracking-tighter leading-none">
+            {currentClimbRate}
+          </span>
+          <span className="text-xs text-white/80 font-medium tracking-widest">M/S</span>
         </div>
-        <div className="text-right">
-          <div className="flex items-center justify-end gap-1.5">
-            <Cloud weight="regular" className="w-3.5 h-3.5 text-white/40" />
-            <span className="text-lg font-light text-white">
-              {cloudbase.toLocaleString()}
-            </span>
-            <span className="text-[10px] text-white/40">m</span>
-          </div>
-          <div className="text-[10px] text-white/30 mt-1">Base de nubes</div>
+        <div className="flex items-center gap-2 mt-2">
+          <TrendUp weight="light" className="w-3.5 h-3.5 text-white/60" />
+          <span className="text-[10px] tracking-widest uppercase text-white/60 font-medium">
+            Máx {maxClimbRate}
+          </span>
         </div>
       </div>
 
-      {/* Forecast Bars */}
-      <div className="flex items-end justify-between h-16 px-1">
+      {/* Middle: Minimalist Graph */}
+      <div className="flex-1 flex items-end justify-between h-full px-8 border-b border-white/10 pb-1">
         {forecast.map((f, i) => (
-          <div key={f.time} className="flex flex-col items-center gap-1.5 flex-1">
-            <Bar rate={f.rate} maxRate={maxClimbRate} isCurrent={i === currentIndex} />
+          <div key={f.time} className="flex flex-col items-center justify-end gap-2 h-full">
+            <Line rate={f.rate} maxRate={maxClimbRate} isCurrent={i === currentIndex} />
             <span
               className={[
-                "text-[9px] tabular-nums",
-                i === currentIndex ? "text-white/70" : "text-white/20",
+                "text-[10px] tabular-nums tracking-widest font-medium",
+                i === currentIndex ? "text-white drop-shadow-md" : "text-white/40",
               ].join(" ")}
             >
               {f.time}
@@ -92,6 +78,23 @@ export function ThermalForecast() {
           </div>
         ))}
       </div>
+
+      {/* Right Column: Cloudbase Data */}
+      <div className="flex flex-col text-right justify-end pb-1 drop-shadow-md">
+        <div className="flex items-baseline justify-end gap-1.5">
+          <span className="text-3xl font-light text-white leading-none tracking-tighter">
+            {cloudbase.toLocaleString()}
+          </span>
+          <span className="text-xs text-white/80 font-medium tracking-widest">M</span>
+        </div>
+        <div className="flex items-center justify-end gap-2 mt-2">
+          <span className="text-[10px] tracking-widest uppercase text-white/60 font-medium">
+            Base Nubes
+          </span>
+          <Cloud weight="light" className="w-3.5 h-3.5 text-white/60" />
+        </div>
+      </div>
+
     </div>
   );
 }
