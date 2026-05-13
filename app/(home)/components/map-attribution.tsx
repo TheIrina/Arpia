@@ -1,22 +1,16 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { createPortal } from "react-dom";
 import { ExclamationMarkIcon } from "@phosphor-icons/react/dist/ssr/ExclamationMark";
 import { XIcon } from "@phosphor-icons/react/dist/ssr/X";
 
 export const MapAttribution = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   return (
     <>
       {/* Background Overlay via Portal to stay behind sidebar (z-20) and nav (z-30/50) */}
-      {mounted && isOpen && createPortal(
+      {isOpen && typeof document !== 'undefined' && createPortal(
         <div
           role="button"
           tabIndex={0}
