@@ -1,12 +1,29 @@
 "use client";
 
+type Condition = "flyable" | "marginal" | "nofly";
+
 interface LaunchSite {
   name: string;
   windSpeed: number;
   windDirection: string;
-  condition: "flyable" | "marginal" | "nofly";
+  condition: Condition;
   optimalTime: string;
 }
+
+const conditions: Record<Condition, { bg: string; label: string }> = {
+  flyable: {
+    bg: "bg-green-500/[0.12]",
+    label: "VOLABLE",
+  },
+  marginal: {
+    bg: "bg-amber-500/[0.12]",
+    label: "MARGINAL",
+  },
+  nofly: {
+    bg: "bg-red-500/[0.15]",
+    label: "NO VOLABLE",
+  },
+};
 
 const SITES: LaunchSite[] = [
   {
@@ -32,33 +49,95 @@ const SITES: LaunchSite[] = [
   },
 ];
 
-const conditionDot: Record<LaunchSite["condition"], string> = {
-  flyable: "bg-green-500 shadow-[0_0_6px_rgba(34,197,94,0.5)]",
-  marginal: "bg-yellow-500 shadow-[0_0_6px_rgba(234,179,8,0.5)]",
-  nofly: "bg-red-500 shadow-[0_0_6px_rgba(239,68,68,0.5)]",
+const directionMap: Record<string, number> = {
+  N: 0,
+  NNE: 22.5,
+  NE: 45,
+  ENE: 67.5,
+  E: 90,
+  ESE: 112.5,
+  SE: 135,
+  SSE: 157.5,
+  S: 180,
+  SSW: 202.5,
+  SW: 225,
+  WSW: 247.5,
+  W: 270,
+  WNW: 292.5,
+  NW: 315,
+  NNW: 337.5,
 };
 
-function SiteRow({ site }: { site: LaunchSite }) {
+function WindArrow({ direction }: { direction: string }) {
+  const rotation = directionMap[direction] ?? 0;
   return (
-    <div className="py-2.5 px-3 rounded-lg hover:bg-white/[0.03] transition-colors cursor-pointer">
-      <div className="flex items-center gap-2">
-        <div
-          className={[
-            "w-2 h-2 rounded-full shrink-0",
-            conditionDot[site.condition],
-          ].join(" ")}
+    <div
+      className="shrink-0 transition-transform duration-700 ease-in-out"
+      style={{ transform: `rotate(${rotation}deg)` }}
+    >
+      <svg
+        width="10"
+        height="10"
+        viewBox="0 0 14 14"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M7 13V1M7 1L3 5M7 1L11 5"
+          stroke="white"
+          strokeWidth="1.2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
-        <span className="text-[13px] text-white">{site.name}</span>
-      </div>
-      <div className="flex items-center justify-between pl-4 mt-0.5">
-        <span className="text-[11px] text-white">
-          {site.windDirection}
-          <span className="text-white/30 mx-1">·</span>
-          {site.windSpeed} km/h
-        </span>
-        <span className="text-[10px] text-white/50 tabular-nums">
-          {site.optimalTime}
-        </span>
+      </svg>
+    </div>
+  );
+}
+
+function SiteRow({ site }: { site: LaunchSite }) {
+  const s = conditions[site.condition];
+
+  return (
+    <div
+      className={["rounded-xl p-4", s.bg].join(" ")}
+    >
+      <div className="flex items-start justify-between gap-4">
+        <div className="flex flex-col gap-4 flex-1">
+          <div className="flex flex-col gap-1">
+            <span className="text-[10px] font-medium tracking-[0.2em] text-white/50 uppercase">
+              {site.name}
+            </span>
+            <span className="text-sm font-light text-white tracking-wide">
+              {s.label}
+            </span>
+          </div>
+
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-1.5">
+              <WindArrow direction={site.windDirection} />
+              <span className="text-sm font-light text-white">
+                {site.windDirection}
+              </span>
+            </div>
+            <div className="flex items-baseline gap-1">
+              <span className="text-sm font-light text-white/80">
+                {site.windSpeed}
+              </span>
+              <span className="text-[10px] text-white/40 font-medium uppercase tracking-[0.2em]">
+                KM/H
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex flex-col items-end shrink-0">
+          <span className="text-[10px] font-medium text-white/50 uppercase tracking-[0.2em]">
+            Óptimo
+          </span>
+          <span className="text-sm font-light text-white tracking-wide">
+            {site.optimalTime}
+          </span>
+        </div>
       </div>
     </div>
   );
@@ -66,12 +145,14 @@ function SiteRow({ site }: { site: LaunchSite }) {
 
 export function LaunchSites() {
   return (
-    <div className="bg-white/5 rounded-t-2xlxl px-2 py-3">
-      <span className="block px-3 mb-0.5 text-[10px] tracking-widest uppercase text-white/30">
-        Despegues
-      </span>
+    <div className="flex flex-col gap-3">
+      <div className="px-1">
+        <span className="text-[10px] font-medium tracking-[0.2em] uppercase text-white/40">
+          Despegues cercanos
+        </span>
+      </div>
 
-      <div className="divide-y divide-white/[0.04]">
+      <div className="flex flex-col gap-2">
         {SITES.map((site) => (
           <SiteRow key={site.name} site={site} />
         ))}
