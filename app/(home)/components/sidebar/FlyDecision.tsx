@@ -102,25 +102,28 @@ export function FlyDecision() {
         </div>
 
         {/* Right: hero wind speed */}
-        <div className="flex flex-col items-end shrink-0 pt-1">
-          <div className="flex items-baseline gap-1">
-            <span className="text-7xl font-light text-white tracking-tighter leading-none">
-              {windSpeed}
-            </span>
-            <div className="flex flex-col items-start">
-              <span className="text-[10px] text-white/40 font-medium uppercase tracking-widest leading-none mb-1">
-                km/h
-              </span>
-              {windGust && (
-                <span className="text-[10px] text-white/60 font-light leading-none">
-                  / {windGust}
-                </span>
-              )}
-            </div>
-          </div>
-          <span className="text-[10px] font-medium tracking-[0.15em] text-white/30 uppercase mt-4">
-            Viento Sostenido
+        <div className="flex flex-col items-end shrink-0">
+          <span className="text-8xl font-light text-white tracking-tighter leading-[0.8]">
+            {windSpeed}
           </span>
+          <div className="flex items-center gap-2 mt-2">
+            <span className="text-[10px] text-white/40 font-medium uppercase tracking-[0.2em]">
+              KM/H
+            </span>
+            {windGust && (
+              <div className="flex items-center gap-2">
+                <span className="text-[10px] text-white/20 font-light">|</span>
+                <div className="flex items-center gap-1">
+                  <span className="text-[9px] text-white/30 uppercase tracking-wider">
+                    Gust
+                  </span>
+                  <span className="text-xs font-medium text-white/80">
+                    {windGust}
+                  </span>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>
