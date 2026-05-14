@@ -36,13 +36,11 @@ export function FlyDecision() {
   const s = conditions[condition];
 
   return (
-    <div className={["rounded-3xl p-5", s.bg].join(" ")}>
+    <div className={["rounded-lg p-5", s.bg].join(" ")}>
       <div className="flex items-center justify-between gap-4">
         {/* Left: condition + wind details */}
         <div className="flex flex-col gap-1.5 flex-1 min-w-0">
-          <span className="text-xs font-normal text-white/90">
-            {s.label}
-          </span>
+          <span className="text-xs font-normal text-white/90">{s.label}</span>
           <div className="text-[11px] text-white leading-relaxed">
             {windDirection}
             {windGust && (
@@ -59,9 +57,7 @@ export function FlyDecision() {
           <span className="text-6xl font-light text-white tracking-tight leading-none">
             {windSpeed}
           </span>
-          <span className="text-xs text-white tracking-widest mt-1">
-            km/h
-          </span>
+          <span className="text-xs text-white tracking-widest mt-1">km/h</span>
         </div>
       </div>
     </div>

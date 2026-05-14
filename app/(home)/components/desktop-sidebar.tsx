@@ -14,7 +14,10 @@ export function DesktopSidebar() {
   return (
     <>
       {/* Sidebar */}
-      <section data-lenis-prevent className="absolute left-4 top-18 bottom-4 w-105 z-20 rounded-3xl bg-[#0a0a0a] border border-white/5 text-white/90 p-3 overflow-y-auto overflow-x-hidden shadow-2xl">
+      <section
+        data-lenis-prevent
+        className="absolute left-4 top-18 bottom-4 w-105 z-20 rounded-2xl bg-[#0a0a0a] border border-white/5 text-white/90 p-3 overflow-y-auto overflow-x-hidden shadow-2xl"
+      >
         <div className="flex flex-col gap-2.5 h-max">
           <FlyDecision />
           <LaunchSites />
@@ -37,7 +40,10 @@ export function DesktopSidebar() {
         </button>
 
         {servicesOpen && (
-          <div data-lenis-prevent className="max-h-[calc(100vh-8rem)] overflow-y-auto scrollbar-none w-72 rounded-3xl bg-[#0a0a0a] border border-white/5 p-3 shadow-2xl">
+          <div
+            data-lenis-prevent
+            className="max-h-[calc(100vh-8rem)] overflow-y-auto scrollbar-none w-72 rounded-2xl bg-[#0a0a0a] border border-white/5 p-3 shadow-2xl"
+          >
             <div className="flex flex-col gap-2.5 h-max">
               <Logistics />
               <PilotReports />

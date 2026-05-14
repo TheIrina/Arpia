@@ -40,15 +40,15 @@ const conditionDot: Record<LaunchSite["condition"], string> = {
 
 function SiteRow({ site }: { site: LaunchSite }) {
   return (
-    <div className="py-2.5 px-3 rounded-xl hover:bg-white/[0.03] transition-colors cursor-pointer">
+    <div className="py-2.5 px-3 rounded-lg hover:bg-white/[0.03] transition-colors cursor-pointer">
       <div className="flex items-center gap-2">
-        <div className={[
-          "w-2 h-2 rounded-full shrink-0",
-          conditionDot[site.condition],
-        ].join(" ")} />
-        <span className="text-[13px] text-white">
-          {site.name}
-        </span>
+        <div
+          className={[
+            "w-2 h-2 rounded-full shrink-0",
+            conditionDot[site.condition],
+          ].join(" ")}
+        />
+        <span className="text-[13px] text-white">{site.name}</span>
       </div>
       <div className="flex items-center justify-between pl-4 mt-0.5">
         <span className="text-[11px] text-white">
@@ -66,7 +66,7 @@ function SiteRow({ site }: { site: LaunchSite }) {
 
 export function LaunchSites() {
   return (
-    <div className="bg-white/5 rounded-3xl px-2 py-3">
+    <div className="bg-white/5 rounded-t-2xlxl px-2 py-3">
       <span className="block px-3 mb-0.5 text-[10px] tracking-widest uppercase text-white/30">
         Despegues
       </span>

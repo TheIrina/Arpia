@@ -22,10 +22,13 @@ export function Logistics() {
   const { radio, emergency } = MOCK;
 
   return (
-    <div className="bg-white/5 rounded-3xl divide-y divide-white/[0.04]">
+    <div className="bg-white/5 rounded-2xl divide-y divide-white/[0.04]">
       {/* Radio */}
-      <div className="flex items-center gap-3 px-4 py-3 cursor-pointer hover:bg-white/[0.03] transition-colors rounded-t-3xl">
-        <Broadcast weight="regular" className="w-3.5 h-3.5 text-white/30 shrink-0" />
+      <div className="flex items-center gap-3 px-4 py-3 cursor-pointer hover:bg-white/[0.03] transition-colors rounded-t-2xl">
+        <Broadcast
+          weight="regular"
+          className="w-3.5 h-3.5 text-white/30 shrink-0"
+        />
         <div className="flex-1 min-w-0">
           <div className="flex items-center justify-between">
             <span className="text-[12px] font-normal text-white">
@@ -38,8 +41,11 @@ export function Logistics() {
       </div>
 
       {/* Emergency */}
-      <div className="flex items-center gap-3 px-4 py-3 cursor-pointer hover:bg-white/[0.03] transition-colors rounded-b-3xl">
-        <Phone weight="regular" className="w-3.5 h-3.5 text-red-500/50 shrink-0" />
+      <div className="flex items-center gap-3 px-4 py-3 cursor-pointer hover:bg-white/[0.03] transition-colors rounded-b-2xl">
+        <Phone
+          weight="regular"
+          className="w-3.5 h-3.5 text-red-500/50 shrink-0"
+        />
         <div className="flex-1 min-w-0">
           <div className="flex items-center justify-between">
             <span className="text-[12px] font-normal text-white">

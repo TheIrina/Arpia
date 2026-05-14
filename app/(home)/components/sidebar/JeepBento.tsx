@@ -47,7 +47,7 @@ function JeepCard({
   isFirst: boolean;
 }) {
   return (
-    <div className="col-span-2 bg-white/5 rounded-3xl p-4 relative group cursor-pointer hover:bg-white/[0.08] transition-colors">
+    <div className="col-span-2 bg-white/5 rounded-lg p-4 relative group cursor-pointer hover:bg-white/[0.08] transition-colors">
       {isFirst && (
         <span className="absolute top-4 left-4 text-[9px] text-green-400/80 bg-green-500/10 px-2 py-0.5 rounded-full">
           Próximo
@@ -55,7 +55,7 @@ function JeepCard({
       )}
 
       {/* Vehicle image placeholder */}
-      <div className="w-full h-16 rounded-2xl bg-zinc-900 mb-3 flex items-center justify-center overflow-hidden">
+      <div className="w-full h-16 rounded-lg bg-zinc-900 mb-3 flex items-center justify-center overflow-hidden">
         <svg
           width="28"
           height="28"
@@ -88,9 +88,7 @@ function JeepCard({
       <div className="text-[11px] text-white/80 leading-tight mb-2">
         Despegue {jeep.destination}
       </div>
-      <div className="text-[10px] text-white/30">
-        {jeep.meetingPoint}
-      </div>
+      <div className="text-[10px] text-white/30">{jeep.meetingPoint}</div>
 
       {/* Spots */}
       <div className="flex items-center gap-1.5 mt-3 pt-2 border-t border-white/[0.04]">
