@@ -12,16 +12,35 @@ interface FlyConditions {
 const conditions: Record<Condition, { bg: string; label: string }> = {
   flyable: {
     bg: "bg-green-500/[0.12]",
-    label: "Volable",
+    label: "VOLABLE",
   },
   marginal: {
     bg: "bg-amber-500/[0.12]",
-    label: "Marginal",
+    label: "MARGINAL",
   },
   nofly: {
     bg: "bg-red-500/[0.15]",
-    label: "No volable",
+    label: "NO VOLABLE",
   },
+};
+
+const directionMap: Record<string, number> = {
+  N: 0,
+  NNE: 22.5,
+  NE: 45,
+  ENE: 67.5,
+  E: 90,
+  ESE: 112.5,
+  SE: 135,
+  SSE: 157.5,
+  S: 180,
+  SSW: 202.5,
+  SW: 225,
+  WSW: 247.5,
+  W: 270,
+  WNW: 292.5,
+  NW: 315,
+  NNW: 337.5,
 };
 
 const MOCK: FlyConditions = {
@@ -34,30 +53,74 @@ const MOCK: FlyConditions = {
 export function FlyDecision() {
   const { windSpeed, windDirection, windGust, condition } = MOCK;
   const s = conditions[condition];
+  const rotation = directionMap[windDirection] ?? 0;
 
   return (
-    <div className={["rounded-lg p-5", s.bg].join(" ")}>
-      <div className="flex items-center justify-between gap-4">
+    <div className={["rounded-2xl p-6", s.bg].join(" ")}>
+      <div className="flex items-start justify-between gap-4">
         {/* Left: condition + wind details */}
-        <div className="flex flex-col gap-1.5 flex-1 min-w-0">
-          <span className="text-xs font-normal text-white/90">{s.label}</span>
-          <div className="text-[11px] text-white leading-relaxed">
-            {windDirection}
-            {windGust && (
-              <>
-                <span className="text-white/30 mx-1.5">·</span>
-                Ráfagas {windGust} km/h
-              </>
-            )}
+        <div className="flex flex-col gap-6 flex-1">
+          <div className="flex flex-col gap-1">
+            <span className="text-[10px] font-medium tracking-[0.2em] text-white/50 uppercase">
+              Estado
+            </span>
+            <span className="text-sm font-light text-white tracking-wide">
+              {s.label}
+            </span>
+          </div>
+
+          <div className="flex flex-col gap-1">
+            <span className="text-[10px] font-medium tracking-[0.2em] text-white/50 uppercase">
+              Dirección
+            </span>
+            <div className="flex items-center gap-2">
+              <div
+                className="transition-transform duration-700 ease-in-out"
+                style={{ transform: `rotate(${rotation}deg)` }}
+              >
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 14 14"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M7 13V1M7 1L3 5M7 1L11 5"
+                    stroke="white"
+                    strokeWidth="1.2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+              <span className="text-sm font-light text-white">
+                {windDirection}
+              </span>
+            </div>
           </div>
         </div>
 
         {/* Right: hero wind speed */}
-        <div className="flex flex-col items-end shrink-0">
-          <span className="text-6xl font-light text-white tracking-tight leading-none">
-            {windSpeed}
+        <div className="flex flex-col items-end shrink-0 pt-1">
+          <div className="flex items-baseline gap-1">
+            <span className="text-7xl font-light text-white tracking-tighter leading-none">
+              {windSpeed}
+            </span>
+            <div className="flex flex-col items-start">
+              <span className="text-[10px] text-white/40 font-medium uppercase tracking-widest leading-none mb-1">
+                km/h
+              </span>
+              {windGust && (
+                <span className="text-[10px] text-white/60 font-light leading-none">
+                  / {windGust}
+                </span>
+              )}
+            </div>
+          </div>
+          <span className="text-[10px] font-medium tracking-[0.15em] text-white/30 uppercase mt-4">
+            Viento Sostenido
           </span>
-          <span className="text-xs text-white tracking-widest mt-1">km/h</span>
         </div>
       </div>
     </div>
