@@ -10,6 +10,7 @@ import { StepRole } from "./sections/StepRole";
 import { StepMapStyle } from "./sections/StepMapStyle";
 import { StepInterests } from "./sections/StepInterests";
 import { StepPassword } from "./sections/StepPassword";
+import { signUp } from "@/lib/auth-client";
 
 type Role = "pilot" | "tourist" | "hiker" | "beginner" | "";
 type OnboardingData = {
@@ -124,6 +125,8 @@ export default function OnboardingContent({ email = "" }: { email?: string }) {
   };
 
   const handleFinish = async (data?: { password: string }) => {
+    const finalPassword = data?.password || "";
+
     if (data?.password) {
       setFormData((prev) => ({ ...prev, password: "" }));
     }
@@ -133,10 +136,30 @@ export default function OnboardingContent({ email = "" }: { email?: string }) {
       localStorage.setItem("arpia_map_style", formData.mapStyle);
     }
 
+    if (!formData.email || !finalPassword) {
+      console.error("Missing email or password");
+      return;
+    }
+
     setIsLoading(true);
-    await new Promise((r) => setTimeout(r, 2000));
-    setIsLoading(false);
-    router.push("/home");
+
+    await signUp.email(
+      {
+        email: formData.email,
+        password: finalPassword,
+        name: formData.name || "User",
+      },
+      {
+        onSuccess: () => {
+          setIsLoading(false);
+          router.push("/home");
+        },
+        onError: (ctx) => {
+          setIsLoading(false);
+          alert(ctx.error.message); // Can be replaced with a toast notification later
+        },
+      },
+    );
   };
 
   const handleBack = () => {

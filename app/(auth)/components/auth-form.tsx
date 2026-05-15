@@ -1,11 +1,13 @@
 "use client";
 
-import { useReducer, useRef } from "react";
+import { useReducer, useRef, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { Eye, EyeSlash, ArrowRight, CaretLeft } from "@phosphor-icons/react";
 import { GoogleIcon } from "./google-icon";
 import { DotLoader } from "@/app/(landing)/components/dots";
 import gsap, { useGSAP } from "@/lib/gsap";
+import { checkEmailExists } from "../actions";
+import { signIn } from "@/lib/auth-client";
 
 const VERTICAL_WIND_FRAMES = [
   [32, 33],
@@ -60,33 +62,52 @@ export function AuthForm() {
     isLoading: false,
   });
 
-  const checkEmail = async (email: string) => {
-    await new Promise((r) => setTimeout(r, 800));
-    return email.endsWith("@arpia.com");
-  };
+  const [isPending, startTransition] = useTransition();
+  const isFormLoading = state.isLoading || isPending;
 
-  const handleContinue = async (e: React.FormEvent) => {
+  const handleContinue = (e: React.FormEvent) => {
     e.preventDefault();
     if (!state.email) return;
 
     dispatch({ isLoading: true });
-    const exists = await checkEmail(state.email);
-    dispatch({ isLoading: false });
-
-    if (exists) {
-      dispatch({ step: "PASSWORD" });
-    } else {
-      router.push(`/onboarding?email=${encodeURIComponent(state.email)}`);
-    }
+    startTransition(async () => {
+      try {
+        const exists = await checkEmailExists(state.email);
+        if (exists) {
+          dispatch({ step: "PASSWORD", isLoading: false });
+        } else {
+          dispatch({ isLoading: false });
+          router.push(`/onboarding?email=${encodeURIComponent(state.email)}`);
+        }
+      } catch (error) {
+        console.error("Failed to check email:", error);
+        dispatch({ isLoading: false });
+      }
+    });
   };
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!state.password) return;
+
     dispatch({ isLoading: true });
-    await new Promise((r) => setTimeout(r, 1500));
-    dispatch({ isLoading: false });
-    router.push("/home");
+
+    await signIn.email(
+      {
+        email: state.email,
+        password: state.password,
+      },
+      {
+        onSuccess: () => {
+          dispatch({ isLoading: false });
+          router.push("/home");
+        },
+        onError: (ctx) => {
+          dispatch({ isLoading: false });
+          alert(ctx.error.message); // Can be replaced with a toast notification later
+        },
+      },
+    );
   };
 
   const isEmailStep = state.step === "EMAIL" || state.step === "PASSWORD";
@@ -99,7 +120,10 @@ export function AuthForm() {
         : "Enter your password";
 
   return (
-    <div ref={containerRef} className="w-full h-full flex flex-col items-center">
+    <div
+      ref={containerRef}
+      className="w-full h-full flex flex-col items-center"
+    >
       {/* Dark glass backdrop for email/password steps — replaces jarring white slide-in */}
       {isEmailStep && (
         <div className="fixed inset-0 bg-zinc-950/60 backdrop-blur-md z-10 animate-in fade-in duration-500" />
@@ -160,10 +184,10 @@ export function AuthForm() {
 
             <button
               type="submit"
-              disabled={state.isLoading || !state.email}
+              disabled={isFormLoading || !state.email}
               className="w-full max-w-sm flex items-center justify-center gap-2 rounded-full bg-white text-[#1A1A1A] py-3.5 text-sm md:text-base hover:bg-zinc-200 disabled:opacity-30 transition-all font-medium"
             >
-              {state.isLoading ? (
+              {isFormLoading ? (
                 <div className="w-5 h-5 border-2 border-[#1A1A1A]/20 border-t-[#1A1A1A] rounded-full animate-spin" />
               ) : (
                 <>
@@ -206,10 +230,10 @@ export function AuthForm() {
 
             <button
               type="submit"
-              disabled={state.isLoading || !state.password}
+              disabled={isFormLoading || !state.password}
               className="w-full max-w-sm flex items-center justify-center gap-2 rounded-full bg-white text-[#1A1A1A] py-3.5 text-sm md:text-base hover:bg-zinc-200 disabled:opacity-30 transition-all font-medium"
             >
-              {state.isLoading ? (
+              {isFormLoading ? (
                 <div className="w-5 h-5 border-2 border-[#1A1A1A]/20 border-t-[#1A1A1A] rounded-full animate-spin" />
               ) : (
                 <>
@@ -227,10 +251,15 @@ export function AuthForm() {
         <div className="fixed bottom-0 left-0 right-0 px-4 pb-8 pt-8 bg-gradient-to-t from-black/80 via-black/40 to-transparent lg:relative lg:p-0 lg:bg-none lg:mt-12 w-full flex flex-col items-center animate-in fade-in slide-in-from-bottom-4 duration-500 z-50">
           <div className="flex flex-col gap-3 w-full lg:max-w-sm">
             <button
-              onClick={() => {
-                /* TODO: Google Auth */
+              onClick={async () => {
+                dispatch({ isLoading: true });
+                await signIn.social({
+                  provider: "google",
+                  callbackURL: "/home",
+                });
               }}
-              className="w-full flex items-center justify-center gap-3 rounded-full border border-black/10 bg-white py-4 text-sm md:text-base font-medium text-[#1A1A1A] hover:bg-zinc-50 transition-all duration-200"
+              disabled={state.isLoading}
+              className="w-full flex items-center justify-center gap-3 rounded-full border border-black/10 bg-white py-4 text-sm md:text-base font-medium text-[#1A1A1A] hover:bg-zinc-50 transition-all duration-200 disabled:opacity-50"
             >
               <GoogleIcon className="w-5 h-5" />
               Continue with Google
