@@ -32,41 +32,44 @@ const reports: Report[] = [
 
 export function PilotReports() {
   return (
-    <div className="rounded-2xl bg-white/5 p-5">
-      <div className="flex items-center justify-between mb-4">
-        <span className="text-[10px] text-white/40 uppercase tracking-widest">
+    <div className="rounded-2xl bg-white/[0.04] p-5">
+      <div className="flex items-center justify-between mb-6">
+        <span className="text-[10px] font-medium tracking-[0.2em] text-white/40 uppercase">
           Reportes
         </span>
-        <span className="text-[9px] text-white/20">{reports.length} hoy</span>
+        <span className="text-[10px] font-light text-white/20">
+          {reports.length} hoy
+        </span>
       </div>
 
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-6">
         {reports.slice(0, 2).map((report, i) => (
-          <div
-            key={i}
-            className="p-2.5 rounded-lg hover:bg-white/[0.03] transition-colors cursor-pointer"
-          >
-            <div className="flex items-center gap-2 mb-1">
-              <span className="text-[10px] text-white/20 flex-shrink-0 w-3 text-center">
+          <div key={i} className="group cursor-pointer">
+            <div className="flex items-start gap-3">
+              <span className="text-sm text-white/20 font-serif leading-none mt-1">
                 &ldquo;
               </span>
-              <span className="text-[11px] text-white/80 font-medium">
-                {report.author}
-              </span>
-              <span className="text-[9px] text-white/20 ml-auto">
-                {report.timeAgo}
-              </span>
+              <div className="flex flex-col gap-1.5 flex-1">
+                <div className="flex items-center justify-between">
+                  <span className="text-sm font-light text-white tracking-wide">
+                    {report.author}
+                  </span>
+                  <span className="text-[10px] text-white/20 font-light">
+                    {report.timeAgo}
+                  </span>
+                </div>
+                <p className="text-xs font-light text-white/50 leading-relaxed pr-2">
+                  {report.message}
+                </p>
+              </div>
             </div>
-            <p className="text-[10px] text-white/50 leading-relaxed pl-5">
-              {report.message}
-            </p>
           </div>
         ))}
       </div>
 
       {reports.length > 2 && (
-        <div className="mt-2 pt-2 border-t border-white/[0.04]">
-          <button className="w-full text-[10px] text-white/30 hover:text-white/50 transition-colors py-1">
+        <div className="mt-5 pt-4 border-t border-white/[0.04]">
+          <button className="w-full text-[10px] font-light text-white/30 hover:text-white/50 transition-colors py-1">
             +{reports.length - 2} reportes mas
           </button>
         </div>

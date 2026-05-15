@@ -4,7 +4,21 @@ import { useReducer, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { Eye, EyeSlash, ArrowRight, CaretLeft } from "@phosphor-icons/react";
 import { GoogleIcon } from "./google-icon";
+import { DotLoader } from "@/app/(landing)/components/dots";
 import gsap, { useGSAP } from "@/lib/gsap";
+
+const VERTICAL_WIND_FRAMES = [
+  [32, 33],
+  [26, 27, 31, 34],
+  [20, 21, 25, 28, 30, 35],
+  [14, 15, 19, 22, 24, 29],
+  [8, 9, 13, 16, 18, 23],
+  [2, 3, 7, 10, 12, 17],
+  [1, 4, 6, 11],
+  [0, 5],
+  [],
+  [],
+];
 
 type AuthStep = "METHOD" | "EMAIL" | "PASSWORD";
 
@@ -28,7 +42,6 @@ export function AuthForm() {
   const { contextSafe } = useGSAP({ scope: containerRef });
 
   const handleTourClick = contextSafe(() => {
-    // Reveal the black curtain and then navigate
     gsap.to(".transition-curtain", {
       autoAlpha: 1,
       duration: 0.8,
@@ -78,21 +91,28 @@ export function AuthForm() {
 
   const isEmailStep = state.step === "EMAIL" || state.step === "PASSWORD";
 
+  const headingText =
+    state.step === "METHOD"
+      ? "Welcome back"
+      : state.step === "EMAIL"
+        ? "Sign in with email"
+        : "Enter your password";
+
   return (
     <div ref={containerRef} className="w-full h-full flex flex-col items-center">
-      {/* White background for email/password steps */}
+      {/* Dark glass backdrop for email/password steps — replaces jarring white slide-in */}
       {isEmailStep && (
-        <div className="fixed inset-0 bg-white z-10 animate-in fade-in duration-300" />
+        <div className="fixed inset-0 bg-zinc-950/60 backdrop-blur-md z-10 animate-in fade-in duration-500" />
       )}
 
-      {/* Dynamic Header with Back Button only for internal steps */}
+      {/* Dynamic Header with Back Button — glassmorphism style matching navbar */}
       {state.step !== "METHOD" && (
         <header className="absolute top-0 left-0 right-0 p-6 flex items-center justify-between z-20 max-w-7xl mx-auto w-full">
           <button
             onClick={() =>
               dispatch({ step: state.step === "PASSWORD" ? "EMAIL" : "METHOD" })
             }
-            className="w-10 h-10 flex items-center justify-center bg-[#1A1A1A] text-white rounded-full hover:bg-zinc-900 transition-all shadow-sm"
+            className="w-10 h-10 flex items-center justify-center bg-white/10 backdrop-blur-sm border border-white/10 text-white rounded-full hover:bg-white/20 transition-all"
             aria-label="Go back"
           >
             <CaretLeft size={20} weight="bold" />
@@ -101,19 +121,26 @@ export function AuthForm() {
         </header>
       )}
 
+      {/* Step Content */}
       <div className="flex-1 flex flex-col items-center justify-center w-full animate-in fade-in slide-in-from-right-4 duration-500 relative z-20">
-        {/* Header Text */}
-        <div className="flex flex-col gap-2 text-center mb-12">
-          <h1 className={`text-lg md:text-xl font-medium tracking-tight ${isEmailStep ? "text-[#1A1A1A]" : "text-white"}`}>
-            {state.step === "METHOD"
-              ? "Welcome back"
-              : state.step === "EMAIL"
-                ? "Sign in with email"
-                : "Enter your password"}
-          </h1>
+        {/* DotLoader brand mark — same wind animation as the navbar */}
+        <div className="mb-3">
+          <DotLoader
+            frames={VERTICAL_WIND_FRAMES}
+            duration={120}
+            activeDotClassName="bg-white"
+            inactiveDotClassName="bg-white/20"
+            dotSizeClassName="w-1 h-1"
+            gapClassName="gap-0.5"
+          />
         </div>
 
-
+        {/* Header Text — consistent white, no switching to dark */}
+        <div className="flex flex-col gap-2 text-center mb-12">
+          <h1 className="text-lg md:text-xl font-medium tracking-tight text-white">
+            {headingText}
+          </h1>
+        </div>
 
         {state.step === "EMAIL" && (
           <form
@@ -128,16 +155,16 @@ export function AuthForm() {
               value={state.email}
               onChange={(e) => dispatch({ email: e.target.value })}
               placeholder="Email address"
-              className="w-full bg-transparent py-4 text-4xl md:text-6xl text-[#1A1A1A] outline-none transition-colors font-medium placeholder:text-[#1A1A1A]/30 caret-[#1A1A1A] text-center"
+              className="w-full bg-transparent py-4 text-4xl md:text-6xl text-white outline-none transition-colors font-medium placeholder:text-white/20 caret-white text-center"
             />
 
             <button
               type="submit"
               disabled={state.isLoading || !state.email}
-              className="w-full max-w-sm flex items-center justify-center gap-2 rounded-full bg-[#1A1A1A] text-white py-3.5 text-sm md:text-base hover:bg-zinc-900 disabled:opacity-30 transition-all font-medium"
+              className="w-full max-w-sm flex items-center justify-center gap-2 rounded-full bg-white text-[#1A1A1A] py-3.5 text-sm md:text-base hover:bg-zinc-200 disabled:opacity-30 transition-all font-medium"
             >
               {state.isLoading ? (
-                <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
+                <div className="w-5 h-5 border-2 border-[#1A1A1A]/20 border-t-[#1A1A1A] rounded-full animate-spin" />
               ) : (
                 <>
                   Continue
@@ -162,12 +189,12 @@ export function AuthForm() {
                 value={state.password}
                 onChange={(e) => dispatch({ password: e.target.value })}
                 placeholder="Password"
-                className="w-full bg-transparent py-4 text-4xl md:text-6xl text-[#1A1A1A] outline-none transition-colors font-medium placeholder:text-[#1A1A1A]/30 caret-[#1A1A1A] text-center"
+                className="w-full bg-transparent py-4 text-4xl md:text-6xl text-white outline-none transition-colors font-medium placeholder:text-white/20 caret-white text-center"
               />
               <button
                 type="button"
                 onClick={() => dispatch({ showPassword: !state.showPassword })}
-                className="absolute right-0 top-1/2 -translate-y-1/2 text-[#1A1A1A]/40 hover:text-[#1A1A1A] transition-colors px-2"
+                className="absolute right-0 top-1/2 -translate-y-1/2 text-white/30 hover:text-white transition-colors px-2"
               >
                 {state.showPassword ? (
                   <EyeSlash size={32} />
@@ -180,10 +207,10 @@ export function AuthForm() {
             <button
               type="submit"
               disabled={state.isLoading || !state.password}
-              className="w-full max-w-sm flex items-center justify-center gap-2 rounded-full bg-[#1A1A1A] text-white py-3.5 text-sm md:text-base hover:bg-zinc-900 disabled:opacity-30 transition-all font-medium"
+              className="w-full max-w-sm flex items-center justify-center gap-2 rounded-full bg-white text-[#1A1A1A] py-3.5 text-sm md:text-base hover:bg-zinc-200 disabled:opacity-30 transition-all font-medium"
             >
               {state.isLoading ? (
-                <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
+                <div className="w-5 h-5 border-2 border-[#1A1A1A]/20 border-t-[#1A1A1A] rounded-full animate-spin" />
               ) : (
                 <>
                   Sign in
@@ -195,7 +222,7 @@ export function AuthForm() {
         )}
       </div>
 
-      {/* Buttons outside the transform context so fixed positioning works correctly */}
+      {/* Method step buttons — matching landing page glassmorphism style */}
       {state.step === "METHOD" && (
         <div className="fixed bottom-0 left-0 right-0 px-4 pb-8 pt-8 bg-gradient-to-t from-black/80 via-black/40 to-transparent lg:relative lg:p-0 lg:bg-none lg:mt-12 w-full flex flex-col items-center animate-in fade-in slide-in-from-bottom-4 duration-500 z-50">
           <div className="flex flex-col gap-3 w-full lg:max-w-sm">
@@ -211,7 +238,7 @@ export function AuthForm() {
 
             <button
               onClick={handleTourClick}
-              className="w-full flex items-center justify-center gap-3 rounded-full bg-zinc-950/20 backdrop-blur-xs text-white py-4 text-sm md:text-base font-medium hover:bg-zinc-950/30 transition-all duration-200"
+              className="w-full flex items-center justify-center gap-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white py-4 text-sm md:text-base font-medium hover:bg-white/20 transition-all duration-200"
             >
               Take a quick tour
               <ArrowRight size={18} weight="bold" />
@@ -219,7 +246,7 @@ export function AuthForm() {
 
             <button
               onClick={() => dispatch({ step: "EMAIL" })}
-              className="mt-2 text-sm text-white/60 hover:text-white transition-colors"
+              className="mt-2 text-sm text-white/50 hover:text-white transition-colors"
             >
               Sign in with email
             </button>
