@@ -4,7 +4,13 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import { MobileClient } from "./mobile-client";
 import { DesktopClient } from "./desktop-client";
 
-export default function AppHomeClient() {
+import { WeatherData } from "@/lib/weather";
+
+export default function AppHomeClient({
+  weatherData,
+}: {
+  weatherData: WeatherData;
+}) {
   return (
     <div className="h-screen w-screen bg-white text-black overflow-hidden font-sans selection:bg-zinc-950 selection:text-white">
       {/* Mobile View */}
@@ -14,7 +20,7 @@ export default function AppHomeClient() {
 
       {/* Desktop View */}
       <div className="hidden md:block w-full h-full">
-        <DesktopClient />
+        <DesktopClient weatherData={weatherData} />
       </div>
     </div>
   );

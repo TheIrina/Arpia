@@ -7,6 +7,9 @@ export const metadata: Metadata = {
     "Your pilot dashboard — view flight plans, live weather, stats, and connect with the paragliding community.",
 };
 
-export default function AppHomePage() {
-  return <AppHomeClient />;
+import { getWeatherData } from "@/lib/weather";
+
+export default async function AppHomePage() {
+  const weatherData = await getWeatherData();
+  return <AppHomeClient weatherData={weatherData} />;
 }

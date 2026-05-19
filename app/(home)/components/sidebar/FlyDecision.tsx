@@ -1,13 +1,6 @@
 "use client";
 
-type Condition = "flyable" | "marginal" | "nofly";
-
-interface FlyConditions {
-  windSpeed: number;
-  windDirection: string;
-  windGust?: number;
-  condition: Condition;
-}
+import { FlyConditions, Condition } from "@/lib/weather";
 
 const conditions: Record<Condition, { bg: string; label: string }> = {
   flyable: {
@@ -43,17 +36,11 @@ const directionMap: Record<string, number> = {
   NNW: 337.5,
 };
 
-const MOCK: FlyConditions = {
-  windSpeed: 18,
-  windDirection: "SE",
-  windGust: 24,
-  condition: "flyable",
-};
-
-export function FlyDecision() {
-  const { windSpeed, windDirection, windGust, condition } = MOCK;
+export function FlyDecision({ data }: { data: FlyConditions }) {
+  const { windSpeed, windDirection, windGust, condition } = data;
   const s = conditions[condition];
   const rotation = directionMap[windDirection] ?? 0;
+  const formattedSpeed = windSpeed.toString().padStart(2, "0");
 
   return (
     <div className={["rounded-2xl p-6", s.bg].join(" ")}>
@@ -104,7 +91,7 @@ export function FlyDecision() {
         {/* Right: hero wind speed */}
         <div className="flex flex-col items-end shrink-0">
           <span className="text-8xl font-light text-white tracking-tighter leading-[0.8]">
-            {windSpeed}
+            {formattedSpeed}
           </span>
           <div className="flex items-center gap-2 mt-2">
             <span className="text-[10px] text-white/40 font-medium uppercase tracking-[0.2em]">

@@ -8,7 +8,15 @@ import { JeepBento } from "./sidebar/JeepBento";
 import { Logistics } from "./sidebar/Logistics";
 import { PilotReports } from "./sidebar/PilotReports";
 
-export function DesktopSidebar() {
+import { FlyConditions, LaunchSite } from "@/lib/weather";
+
+export function DesktopSidebar({
+  flyData,
+  launchSitesData,
+}: {
+  flyData: FlyConditions;
+  launchSitesData: LaunchSite[];
+}) {
   const [servicesOpen, setServicesOpen] = useState(false);
 
   return (
@@ -19,8 +27,8 @@ export function DesktopSidebar() {
         className="absolute left-4 top-18 bottom-4 w-105 z-20 rounded-2xl bg-[#0a0a0a] border border-white/5 text-white/90 p-3 overflow-y-auto overflow-x-hidden shadow-2xl"
       >
         <div className="flex flex-col gap-2.5 h-max">
-          <FlyDecision />
-          <LaunchSites />
+          <FlyDecision data={flyData} />
+          <LaunchSites sites={launchSitesData} />
           <JeepBento />
         </div>
       </section>

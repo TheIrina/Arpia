@@ -1,14 +1,6 @@
 "use client";
 
-type Condition = "flyable" | "marginal" | "nofly";
-
-interface LaunchSite {
-  name: string;
-  windSpeed: number;
-  windDirection: string;
-  condition: Condition;
-  optimalTime: string;
-}
+import { LaunchSite, Condition } from "@/lib/weather";
 
 const conditions: Record<Condition, { bg: string; label: string }> = {
   flyable: {
@@ -24,30 +16,6 @@ const conditions: Record<Condition, { bg: string; label: string }> = {
     label: "NO VOLABLE",
   },
 };
-
-const SITES: LaunchSite[] = [
-  {
-    name: "Aguaclara",
-    windSpeed: 18,
-    windDirection: "SE",
-    condition: "flyable",
-    optimalTime: "10:30",
-  },
-  {
-    name: "Los Tanques",
-    windSpeed: 28,
-    windDirection: "NW",
-    condition: "marginal",
-    optimalTime: "8:00",
-  },
-  {
-    name: "La Pista",
-    windSpeed: 14,
-    windDirection: "S",
-    condition: "flyable",
-    optimalTime: "11:00",
-  },
-];
 
 const directionMap: Record<string, number> = {
   N: 0,
@@ -96,11 +64,10 @@ function WindArrow({ direction }: { direction: string }) {
 
 function SiteRow({ site }: { site: LaunchSite }) {
   const s = conditions[site.condition];
+  const formattedSpeed = site.windSpeed.toString().padStart(2, "0");
 
   return (
-    <div
-      className={["rounded-xl p-4", s.bg].join(" ")}
-    >
+    <div className={["rounded-xl p-4", s.bg].join(" ")}>
       <div className="flex items-start justify-between gap-4">
         <div className="flex flex-col gap-4 flex-1">
           <div className="flex flex-col gap-1">
@@ -121,7 +88,7 @@ function SiteRow({ site }: { site: LaunchSite }) {
             </div>
             <div className="flex items-baseline gap-1">
               <span className="text-sm font-light text-white/80">
-                {site.windSpeed}
+                {formattedSpeed}
               </span>
               <span className="text-[10px] text-white/40 font-medium uppercase tracking-[0.2em]">
                 KM/H
@@ -143,7 +110,7 @@ function SiteRow({ site }: { site: LaunchSite }) {
   );
 }
 
-export function LaunchSites() {
+export function LaunchSites({ sites }: { sites: LaunchSite[] }) {
   return (
     <div className="flex flex-col gap-3">
       <div className="px-1">
@@ -153,7 +120,7 @@ export function LaunchSites() {
       </div>
 
       <div className="flex flex-col gap-2">
-        {SITES.map((site) => (
+        {sites.map((site) => (
           <SiteRow key={site.name} site={site} />
         ))}
       </div>
