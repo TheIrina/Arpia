@@ -15,11 +15,21 @@ export interface LaunchSite {
   optimalTime: string;
 }
 
+export interface ThermalForecastItem {
+  time: string;
+  rate: number;         // m/s
+  cloudbase: number;    // meters
+  temp: number;         // °C
+  cloudcover: number;   // %
+  windSpeed: number;    // km/h
+  windDirection: string;// direction
+}
+
 export interface ThermalData {
   currentClimbRate: number; // m/s
   maxClimbRate: number;
   cloudbase: number; // meters
-  forecast: { time: string; rate: number }[];
+  forecast: ThermalForecastItem[];
 }
 
 export interface WeatherData {
@@ -126,49 +136,76 @@ export async function getWeatherData(): Promise<WeatherData> {
     const forecast = [];
     let maxClimbRate = 0;
 
-    if (hourIndex !== -1) {
-      // Get next 7 hours of daytime
-      for (let i = 0; i < 7; i++) {
-        const idx = hourIndex + i;
-        if (idx >= data.hourly.time.length) break;
+    if (hourIndex !== -1 && data.current_weather?.time) {
+      const [dateStr, timeStr] = data.current_weather.time.split("T");
+      const currentHour = parseInt(timeStr.split(":")[0]);
 
-        const timeStr = data.hourly.time[idx].split("T")[1]; // "14:00"
-        const hour = timeStr.split(":")[0] + "h";
+      let targetDateStr = dateStr;
+      // If past 5 PM (17h), look ahead to tomorrow's thermal forecast to help paragliders plan ahead
+      if (currentHour >= 17) {
+        const d = new Date(dateStr + "T00:00:00");
+        d.setDate(d.getDate() + 1);
+        const yyyy = d.getFullYear();
+        const mm = String(d.getMonth() + 1).padStart(2, "0");
+        const dd = String(d.getDate()).padStart(2, "0");
+        targetDateStr = `${yyyy}-${mm}-${dd}`;
+      }
 
-        const temp = data.hourly.temperature_2m[idx];
-        const cloudcover = data.hourly.cloudcover[idx];
+      // Populate thermal active hours (10h to 17h)
+      for (let h = 10; h <= 17; h++) {
+        const targetIso = `${targetDateStr}T${h.toString().padStart(2, "0")}:00`;
+        const idx = data.hourly.time.findIndex((t: string) => t === targetIso);
+        if (idx !== -1) {
+          const temp = data.hourly.temperature_2m[idx];
+          const cloudcover = data.hourly.cloudcover[idx];
+          const hourlyWindSpeed = Math.round(data.hourly.wind_speed_10m[idx]);
+          const hourlyWindDir = getWindDirectionStr(data.hourly.wind_direction_10m[idx]);
 
-        // Very rough mock calculation: more temp & less clouds = better thermals
-        // Base thermal rate ~ 0 to 5 m/s
-        let rate = (temp - 20) * 0.5 + (100 - cloudcover) * 0.02;
-        rate = Math.max(0, Math.min(6, rate)); // Clamp 0 to 6
-        rate = Math.round(rate * 10) / 10;
+          // Mock thermal climb rate calculation:
+          // Warm temps and low clouds maximize lift
+          let rate = (temp - 20) * 0.5 + (100 - cloudcover) * 0.02;
+          rate = Math.max(0.5, Math.min(6.0, rate)); // Realistic thermals in Roldanillo range from 0.5 to 6.0 m/s
+          rate = Math.round(rate * 10) / 10;
 
-        if (rate > maxClimbRate) maxClimbRate = rate;
+          if (rate > maxClimbRate) maxClimbRate = rate;
 
-        forecast.push({ time: hour, rate });
+          const hourlyCloudbase = Math.round(2000 + (temp - 20) * 120 - cloudcover * 5);
+
+          forecast.push({
+            time: `${h}h`,
+            rate,
+            cloudbase: Math.max(1000, hourlyCloudbase),
+            temp: Math.round(temp),
+            cloudcover: Math.round(cloudcover),
+            windSpeed: hourlyWindSpeed,
+            windDirection: hourlyWindDir,
+          });
+        }
       }
     }
 
     const currentClimbRate = forecast.length > 0 ? (forecast[0]?.rate ?? 0) : 0;
     const cloudbase =
       hourIndex !== -1
-        ? Math.round(2000 + (data.hourly.temperature_2m[hourIndex] - 20) * 100)
+        ? Math.round(2000 + (data.hourly.temperature_2m[hourIndex] - 20) * 120 - data.hourly.cloudcover[hourIndex] * 5)
         : 2100;
 
     const thermalData: ThermalData = {
       currentClimbRate,
-      maxClimbRate: Math.max(maxClimbRate, 1), // Avoid 0 max
+      maxClimbRate: Math.max(maxClimbRate, 1.0), // Avoid 0 max
       cloudbase,
       forecast:
         forecast.length > 0
           ? forecast
           : [
-              { time: "10h", rate: 2.1 },
-              { time: "11h", rate: 3.2 },
-              { time: "12h", rate: 4.1 },
-              { time: "13h", rate: 4.5 },
-              { time: "14h", rate: 3.8 },
+              { time: "10h", rate: 2.1, cloudbase: 1950, temp: 24, cloudcover: 30, windSpeed: 12, windDirection: "ESE" },
+              { time: "11h", rate: 3.2, cloudbase: 2100, temp: 26, cloudcover: 25, windSpeed: 14, windDirection: "SE" },
+              { time: "12h", rate: 4.1, cloudbase: 2300, temp: 28, cloudcover: 15, windSpeed: 15, windDirection: "SE" },
+              { time: "13h", rate: 4.5, cloudbase: 2400, temp: 29, cloudcover: 10, windSpeed: 17, windDirection: "SSE" },
+              { time: "14h", rate: 3.8, cloudbase: 2200, temp: 27, cloudcover: 20, windSpeed: 16, windDirection: "SE" },
+              { time: "15h", rate: 2.9, cloudbase: 2100, temp: 26, cloudcover: 25, windSpeed: 15, windDirection: "ESE" },
+              { time: "16h", rate: 1.8, cloudbase: 1900, temp: 24, cloudcover: 35, windSpeed: 12, windDirection: "SE" },
+              { time: "17h", rate: 0.8, cloudbase: 1700, temp: 22, cloudcover: 45, windSpeed: 9, windDirection: "ESE" },
             ],
     };
 
@@ -199,7 +236,16 @@ export async function getWeatherData(): Promise<WeatherData> {
         currentClimbRate: 3.2,
         maxClimbRate: 4.5,
         cloudbase: 2100,
-        forecast: [{ time: "10h", rate: 2.1 }],
+        forecast: [
+          { time: "10h", rate: 2.1, cloudbase: 1950, temp: 24, cloudcover: 30, windSpeed: 12, windDirection: "ESE" },
+          { time: "11h", rate: 3.2, cloudbase: 2100, temp: 26, cloudcover: 25, windSpeed: 14, windDirection: "SE" },
+          { time: "12h", rate: 4.1, cloudbase: 2300, temp: 28, cloudcover: 15, windSpeed: 15, windDirection: "SE" },
+          { time: "13h", rate: 4.5, cloudbase: 2400, temp: 29, cloudcover: 10, windSpeed: 17, windDirection: "SSE" },
+          { time: "14h", rate: 3.8, cloudbase: 2200, temp: 27, cloudcover: 20, windSpeed: 16, windDirection: "SE" },
+          { time: "15h", rate: 2.9, cloudbase: 2100, temp: 26, cloudcover: 25, windSpeed: 15, windDirection: "ESE" },
+          { time: "16h", rate: 1.8, cloudbase: 1900, temp: 24, cloudcover: 35, windSpeed: 12, windDirection: "SE" },
+          { time: "17h", rate: 0.8, cloudbase: 1700, temp: 22, cloudcover: 45, windSpeed: 9, windDirection: "ESE" },
+        ],
       },
     };
   }
