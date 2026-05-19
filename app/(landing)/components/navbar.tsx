@@ -34,7 +34,7 @@ export const Navbar = () => {
             <span className="text-2xl md:text-3xl tracking-tight">Arpia</span>
           </div>
 
-          <div className="hidden md:flex md:col-start-2 lg:col-start-3 md:col-span-2 lg:col-span-2 items-center justify-between w-full text-[11px] font-medium tracking-wide pointer-events-auto">
+          <div className="hidden md:flex md:col-start-2 lg:col-start-3 md:col-span-2 lg:col-span-2 items-center justify-between w-full text-sm font-medium tracking-wide pointer-events-auto">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.label}
@@ -47,12 +47,20 @@ export const Navbar = () => {
           </div>
 
           <div className="md:col-start-4 lg:col-start-6 flex items-start justify-end pointer-events-auto">
-            <Link
-              href="/login"
-              className="hidden md:flex items-center gap-2 text-sm font-medium border border-white/30 rounded-full px-5 py-2 hover:bg-white hover:text-black transition-colors bg-black/10 backdrop-blur-sm"
-            >
-              Register now ↗
-            </Link>
+            <div className="hidden md:flex items-center gap-3">
+              <Link
+                href="/login"
+                className="flex items-center gap-2 text-sm font-medium border border-white/30 rounded-full px-5 py-2 hover:bg-white hover:text-black transition-colors bg-black/10 backdrop-blur-sm"
+              >
+                Log in
+              </Link>
+              <Link
+                href="/login"
+                className="flex items-center gap-2 text-sm font-medium border border-white bg-white text-black rounded-full px-5 py-2 hover:bg-white/90 transition-colors backdrop-blur-sm"
+              >
+                Sign up
+              </Link>
+            </div>
           </div>
         </div>
       </div>
