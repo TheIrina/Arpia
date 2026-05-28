@@ -2,8 +2,11 @@ import Link from "next/link";
 
 export const Footer = () => {
   return (
-    <footer className="w-full bg-white text-black px-4 pt-24 pb-12 md:px-8 lg:px-12">
-      <div className="max-w-screen-2xl mx-auto flex flex-col gap-16 md:gap-24">
+    <footer className="relative w-full bg-black text-white px-4 pt-24 pb-12 md:px-8 lg:px-12">
+      {/* Fade transition from previous section */}
+      <div className="absolute -top-32 left-0 w-full h-32 bg-black backdrop-blur-md mask-[linear-gradient(to_bottom,transparent,black_90%)] z-10 pointer-events-none"></div>
+      
+      <div className="max-w-screen-2xl mx-auto flex flex-col gap-16 md:gap-24 relative z-20">
         {/* Top Section: Branding & Links */}
         <div className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-2 md:gap-x-3 lg:gap-x-4 gap-y-12">
           {/* Logo & Vision */}
@@ -15,10 +18,10 @@ export const Footer = () => {
 
           {/* Product */}
           <div className="col-span-1 md:col-span-2 lg:col-start-7 lg:col-span-2 flex flex-col gap-4">
-            <h4 className="text-xs md:text-base uppercase font-semibold tracking-wide text-black">
+            <h4 className="text-xs md:text-base uppercase font-semibold tracking-wide text-white">
               Product
             </h4>
-            <nav className="flex text-sm md:text-base font-medium text-[#5f666d] flex-col gap-2">
+            <nav className="flex text-sm md:text-base font-medium text-neutral-400 flex-col gap-2">
               <Link href="#" className="hover:underline">
                 Features
               </Link>
@@ -36,10 +39,10 @@ export const Footer = () => {
 
           {/* Company */}
           <div className="col-span-1 md:col-span-2 lg:col-start-9 lg:col-span-2 flex flex-col gap-4">
-            <h4 className="text-xs md:text-base uppercase font-semibold tracking-wide text-black">
+            <h4 className="text-xs md:text-base uppercase font-semibold tracking-wide text-white">
               Company
             </h4>
-            <nav className="flex text-sm md:text-base font-medium text-[#5f666d] flex-col gap-2">
+            <nav className="flex text-sm md:text-base font-medium text-neutral-400 flex-col gap-2">
               <Link href="#" className="hover:underline">
                 Who We Are
               </Link>
@@ -57,10 +60,10 @@ export const Footer = () => {
 
           {/* Social */}
           <div className="col-span-1 md:col-span-2 lg:col-start-11 lg:col-span-2 flex flex-col gap-4">
-            <h4 className="text-xs md:text-base uppercase font-semibold tracking-wide text-black">
+            <h4 className="text-xs md:text-base uppercase font-semibold tracking-wide text-white">
               Social
             </h4>
-            <nav className="flex text-sm md:text-base font-medium text-[#5f666d] flex-col gap-2">
+            <nav className="flex text-sm md:text-base font-medium text-neutral-400 flex-col gap-2">
               <Link href="#" className="hover:underline">
                 Instagram
               </Link>
@@ -80,12 +83,12 @@ export const Footer = () => {
         {/* Bottom Section: Giant Typography & Legal */}
         <div className="flex flex-col gap-8 md:gap-18">
           <div className="w-full pt-8">
-            <h1 className="text-[16vw] font-medium leading-[0.7] tracking-tighter font-sans -ml-2 lg:-ml-6 select-none text-black">
+            <h1 className="text-[16vw] font-medium leading-[0.7] tracking-tighter font-sans -ml-2 lg:-ml-6 select-none text-white">
               Arpia.com
             </h1>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-2 md:gap-x-3 lg:gap-x-4 gap-y-4 items-start md:items-center font-medium text-xs text-[#5f666d] uppercase">
+          <div className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-2 md:gap-x-3 lg:gap-x-4 gap-y-4 items-start md:items-center font-medium text-xs text-neutral-400 uppercase">
             <div className="col-span-2 md:col-span-4 lg:col-span-6">
               <p>© 2026 Arpia.com All rights reserved.</p>
             </div>
