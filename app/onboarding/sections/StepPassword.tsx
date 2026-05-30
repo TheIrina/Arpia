@@ -10,19 +10,20 @@ import {
 import { StepAction } from "../components/StepAction";
 
 interface StepProps {
-  onFinish: (data: { password: string }) => void;
+  onFinish: (data: { email: string; password: string }) => void;
   isLoading: boolean;
+  initialEmail?: string;
 }
 
-export function StepPassword({ onFinish, isLoading }: StepProps) {
-  const [email, setEmail] = useState("");
+export function StepPassword({ onFinish, isLoading, initialEmail = "" }: StepProps) {
+  const [email, setEmail] = useState(initialEmail);
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (password.length >= 8 && email.includes("@")) {
-      onFinish({ password });
+      onFinish({ email, password });
     }
   };
 

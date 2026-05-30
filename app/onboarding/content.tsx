@@ -30,7 +30,7 @@ interface StepRendererProps {
   formData: OnboardingData;
   isLoading: boolean;
   onUpdate: (data: Partial<OnboardingData>) => void;
-  onFinish: (data?: { password: string }) => void;
+  onFinish: (data?: { email: string; password: string }) => void;
   onBack: () => void;
 }
 
@@ -71,7 +71,7 @@ function StepRenderer({
         />
       );
     case "password":
-      return <StepPassword isLoading={isLoading} onFinish={onFinish} />;
+      return <StepPassword isLoading={isLoading} onFinish={onFinish} initialEmail={formData.email} />;
     default:
       return null;
   }
@@ -156,7 +156,8 @@ export default function OnboardingContent({ email = "" }: { email?: string }) {
     }
   };
 
-  const handleFinish = async (data?: { password: string }) => {
+  const handleFinish = async (data?: { email: string; password: string }) => {
+    const finalEmail = data?.email || formData.email;
     const finalPassword = data?.password || "";
 
     if (data?.password) {
@@ -168,7 +169,7 @@ export default function OnboardingContent({ email = "" }: { email?: string }) {
       localStorage.setItem("arpia_map_style", formData.mapStyle);
     }
 
-    if (!formData.email || !finalPassword) {
+    if (!finalEmail || !finalPassword) {
       console.error("Missing email or password");
       return;
     }
@@ -177,7 +178,7 @@ export default function OnboardingContent({ email = "" }: { email?: string }) {
 
     await signUp.email(
       {
-        email: formData.email,
+        email: finalEmail,
         password: finalPassword,
         name: formData.name || "User",
       },
