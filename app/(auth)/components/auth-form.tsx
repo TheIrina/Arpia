@@ -2,7 +2,7 @@
 
 import { useReducer, useRef, useTransition } from "react";
 import { useRouter } from "next/navigation";
-import { Eye, EyeSlash, ArrowRight, CaretLeft } from "@phosphor-icons/react";
+import { Eye, EyeSlash, ArrowRight, CaretLeft, Envelope } from "@phosphor-icons/react";
 import { GoogleIcon } from "./google-icon";
 import { DotLoader } from "@/app/(landing)/components/dots";
 import gsap, { useGSAP } from "@/lib/gsap";
@@ -114,7 +114,7 @@ export function AuthForm() {
 
   const headingText =
     state.step === "METHOD"
-      ? "Welcome back"
+      ? "Track smarter. Plan calmer."
       : state.step === "EMAIL"
         ? "Sign in with email"
         : "Enter your password";
@@ -124,6 +124,18 @@ export function AuthForm() {
       ref={containerRef}
       className="w-full h-full flex flex-col items-center"
     >
+      {/* Absolute Logo Header at the top of the screen */}
+      <div className="absolute top-8 left-0 right-0 flex justify-center z-30 pointer-events-none">
+        <DotLoader
+          frames={VERTICAL_WIND_FRAMES}
+          duration={120}
+          activeDotClassName="bg-white"
+          inactiveDotClassName="bg-white/20"
+          dotSizeClassName="w-1 h-1"
+          gapClassName="gap-0.5"
+        />
+      </div>
+
       {/* Dark glass backdrop for email/password steps — replaces jarring white slide-in */}
       {isEmailStep && (
         <div className="fixed inset-0 bg-zinc-950/60 backdrop-blur-md z-10 animate-in fade-in duration-500" />
@@ -147,24 +159,14 @@ export function AuthForm() {
 
       {/* Step Content */}
       <div className="flex-1 flex flex-col items-center justify-center w-full animate-in fade-in slide-in-from-right-4 duration-500 relative z-20">
-        {/* DotLoader brand mark — same wind animation as the navbar */}
-        <div className="mb-3">
-          <DotLoader
-            frames={VERTICAL_WIND_FRAMES}
-            duration={120}
-            activeDotClassName="bg-white"
-            inactiveDotClassName="bg-white/20"
-            dotSizeClassName="w-1 h-1"
-            gapClassName="gap-0.5"
-          />
-        </div>
-
         {/* Header Text — consistent white, no switching to dark */}
-        <div className="flex flex-col gap-2 text-center mb-12">
-          <h1 className="text-lg md:text-xl font-medium tracking-tight text-white">
-            {headingText}
-          </h1>
-        </div>
+        {state.step !== "METHOD" && (
+          <div className="flex flex-col gap-2 text-center mb-12">
+            <h1 className="text-lg md:text-xl font-medium tracking-tight text-white">
+              {headingText}
+            </h1>
+          </div>
+        )}
 
         {state.step === "EMAIL" && (
           <form
@@ -248,37 +250,63 @@ export function AuthForm() {
 
       {/* Method step buttons — matching landing page glassmorphism style */}
       {state.step === "METHOD" && (
-        <div className="fixed bottom-0 left-0 right-0 px-4 pb-8 pt-8 bg-gradient-to-t from-black/80 via-black/40 to-transparent lg:relative lg:p-0 lg:bg-none lg:mt-12 w-full flex flex-col items-center animate-in fade-in slide-in-from-bottom-4 duration-500 z-50">
-          <div className="flex flex-col gap-3 w-full lg:max-w-sm">
+        <div className="fixed bottom-0 left-0 right-0 px-4 pb-8 pt-8 bg-gradient-to-t from-black/80 via-black/40 to-transparent md:px-8 lg:relative lg:p-0 lg:bg-none lg:mt-12 w-full flex flex-col items-center lg:grid lg:grid-cols-12 lg:gap-4 animate-in fade-in slide-in-from-bottom-4 duration-500 z-50">
+          <div className="flex flex-col gap-2 md:gap-3 lg:gap-4 w-full lg:col-span-10 lg:col-start-2">
+            <h2 className="text-4xl md:text-6xl font-normal tracking-tighter text-white text-center mb-8 max-w-lg md:max-w-3xl mx-auto leading-[1.1] animate-in fade-in slide-in-from-bottom-2 duration-700">
+              Track smarter. <br className="hidden sm:inline" />Plan calmer.
+            </h2>
+
             <button
-              onClick={async () => {
-                dispatch({ isLoading: true });
-                await signIn.social({
-                  provider: "google",
-                  callbackURL: "/home",
-                });
-              }}
-              disabled={state.isLoading}
-              className="w-full flex items-center justify-center gap-3 rounded-full border border-black/10 bg-white py-4 text-sm md:text-base font-medium text-[#1A1A1A] hover:bg-zinc-50 transition-all duration-200 disabled:opacity-50"
+              onClick={() => dispatch({ step: "EMAIL" })}
+              className="w-full flex items-center justify-center gap-2 rounded-full bg-white text-[#1A1A1A] py-4 text-sm md:text-base font-medium hover:bg-white/90 active:scale-[0.99] transition-all duration-200"
             >
-              <GoogleIcon className="w-5 h-5" />
-              Continue with Google
+              Sign up
             </button>
+
+            <div className="flex items-center my-1 w-full">
+              <div className="flex-1 h-px bg-white/10" />
+              <span className="px-3 text-xs font-mono text-white/30 uppercase tracking-widest">or</span>
+              <div className="flex-1 h-px bg-white/10" />
+            </div>
+
+            <div className="grid grid-cols-2 gap-2 md:gap-3 lg:gap-4 w-full">
+              <button
+                onClick={async () => {
+                  dispatch({ isLoading: true });
+                  await signIn.social({
+                    provider: "google",
+                    callbackURL: "/home",
+                  });
+                }}
+                disabled={state.isLoading}
+                className="w-full flex items-center justify-center gap-2 font-medium border border-white/30 rounded-full hover:bg-white hover:text-black transition-colors bg-black/10 backdrop-blur-sm py-4 text-sm md:text-base text-white disabled:opacity-50"
+              >
+                <GoogleIcon className="w-5 h-5 flex-shrink-0" />
+                <span className="truncate">Continue with Google</span>
+              </button>
+
+              <button
+                onClick={() => dispatch({ step: "EMAIL" })}
+                className="w-full flex items-center justify-center gap-2 font-medium border border-white/30 rounded-full hover:bg-white hover:text-black transition-colors bg-black/10 backdrop-blur-sm py-4 text-sm md:text-base text-white"
+              >
+                <Envelope size={20} className="flex-shrink-0" />
+                <span className="truncate">Login with email</span>
+              </button>
+            </div>
 
             <button
               onClick={handleTourClick}
-              className="w-full flex items-center justify-center gap-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white py-4 text-sm md:text-base font-medium hover:bg-white/20 transition-all duration-200"
+              className="w-full flex items-center justify-center gap-2 font-medium border border-white/30 rounded-full hover:bg-white hover:text-black transition-colors bg-black/10 backdrop-blur-sm py-4 text-sm md:text-base text-white"
             >
               Take a quick tour
               <ArrowRight size={18} weight="bold" />
             </button>
 
-            <button
-              onClick={() => dispatch({ step: "EMAIL" })}
-              className="mt-2 text-sm text-white/50 hover:text-white transition-colors"
-            >
-              Sign in with email
-            </button>
+            <p className="mt-4 text-xs text-white/50 text-center leading-relaxed">
+              By using Arpia you agree to Arpia's{" "}
+              <a href="/privacy" className="hover:text-white underline transition-colors">privacy policy</a> &{" "}
+              <a href="/terms" className="hover:text-white underline transition-colors">terms of service</a>
+            </p>
           </div>
         </div>
       )}
