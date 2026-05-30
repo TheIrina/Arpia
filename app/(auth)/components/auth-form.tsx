@@ -282,7 +282,7 @@ export function AuthForm() {
                 className="w-full flex items-center justify-center gap-2 font-medium border border-white/30 rounded-full hover:bg-white hover:text-black transition-colors bg-black/10 backdrop-blur-sm py-4 text-sm md:text-base text-white disabled:opacity-50"
               >
                 <GoogleIcon className="w-5 h-5 flex-shrink-0" />
-                <span className="truncate">Continue with Google</span>
+                <span className="truncate hidden sm:inline">Continue with Google</span>
               </button>
 
               <button
@@ -290,7 +290,7 @@ export function AuthForm() {
                 className="w-full flex items-center justify-center gap-2 font-medium border border-white/30 rounded-full hover:bg-white hover:text-black transition-colors bg-black/10 backdrop-blur-sm py-4 text-sm md:text-base text-white"
               >
                 <Envelope size={20} className="flex-shrink-0" />
-                <span className="truncate">Login with email</span>
+                <span className="truncate hidden sm:inline">Login with email</span>
               </button>
             </div>
 
