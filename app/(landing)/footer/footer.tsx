@@ -43,7 +43,7 @@ export const Footer = () => {
               Company
             </h4>
             <nav className="flex text-sm md:text-base font-medium text-neutral-400 flex-col gap-2">
-              <Link href="#" className="hover:underline">
+              <Link href="/history" className="hover:underline">
                 Who We Are
               </Link>
               <Link href="#" className="hover:underline">

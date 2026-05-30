@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Hero } from "./(landing)/components/hero";
-import { WhoWeAre } from "./(landing)/whoweare/who";
 import { Features } from "./(landing)/features/features";
+import { ProductShowcase } from "./(landing)/showcase/showcase";
 import { Cta } from "./(landing)/cta/cta";
 import dynamic from "next/dynamic";
 import { Footer } from "./(landing)/footer/footer";
@@ -21,7 +21,7 @@ export default function Home() {
       <MobileNav />
       {/* <Hero /> */}
       <Hero />
-      <WhoWeAre />
+      <ProductShowcase />
       <Features />
       <Cta />
       <Footer />
