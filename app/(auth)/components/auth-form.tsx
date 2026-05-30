@@ -250,7 +250,7 @@ export function AuthForm() {
 
       {/* Method step buttons — matching landing page glassmorphism style */}
       {state.step === "METHOD" && (
-        <div className="fixed bottom-0 left-0 right-0 px-4 pb-8 pt-8 bg-gradient-to-t from-black/80 via-black/40 to-transparent md:px-8 lg:relative lg:p-0 lg:bg-none lg:mt-12 w-full flex flex-col items-center lg:grid lg:grid-cols-12 lg:gap-4 animate-in fade-in slide-in-from-bottom-4 duration-500 z-50">
+        <div className="fixed bottom-0 left-0 right-0 px-4 pb-8 pt-8 md:px-8 lg:relative lg:p-0 lg:bg-none lg:mt-12 w-full flex flex-col items-center lg:grid lg:grid-cols-12 lg:gap-4 animate-in fade-in slide-in-from-bottom-4 duration-500 z-50">
           <div className="flex flex-col gap-2 md:gap-3 lg:gap-4 w-full lg:col-span-10 lg:col-start-2">
             <h2 className="text-4xl md:text-6xl font-normal tracking-tighter text-white text-center mb-8 max-w-lg md:max-w-3xl mx-auto leading-[1.1] animate-in fade-in slide-in-from-bottom-2 duration-700">
               Track smarter. <br className="hidden sm:inline" />Plan calmer.
