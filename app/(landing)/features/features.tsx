@@ -61,7 +61,7 @@ export const Features = () => {
             </div>
 
             {/* Big Headline */}
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-normal leading-[1.05] tracking-tighter font-sans">
+            <h2 className="showcase-title text-3xl md:text-4xl lg:text-5xl font-normal leading-[1.05] tracking-tighter">
               <SplitText
                 text={headlineText}
                 wordClassName="feature-word opacity-20"
@@ -70,7 +70,7 @@ export const Features = () => {
           </div>
 
           {/* Right: Text 1 */}
-          <div className="col-span-1 md:col-span-4 lg:col-start-7 lg:col-span-3 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium pt-2 lg:pt-24">
+          <div className="col-span-1 md:col-span-4 lg:col-start-7 lg:col-span-3 text-sm md:text-base text-[#5f666d] leading-relaxed pt-2 lg:pt-24">
             <p>
               Live weather data and thermal maps are the backbone of any
               cross-country flight. Our platform aggregates real-time wind
@@ -81,7 +81,7 @@ export const Features = () => {
           </div>
 
           {/* Right: Text 2 */}
-          <div className="col-span-1 md:col-span-4 lg:col-start-10 lg:col-span-3 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium pt-2 lg:pt-24">
+          <div className="col-span-1 md:col-span-4 lg:col-start-10 lg:col-span-3 text-sm md:text-base text-[#5f666d] leading-relaxed pt-2 lg:pt-24">
             <p>
               We map out every certified launch site and safe landing zone in
               the region. Each location profile includes difficulty ratings,

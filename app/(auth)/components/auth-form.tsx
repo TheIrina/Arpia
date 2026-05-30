@@ -77,7 +77,7 @@ export function AuthForm() {
           dispatch({ step: "PASSWORD", isLoading: false });
         } else {
           dispatch({ isLoading: false });
-          router.push(`/onboarding?email=${encodeURIComponent(state.email)}`);
+          router.push(`/signup?email=${encodeURIComponent(state.email)}`);
         }
       } catch (error) {
         console.error("Failed to check email:", error);
@@ -263,7 +263,7 @@ export function AuthForm() {
             </h2>
 
             <button
-              onClick={() => dispatch({ step: "EMAIL" })}
+              onClick={() => router.push("/signup")}
               className="w-full flex items-center justify-center gap-2 rounded-full bg-white text-[#1A1A1A] py-4 text-sm md:text-base font-medium hover:bg-white/90 active:scale-[0.99] transition-all duration-200"
             >
               Sign up

@@ -7,7 +7,8 @@ import gsap, { useGSAP } from "@/lib/gsap";
 const items = [
   {
     title: "Live Weather",
-    description: "Real-time wind speed, direction, and barometric pressure at every site.",
+    description:
+      "Real-time wind speed, direction, and barometric pressure at every site.",
     bg: "bg-[#E8F4F8]",
     icon: "/logo/hat.png",
     span: "col-span-1 md:col-span-4 lg:col-span-5 row-span-1",
@@ -15,7 +16,8 @@ const items = [
   },
   {
     title: "Thermal Maps",
-    description: "AI-powered thermal predictions for optimal cross-country routing.",
+    description:
+      "AI-powered thermal predictions for optimal cross-country routing.",
     bg: "bg-[#FFF3E0]",
     icon: "/logo/paraglider-backpack.png",
     span: "col-span-1 md:col-span-4 lg:col-span-7 row-span-1",
@@ -31,7 +33,8 @@ const items = [
   },
   {
     title: "Launch Sites",
-    description: "Certified sites with wind orientation, difficulty ratings, and reviews.",
+    description:
+      "Certified sites with wind orientation, difficulty ratings, and reviews.",
     bg: "bg-[#E8F5E9]",
     icon: "/logo/hiking-boots.png",
     span: "col-span-1 md:col-span-4 lg:col-span-4 row-span-1",
@@ -39,7 +42,8 @@ const items = [
   },
   {
     title: "Pilot Community",
-    description: "Connect with local experts and international flyers worldwide.",
+    description:
+      "Connect with local experts and international flyers worldwide.",
     bg: "bg-[#FBE9E7]",
     icon: "/logo/clo.png",
     span: "col-span-1 md:col-span-4 lg:col-span-4 row-span-1",
@@ -102,15 +106,15 @@ export const ProductShowcase = () => {
         {/* Header */}
         <div className="grid grid-cols-1 md:grid-cols-8 lg:grid-cols-12 gap-x-4">
           <div className="col-span-1 md:col-span-8 lg:col-span-6">
-            <p className="showcase-subtitle text-sm md:text-base font-semibold tracking-wide uppercase text-[#5f666d] mb-4">
-              The product
+            <p className="showcase-subtitle text-sm md:text-base tracking-wide uppercase text-[#5f666d] mb-4">
+              Our product
             </p>
-            <h2 className="showcase-title text-3xl md:text-4xl lg:text-5xl font-normal leading-[1.05] tracking-tighter font-sans">
+            <h2 className="showcase-title text-3xl md:text-4xl lg:text-5xl font-normal leading-[1.05] tracking-tighter">
               Everything you need to fly smarter, safer, and together.
             </h2>
           </div>
           <div className="col-span-1 md:col-span-8 lg:col-start-8 lg:col-span-5 flex items-end mt-6 lg:mt-0">
-            <p className="text-sm md:text-base text-[#5f666d] leading-relaxed font-medium">
+            <p className="text-sm md:text-base text-[#5f666d] leading-relaxed">
               From pre-flight planning to post-flight analysis, Arpia gives
               pilots a single, integrated cockpit for every phase of the
               journey.

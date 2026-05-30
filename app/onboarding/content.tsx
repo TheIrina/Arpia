@@ -10,7 +10,8 @@ import { StepRole } from "./sections/StepRole";
 import { StepMapStyle } from "./sections/StepMapStyle";
 import { StepInterests } from "./sections/StepInterests";
 import { StepPassword } from "./sections/StepPassword";
-import { signUp } from "@/lib/auth-client";
+import { signUp, useSession } from "@/lib/auth-client";
+import { saveOnboardingAction } from "./actions";
 
 type Role = "pilot" | "tourist" | "hiker" | "beginner" | "";
 type OnboardingData = {
@@ -79,6 +80,7 @@ function StepRenderer({
 export default function OnboardingContent({ email = "" }: { email?: string }) {
   const router = useRouter();
   const containerRef = useRef<HTMLDivElement>(null);
+  const { data: session } = useSession();
 
   useGSAP(
     () => {
@@ -105,22 +107,52 @@ export default function OnboardingContent({ email = "" }: { email?: string }) {
     password: "",
   }));
 
-  const steps = useMemo(
-    () => [
+  const steps = useMemo(() => {
+    if (session?.user) {
+      return [
+        { id: "intro" as const },
+        { id: "role" as const },
+        { id: "mapStyle" as const },
+        { id: "interests" as const },
+      ];
+    }
+    return [
       { id: "intro" as const },
       { id: "name" as const },
       { id: "role" as const },
       { id: "mapStyle" as const },
       { id: "interests" as const },
       { id: "password" as const },
-    ],
-    [],
-  );
+    ];
+  }, [session]);
 
-  const updateData = (newData: Partial<OnboardingData>) => {
-    setFormData((prev) => ({ ...prev, ...newData }));
+  const updateData = async (newData: Partial<OnboardingData>) => {
+    const updated = { ...formData, ...newData };
+    setFormData(updated);
+
     if (currentStep < steps.length - 1) {
       setCurrentStep((prev) => prev + 1);
+    } else {
+      // Logged in user completes onboarding at the interests step
+      if (session?.user) {
+        setIsLoading(true);
+        try {
+          if (updated.mapStyle) {
+            localStorage.setItem("arpia_map_style", updated.mapStyle);
+          }
+          await saveOnboardingAction({
+            role: updated.role,
+            mapStyle: updated.mapStyle,
+            interests: updated.interests,
+          });
+          setIsLoading(false);
+          router.push("/home");
+        } catch (error) {
+          console.error("Failed to save onboarding:", error);
+          setIsLoading(false);
+          alert("Failed to save your selections. Please try again.");
+        }
+      }
     }
   };
 
@@ -150,7 +182,17 @@ export default function OnboardingContent({ email = "" }: { email?: string }) {
         name: formData.name || "User",
       },
       {
-        onSuccess: () => {
+        onSuccess: async () => {
+          // If signup is successful, also save the rest of onboarding choices
+          try {
+            await saveOnboardingAction({
+              role: formData.role,
+              mapStyle: formData.mapStyle,
+              interests: formData.interests,
+            });
+          } catch (error) {
+            console.error("Failed to save onboarding selections after signup:", error);
+          }
           setIsLoading(false);
           router.push("/home");
         },
