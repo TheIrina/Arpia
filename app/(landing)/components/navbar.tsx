@@ -20,9 +20,27 @@ export const Navbar = () => {
     <>
       <div className="fixed top-0 left-0 w-full h-24 bg-zinc-950/20 backdrop-blur-xs [mask-image:linear-gradient(to_bottom,black_20%,transparent)] z-40 pointer-events-none" />
       <div className="fixed top-0 left-0 w-full p-4 md:py-6 lg:py-8 md:px-8 lg:px-12 z-50 pointer-events-none font-sans text-white">
+        {/* Centered mobile DotLoader matching the login page layout */}
+        <div className="absolute top-4 left-0 right-0 flex justify-center md:hidden pointer-events-none">
+          <Link
+            href="/"
+            className="pointer-events-auto cursor-pointer hover:opacity-75 active:scale-95 transition-all duration-200"
+            aria-label="Go to landing page"
+          >
+            <DotLoader
+              frames={VERTICAL_WIND_FRAMES}
+              duration={120}
+              activeDotClassName="bg-white"
+              inactiveDotClassName="bg-white/20"
+              dotSizeClassName="w-1 h-1"
+              gapClassName="gap-0.5"
+            />
+          </Link>
+        </div>
+
         <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 md:gap-3 lg:gap-4 w-full">
           {/* Header row items (Row 1 from the original grid) */}
-          <div className="col-start-1 col-span-2 md:col-span-1 flex items-center gap-2 pointer-events-auto">
+          <div className="col-start-1 col-span-2 md:col-span-1 hidden md:flex items-center gap-2 pointer-events-auto">
             <DotLoader
               frames={VERTICAL_WIND_FRAMES}
               duration={120}

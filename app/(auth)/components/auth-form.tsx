@@ -125,15 +125,21 @@ export function AuthForm() {
       className="w-full h-full flex flex-col items-center"
     >
       {/* Absolute Logo Header at the top of the screen */}
-      <div className="absolute top-8 left-0 right-0 flex justify-center z-30 pointer-events-none">
-        <DotLoader
-          frames={VERTICAL_WIND_FRAMES}
-          duration={120}
-          activeDotClassName="bg-white"
-          inactiveDotClassName="bg-white/20"
-          dotSizeClassName="w-1 h-1"
-          gapClassName="gap-0.5"
-        />
+      <div className="fixed top-4 md:top-8 lg:top-12 left-0 right-0 flex justify-center z-30 pointer-events-none">
+        <button
+          onClick={() => router.push("/")}
+          className="pointer-events-auto cursor-pointer hover:opacity-75 active:scale-95 transition-all duration-200"
+          aria-label="Go to landing page"
+        >
+          <DotLoader
+            frames={VERTICAL_WIND_FRAMES}
+            duration={120}
+            activeDotClassName="bg-white"
+            inactiveDotClassName="bg-white/20"
+            dotSizeClassName="w-1 h-1"
+            gapClassName="gap-0.5"
+          />
+        </button>
       </div>
 
       {/* Dark glass backdrop for email/password steps — replaces jarring white slide-in */}
