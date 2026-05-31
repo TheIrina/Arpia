@@ -608,14 +608,14 @@ export default function NotFound({
           <div className="w-full sm:max-w-none flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center pointer-events-auto">
             <Link
               href="/"
-              className="w-full sm:w-auto flex items-center justify-center gap-2 text-sm font-medium border border-white bg-white text-black rounded-full py-3 px-5 sm:py-2 sm:px-5 hover:bg-white/90 active:scale-95 transition-all duration-200 backdrop-blur-sm"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 text-sm font-medium border border-white bg-white text-black rounded-full py-3 px-5 sm:py-2 sm:px-5 hover:bg-white/90 transition-colors backdrop-blur-sm"
             >
               Return to Base
             </Link>
 
             <button
               onClick={() => window.history.back()}
-              className="w-full sm:w-auto flex items-center justify-center gap-2 text-sm font-medium border border-white/30 rounded-full py-3 px-5 sm:py-2 sm:px-5 hover:bg-white hover:text-black transition-colors bg-black/10 active:scale-95 transition-all duration-200 text-[#f7f5f0] cursor-pointer backdrop-blur-sm"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 text-sm font-medium border border-white/30 rounded-full py-3 px-5 sm:py-2 sm:px-5 hover:bg-white hover:text-black transition-colors bg-black/10 text-[#f7f5f0] cursor-pointer backdrop-blur-sm"
             >
               Retry Flight
             </button>
