@@ -576,13 +576,18 @@ export default function NotFound({
       <canvas ref={canvasRef} className="block w-full h-full bg-[#0b0b0b]" />
       {children}
 
+      {/* Huge Background 404 Watermark */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none select-none z-0 overflow-hidden">
+        <span className="text-[32vw] font-black tracking-tighter text-[#f7f5f0]/[0.015] leading-none select-none">
+          404
+        </span>
+        <span className="text-[4vw] md:text-[2vw] font-mono tracking-[0.5em] text-[#f7f5f0]/[0.015] uppercase select-none -mt-2 md:-mt-4 pl-[0.5em]">
+          BOMB OUT
+        </span>
+      </div>
+
       <div className="absolute top-1/2 left-0 w-full z-[1] -translate-y-1/2 text-[#f7f5f0] pointer-events-none">
         <div className="w-full max-w-4xl mx-auto px-6 flex flex-col items-center gap-6 text-center">
-          {/* Minimal 404 Indicator */}
-          <span className="text-[11px] font-mono tracking-[0.2em] text-[#f7f5f0]/40 uppercase select-none">
-            ERROR 404 // BOMB OUT
-          </span>
-
           {/* Heading */}
           <h1 className="text-4xl md:text-6xl font-light tracking-tight leading-tight w-full max-w-2xl text-white">
             Flight Off Course
@@ -610,17 +615,6 @@ export default function NotFound({
             >
               Retry Flight
             </button>
-          </div>
-        </div>
-      </div>
-
-      <div className="absolute bottom-0 left-0 w-full z-[4] text-[#f7f5f0]/40 pointer-events-none font-mono text-[10px] tracking-widest uppercase">
-        <div className="w-full max-w-7xl mx-auto flex justify-between items-center p-6 md:p-9">
-          <div>
-            <p>&copy; {new Date().getFullYear()} Arpia Paragliding</p>
-          </div>
-          <div className="text-right">
-            <p>Roldanillo, Colombia</p>
           </div>
         </div>
       </div>
