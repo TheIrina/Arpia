@@ -448,10 +448,14 @@ export default function NotFound({
       gl.clearColor(bg[0], bg[1], bg[2], 1.0);
       gl.clear(gl.COLOR_BUFFER_BIT);
 
+      const activeCubeSize = typeof window !== "undefined" && window.innerWidth < 768 
+        ? cubeSize * 0.55 
+        : cubeSize;
+
       gl.uniform1f(uTime, t);
       gl.uniform2f(uRes, canvas.width, canvas.height);
       gl.uniform2f(uCamOffset, parallaxCurrent.x, parallaxCurrent.y);
-      gl.uniform1f(uCubeSize, cubeSize);
+      gl.uniform1f(uCubeSize, activeCubeSize);
       gl.uniform3f(uBgColor, bg[0], bg[1], bg[2]);
       gl.uniform3f(uSmokeColor, smokeColor[0], smokeColor[1], smokeColor[2]);
 
@@ -578,16 +582,16 @@ export default function NotFound({
 
       {/* Huge Background 404 Watermark */}
       <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none select-none z-0 overflow-hidden">
-        <span className="text-[32vw] font-black tracking-tighter text-[#f7f5f0]/[0.015] leading-none select-none">
+        <span className="text-[60vw] md:text-[32vw] font-black tracking-tighter text-[#f7f5f0]/[0.015] leading-none select-none">
           404
         </span>
-        <span className="text-[4vw] md:text-[2vw] font-mono tracking-[0.5em] text-[#f7f5f0]/[0.015] uppercase select-none -mt-2 md:-mt-4 pl-[0.5em]">
+        <span className="text-[7vw] md:text-[2vw] font-mono tracking-[0.5em] text-[#f7f5f0]/[0.015] uppercase select-none -mt-2 md:-mt-4 pl-[0.5em]">
           BOMB OUT
         </span>
       </div>
 
-      <div className="absolute top-1/2 left-0 w-full z-[1] -translate-y-1/2 text-[#f7f5f0] pointer-events-none">
-        <div className="w-full max-w-4xl mx-auto px-6 flex flex-col items-center gap-6 text-center">
+      <div className="absolute bottom-12 md:bottom-auto md:top-1/2 left-0 w-full z-[1] translate-y-0 md:-translate-y-1/2 text-[#f7f5f0] pointer-events-none">
+        <div className="w-full max-w-4xl mx-auto px-4 md:px-6 flex flex-col items-center gap-6 text-center">
           {/* Heading */}
           <h1 className="text-4xl md:text-6xl font-light tracking-tight leading-tight w-full max-w-2xl text-white">
             Flight Off Course
@@ -595,23 +599,23 @@ export default function NotFound({
 
           {/* Description */}
           <p className="text-sm md:text-base font-light text-[#f7f5f0]/60 max-w-lg leading-relaxed mb-4">
-            It seems you&lsquo;ve entered a leeward zone or the clouds over
-            Roldanillo have covered your destination. Your glider has landed in
-            uncharted territory.
+            It seems you&lsquo;ve entered a leeward zone or the clouds have
+            covered your destination. Your glider has landed in uncharted
+            territory.
           </p>
 
           {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pointer-events-auto">
+          <div className="w-full sm:max-w-none flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center pointer-events-auto">
             <Link
               href="/"
-              className="flex items-center gap-2 text-sm font-medium border border-white bg-white text-black rounded-full px-5 py-2 hover:bg-white/90 active:scale-95 transition-all duration-200 backdrop-blur-sm"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 text-sm font-medium border border-white bg-white text-black rounded-full py-3 px-5 sm:py-2 sm:px-5 hover:bg-white/90 active:scale-95 transition-all duration-200 backdrop-blur-sm"
             >
               Return to Base
             </Link>
 
             <button
               onClick={() => window.history.back()}
-              className="flex items-center gap-2 text-sm font-medium border border-white/30 rounded-full px-5 py-2 hover:bg-white hover:text-black transition-colors bg-black/10 active:scale-95 transition-all duration-200 text-[#f7f5f0] cursor-pointer backdrop-blur-sm"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 text-sm font-medium border border-white/30 rounded-full py-3 px-5 sm:py-2 sm:px-5 hover:bg-white hover:text-black transition-colors bg-black/10 active:scale-95 transition-all duration-200 text-[#f7f5f0] cursor-pointer backdrop-blur-sm"
             >
               Retry Flight
             </button>
