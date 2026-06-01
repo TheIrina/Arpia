@@ -9,7 +9,7 @@ export const Cta = () => {
       <div className="max-w-screen-2xl mx-auto relative z-20">
         <div className="bg-[#1A1A1A] rounded-2xl flex flex-col lg:flex-row overflow-hidden items-stretch">
           {/* Left: Text & CTA Button */}
-          <div className="w-full lg:w-1/2 p-4 md:p-8 flex flex-col justify-between">
+          <div className="w-full lg:w-1/2 p-6 md:p-8 flex flex-col justify-between">
             <div>
               {/* White dot / icon placeholder */}
               <div className="w-8 h-8 bg-white rounded-full mb-8"></div>
@@ -34,7 +34,7 @@ export const Cta = () => {
               </button>
             </div>
           </div>
-          <div className="w-full lg:w-1/2 p-4 flex min-h-100">
+          <div className="w-full lg:w-1/2 p-4 flex min-h-72 sm:min-h-100 lg:min-h-0">
             <div className="relative w-full rounded-lg overflow-hidden">
               <HlsVideo
                 autoPlay

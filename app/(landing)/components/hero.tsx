@@ -3,7 +3,7 @@ import { ArrowUpRightIcon } from "@phosphor-icons/react/dist/ssr/ArrowUpRight";
 
 export const Hero = () => {
   return (
-    <section className="relative w-full aspect-[4/3] min-h-[100dvh] bg-black text-white font-sans flex flex-col selection:bg-white selection:text-black">
+    <section className="relative w-full md:aspect-[4/3] min-h-[100dvh] bg-black text-white font-sans flex flex-col selection:bg-white selection:text-black">
       {/* Background Video */}
       <video
         src="/videos/hero-43.mp4"
@@ -27,7 +27,7 @@ export const Hero = () => {
         <div className="w-full h-full grid grid-cols-3 grid-rows-8 md:grid-cols-4 md:grid-rows-6 lg:grid-cols-6 lg:grid-rows-4 gap-2 md:gap-3 lg:gap-4">
           {/* Main Title Area */}
           <main className="col-span-full row-start-4 md:row-start-3 lg:row-start-2 flex flex-col items-center justify-center text-center pointer-events-auto">
-            <h1 className="text-4xl md:text-6xl font-normal tracking-tight mb-2 md:mb-4 text-white">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-normal tracking-tight mb-2 md:mb-4 text-white">
               Fly it to prove yourself
             </h1>
             <p className="text-sm max-w-100 font-medium">

@@ -75,7 +75,7 @@ export function WeatherCard() {
   return (
     <div
       ref={containerRef}
-      className="relative w-full h-100 md:h-125 lg:h-150 rounded-2xl bg-[#fbfbfb] overflow-hidden flex items-center justify-center border border-gray-200 shadow-sm"
+      className="relative w-full h-72 sm:h-100 md:h-125 lg:h-150 rounded-2xl bg-[#fbfbfb] overflow-hidden flex items-center justify-center border border-gray-200 shadow-sm"
     >
 
       {/* Wind Particles Container */}
@@ -92,7 +92,7 @@ export function WeatherCard() {
       <div className="absolute inset-0 z-0 bg-gradient-to-br from-white/40 via-transparent to-black/5 pointer-events-none" />
 
       {/* Weather Info Widget */}
-      <div className="absolute bottom-6 left-6 z-20 pointer-events-none flex flex-col gap-1 backdrop-blur-md bg-white/60 p-5 rounded-2xl border border-white/60 shadow-[0_8px_32px_rgba(0,0,0,0.08)]">
+      <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 z-20 pointer-events-none flex flex-col gap-1 backdrop-blur-md bg-white/60 p-4 sm:p-5 rounded-2xl border border-white/60 shadow-[0_8px_32px_rgba(0,0,0,0.08)]">
         <span className="text-[10px] font-bold text-slate-500 tracking-widest uppercase mb-1">
           Live Wind Info
         </span>

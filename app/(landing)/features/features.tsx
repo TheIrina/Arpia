@@ -48,7 +48,7 @@ export const Features = () => {
           {/* Left: Tags & Big Title */}
           <div className="col-span-1 md:col-span-8 lg:col-span-5 flex flex-col items-start">
             {/* Tags / Pills */}
-            <div className="flex flex-wrap gap-0 mb-8">
+            <div className="flex flex-wrap gap-1.5 md:gap-0 mb-8">
               <span className="px-4 py-1.5 rounded-full bg-gray-950 text-white text-[10px] md:text-xs font-semibold tracking-wide uppercase">
                 Live Weather
               </span>
