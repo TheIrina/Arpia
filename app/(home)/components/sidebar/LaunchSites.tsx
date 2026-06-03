@@ -1,6 +1,7 @@
 "use client";
 
 import { LaunchSite, Condition } from "@/lib/weather";
+import { useFlightPlanStore } from "@/store/flight-plan-store";
 
 const conditions: Record<Condition, { bg: string; label: string }> = {
   flyable: {
@@ -65,9 +66,20 @@ function WindArrow({ direction }: { direction: string }) {
 function SiteRow({ site }: { site: LaunchSite }) {
   const s = conditions[site.condition];
   const formattedSpeed = site.windSpeed.toString().padStart(2, "0");
+  const selectedLaunch = useFlightPlanStore((s) => s.selectedLaunch);
+  const setSelectedLaunch = useFlightPlanStore((s) => s.setSelectedLaunch);
+  
+  const isSelected = selectedLaunch?.name === site.name;
 
   return (
-    <div className={["rounded-xl p-4", s.bg].join(" ")}>
+    <div 
+      onClick={() => setSelectedLaunch(isSelected ? null : site)}
+      className={[
+        "rounded-xl p-4 cursor-pointer transition-all duration-300 border",
+        s.bg,
+        isSelected ? "border-white/30 bg-white/[0.04] shadow-md shadow-black/20" : "border-transparent hover:border-white/10 hover:bg-white/[0.02]"
+      ].join(" ")}
+    >
       <div className="flex items-start justify-between gap-4">
         <div className="flex flex-col gap-4 flex-1">
           <div className="flex flex-col gap-1">

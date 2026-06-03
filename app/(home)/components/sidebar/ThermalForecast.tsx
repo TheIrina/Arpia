@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ThermalData } from "@/lib/weather";
+import { useFlightPlanStore } from "@/store/flight-plan-store";
 
 export function ThermalForecast({ data }: { data: ThermalData }) {
   const { maxClimbRate, forecast } = data;
@@ -31,6 +32,18 @@ export function ThermalForecast({ data }: { data: ThermalData }) {
   const activeIndex = hoveredIndex !== null ? hoveredIndex : defaultIndex;
   const activeItem = forecast[activeIndex] ?? forecast[0] ?? { time: "", rate: 0, cloudbase: 0, temp: 0, cloudcover: 0, windSpeed: 0, windDirection: "" };
   const isHovered = hoveredIndex !== null;
+
+  const setSelectedHour = useFlightPlanStore((s) => s.setSelectedHour);
+
+  useEffect(() => {
+    const item = forecast[activeIndex];
+    if (item) {
+      const hr = parseInt(item.time.replace("h", ""), 10);
+      if (!isNaN(hr)) {
+        setSelectedHour(hr);
+      }
+    }
+  }, [activeIndex, forecast, setSelectedHour]);
 
   const rates = forecast.map((f) => f.rate);
   const maxRate = Math.max(...rates);
