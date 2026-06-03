@@ -1,0 +1,1 @@
+ALTER TABLE "thermals" ADD COLUMN "altitude" real DEFAULT 1000;

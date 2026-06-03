@@ -57,7 +57,8 @@ export const thermals = pgTable("thermals", {
 	strength: real("strength").default(0),
 	frequency: real("frequency").default(1),
 	windDirection: text("windDirection"),
-	season: text("season")
+	season: text("season"),
+	altitude: real("altitude").default(1000) // Altitude of the thermal trigger in meters
 }, (table) => [
 	index("lat_lng_idx").on(table.latitude, table.longitude),
 ]);

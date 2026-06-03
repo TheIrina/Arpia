@@ -25,7 +25,8 @@ const rawThermals = [
     strength: 3.8,
     frequency: 5.0,
     windDirection: "E",
-    season: "All"
+    season: "All",
+    altitude: 1350
   },
   {
     id: "thermal_roldanillo_la_cruz",
@@ -35,7 +36,8 @@ const rawThermals = [
     strength: 4.2,
     frequency: 4.8,
     windDirection: "E",
-    season: "All"
+    season: "All",
+    altitude: 1250
   },
   {
     id: "thermal_roldanillo_el_pico",
@@ -45,7 +47,8 @@ const rawThermals = [
     strength: 3.5,
     frequency: 4.6,
     windDirection: "ENE",
-    season: "All"
+    season: "All",
+    altitude: 1500
   },
   {
     id: "thermal_roldanillo_aguaclara",
@@ -55,7 +58,8 @@ const rawThermals = [
     strength: 3.2,
     frequency: 4.0,
     windDirection: "E",
-    season: "All"
+    season: "All",
+    altitude: 950
   },
   {
     id: "thermal_roldanillo_la_pista",
@@ -65,7 +69,8 @@ const rawThermals = [
     strength: 2.9,
     frequency: 3.8,
     windDirection: "E",
-    season: "All"
+    season: "All",
+    altitude: 920
   },
   {
     id: "thermal_roldanillo_huasano",
@@ -75,7 +80,8 @@ const rawThermals = [
     strength: 3.6,
     frequency: 4.2,
     windDirection: "SE",
-    season: "All"
+    season: "All",
+    altitude: 1100
   },
   {
     id: "thermal_roldanillo_bolivar_ridge",
@@ -85,7 +91,8 @@ const rawThermals = [
     strength: 3.4,
     frequency: 3.5,
     windDirection: "SSE",
-    season: "All"
+    season: "All",
+    altitude: 1450
   },
   {
     id: "thermal_roldanillo_bolivar_flat",
@@ -95,7 +102,8 @@ const rawThermals = [
     strength: 3.0,
     frequency: 3.0,
     windDirection: "SE",
-    season: "Dry"
+    season: "Dry",
+    altitude: 940
   },
   {
     id: "thermal_roldanillo_higueroncito",
@@ -105,7 +113,8 @@ const rawThermals = [
     strength: 4.0,
     frequency: 4.5,
     windDirection: "E",
-    season: "All"
+    season: "All",
+    altitude: 960
   },
   
   // Zarzal Flats (across the valley)
@@ -117,7 +126,8 @@ const rawThermals = [
     strength: 4.8,
     frequency: 4.9,
     windDirection: "ESE",
-    season: "Dry"
+    season: "Dry",
+    altitude: 910
   },
   {
     id: "thermal_zarzal_railway",
@@ -127,7 +137,8 @@ const rawThermals = [
     strength: 3.2,
     frequency: 3.5,
     windDirection: "E",
-    season: "All"
+    season: "All",
+    altitude: 915
   },
   {
     id: "thermal_zarzal_limones",
@@ -137,7 +148,8 @@ const rawThermals = [
     strength: 3.5,
     frequency: 3.8,
     windDirection: "E",
-    season: "All"
+    season: "All",
+    altitude: 930
   },
 
   // La Unión & Toro (North-West along the main ridge route)
@@ -149,7 +161,8 @@ const rawThermals = [
     strength: 3.7,
     frequency: 4.1,
     windDirection: "NNE",
-    season: "All"
+    season: "All",
+    altitude: 975
   },
   {
     id: "thermal_la_union_grapefields",
@@ -159,7 +172,8 @@ const rawThermals = [
     strength: 3.9,
     frequency: 4.3,
     windDirection: "NE",
-    season: "All"
+    season: "All",
+    altitude: 960
   },
   {
     id: "thermal_toro_town",
@@ -169,7 +183,8 @@ const rawThermals = [
     strength: 4.0,
     frequency: 4.2,
     windDirection: "NE",
-    season: "All"
+    season: "All",
+    altitude: 950
   },
   {
     id: "thermal_toro_cemetery",
@@ -179,7 +194,8 @@ const rawThermals = [
     strength: 3.6,
     frequency: 3.9,
     windDirection: "NNE",
-    season: "All"
+    season: "All",
+    altitude: 1020
   },
 
   // Obando / Victoria Flats (North-East route)
@@ -191,7 +207,8 @@ const rawThermals = [
     strength: 3.5,
     frequency: 3.8,
     windDirection: "NE",
-    season: "All"
+    season: "All",
+    altitude: 1120
   },
   {
     id: "thermal_obando_plains",
@@ -201,7 +218,8 @@ const rawThermals = [
     strength: 3.1,
     frequency: 3.2,
     windDirection: "NNE",
-    season: "All"
+    season: "All",
+    altitude: 910
   },
   {
     id: "thermal_la_victoria_slopes",
@@ -211,7 +229,8 @@ const rawThermals = [
     strength: 3.8,
     frequency: 4.0,
     windDirection: "E",
-    season: "All"
+    season: "All",
+    altitude: 1200
   },
 
   // Ansermanuevo / Cartago (North Valley edge)
@@ -223,7 +242,8 @@ const rawThermals = [
     strength: 3.9,
     frequency: 4.7,
     windDirection: "NNE",
-    season: "All"
+    season: "All",
+    altitude: 1400
   },
   {
     id: "thermal_ansermanuevo_flats",
@@ -233,7 +253,8 @@ const rawThermals = [
     strength: 3.3,
     frequency: 3.6,
     windDirection: "N",
-    season: "All"
+    season: "All",
+    altitude: 915
   },
   {
     id: "thermal_cartago_airport_spot",
@@ -243,7 +264,8 @@ const rawThermals = [
     strength: 3.4,
     frequency: 3.8,
     windDirection: "N",
-    season: "All"
+    season: "All",
+    altitude: 915
   },
   {
     id: "thermal_cartago_rio_viejo",
@@ -253,7 +275,8 @@ const rawThermals = [
     strength: 3.0,
     frequency: 3.2,
     windDirection: "NNW",
-    season: "All"
+    season: "All",
+    altitude: 910
   },
 
   // Bugalagrande / Tuluá (South Valley route)
@@ -265,7 +288,8 @@ const rawThermals = [
     strength: 3.5,
     frequency: 3.4,
     windDirection: "S",
-    season: "All"
+    season: "All",
+    altitude: 950
   },
   {
     id: "thermal_riopaila_factory_south",
@@ -275,7 +299,8 @@ const rawThermals = [
     strength: 4.6,
     frequency: 4.0,
     windDirection: "SE",
-    season: "All"
+    season: "All",
+    altitude: 940
   },
   {
     id: "thermal_tulua_airport",
@@ -285,7 +310,8 @@ const rawThermals = [
     strength: 3.3,
     frequency: 3.5,
     windDirection: "S",
-    season: "All"
+    season: "All",
+    altitude: 960
   },
   {
     id: "thermal_tulua_hills",
@@ -295,7 +321,8 @@ const rawThermals = [
     strength: 3.6,
     frequency: 3.8,
     windDirection: "SSE",
-    season: "All"
+    season: "All",
+    altitude: 1200
   }
 ];
 
