@@ -40,7 +40,7 @@ export const Features = () => {
   return (
     <section
       ref={containerRef}
-      className="relative w-full bg-white text-black px-4 py-24 md:px-8 lg:px-12"
+      className="relative w-full bg-black text-white px-4 py-24 md:px-8 lg:px-12"
     >
       <div className="max-w-screen-2xl mx-auto flex flex-col gap-16">
         {/* Top Header Section */}
@@ -49,13 +49,13 @@ export const Features = () => {
           <div className="col-span-1 md:col-span-8 lg:col-span-5 flex flex-col items-start">
             {/* Tags / Pills */}
             <div className="flex flex-wrap gap-0 mb-8">
-              <span className="px-4 py-1.5 rounded-full bg-gray-950 text-white text-[10px] md:text-xs font-semibold tracking-wide uppercase">
+              <span className="px-4 py-1.5 rounded-full bg-white text-black text-[10px] md:text-xs font-semibold tracking-wide uppercase">
                 Live Weather
               </span>
-              <span className="px-4 py-1.5 rounded-full bg-gray-950 text-white text-[10px] md:text-xs font-semibold tracking-wide uppercase">
+              <span className="px-4 py-1.5 rounded-full bg-white text-black text-[10px] md:text-xs font-semibold tracking-wide uppercase">
                 Launch Sites
               </span>
-              <span className="px-4 py-1.5 rounded-full bg-gray-950 text-white text-[10px] md:text-xs font-semibold tracking-wide uppercase">
+              <span className="px-4 py-1.5 rounded-full bg-white text-black text-[10px] md:text-xs font-semibold tracking-wide uppercase">
                 Thermal Maps
               </span>
             </div>
@@ -70,7 +70,7 @@ export const Features = () => {
           </div>
 
           {/* Right: Text 1 */}
-          <div className="col-span-1 md:col-span-4 lg:col-start-7 lg:col-span-3 text-sm md:text-base text-[#5f666d] leading-relaxed pt-2 lg:pt-24">
+          <div className="col-span-1 md:col-span-4 lg:col-start-7 lg:col-span-3 text-sm md:text-base text-[#CCCCCC] leading-relaxed pt-2 lg:pt-24">
             <p>
               Live weather data and thermal maps are the backbone of any
               cross-country flight. Our platform aggregates real-time wind
@@ -81,7 +81,7 @@ export const Features = () => {
           </div>
 
           {/* Right: Text 2 */}
-          <div className="col-span-1 md:col-span-4 lg:col-start-10 lg:col-span-3 text-sm md:text-base text-[#5f666d] leading-relaxed pt-2 lg:pt-24">
+          <div className="col-span-1 md:col-span-4 lg:col-start-10 lg:col-span-3 text-sm md:text-base text-[#CCCCCC] leading-relaxed pt-2 lg:pt-24">
             <p>
               We map out every certified launch site and safe landing zone in
               the region. Each location profile includes difficulty ratings,
@@ -104,7 +104,7 @@ export const Features = () => {
               <h3 className="text-xl md:text-2xl font-normal font-sans">
                 Live Weather Interface
               </h3>
-              <p className="text-sm md:text-base text-[#5f666d]">
+              <p className="text-sm md:text-base text-[#CCCCCC]">
                 Real-time wind, pressure, and cloud cover data.
               </p>
             </div>
@@ -117,7 +117,7 @@ export const Features = () => {
               <h3 className="text-xl md:text-2xl font-normal font-sans">
                 Thermal Tracking
               </h3>
-              <p className="text-sm md:text-base text-[#5f666d]">
+              <p className="text-sm md:text-base text-[#CCCCCC]">
                 Advanced heat mapping for cross-country routes.
               </p>
             </div>
@@ -130,7 +130,7 @@ export const Features = () => {
               <h3 className="text-xl md:text-2xl font-normal font-sans">
                 Site Topography
               </h3>
-              <p className="text-sm md:text-base text-[#5f666d]">
+              <p className="text-sm md:text-base text-[#CCCCCC]">
                 Detailed 3D models of certified launch sites.
               </p>
             </div>
@@ -143,7 +143,7 @@ export const Features = () => {
               <h3 className="text-xl md:text-2xl font-normal font-sans">
                 Pilot Community
               </h3>
-              <p className="text-sm md:text-base text-[#5f666d]">
+              <p className="text-sm md:text-base text-[#CCCCCC]">
                 Connect with local experts and international flyers.
               </p>
             </div>
@@ -156,7 +156,7 @@ export const Features = () => {
               <h3 className="text-xl md:text-2xl font-normal font-sans">
                 Roldanillo Launch Sites
               </h3>
-              <p className="text-sm md:text-base text-[#5f666d]">
+              <p className="text-sm md:text-base text-[#CCCCCC]">
                 Explore top launch sites and thermals around Roldanillo.
               </p>
             </div>

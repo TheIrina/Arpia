@@ -56,7 +56,7 @@ export const MobileNav = () => {
       <div className="fixed bottom-4 right-4 z-60 md:hidden font-sans grid gap-4 justify-items-end">
         {/* Popup Window Menu */}
         {isOpen && (
-          <div className="bg-zinc-950 flex flex-col p-6 rounded-2xl animate-in fade-in slide-in-from-bottom-4 duration-200 min-w-50">
+          <div className="bg-white flex flex-col p-6 rounded-2xl animate-in fade-in slide-in-from-bottom-4 duration-200 min-w-50">
             {/* Links aligned to right */}
             <div className="flex flex-col items-end gap-4 w-full text-right">
               {links.map((link) => (
@@ -64,7 +64,7 @@ export const MobileNav = () => {
                   key={link.label}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="group flex items-center justify-end gap-3 text-white hover:underline text-lg font-medium tracking-tight w-full"
+                  className="group flex items-center justify-end gap-3 text-black hover:underline text-lg font-medium tracking-tight w-full"
                 >
                   {link.hasIcon && <ArrowUpRightIcon size={18} />}
                   {link.label}
@@ -77,7 +77,7 @@ export const MobileNav = () => {
         {/* Hamburger Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className={`p-4 md:p-2 flex items-center justify-center  rounded-full ${isOpen ? "bg-white text-black" : "bg-zinc-950/20 backdrop-blur-xs text-white"}`}
+          className={`p-4 md:p-2 flex items-center justify-center  rounded-full ${isOpen ? "bg-black text-white" : "bg-zinc-950/20 backdrop-blur-xs text-white"}`}
           aria-label="Toggle Menu"
         >
           {isOpen ? <XIcon size={24} /> : <ListIcon size={24} />}

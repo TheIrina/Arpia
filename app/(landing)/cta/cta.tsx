@@ -2,10 +2,7 @@ import { HlsVideo } from "@/components/ui/hls-video";
 
 export const Cta = () => {
   return (
-    <section className="relative w-full bg-white text-black px-4 pt-24 pb-40 md:pb-56 lg:pb-64 md:px-8 lg:px-12">
-      {/* Fade transition from previous section */}
-      <div className="absolute -top-32 left-0 w-full h-32 bg-white backdrop-blur-md mask-[linear-gradient(to_bottom,transparent,black_90%)] z-10 pointer-events-none"></div>
-
+    <section className="relative w-full bg-black text-white px-4 py-24 md:px-8 lg:px-12">
       <div className="max-w-screen-2xl mx-auto relative z-20">
         <div className="bg-[#1A1A1A] rounded-2xl flex flex-col lg:flex-row overflow-hidden items-stretch">
           {/* Left: Text & CTA Button */}

@@ -3,7 +3,7 @@ import { ArrowUpRightIcon } from "@phosphor-icons/react/dist/ssr/ArrowUpRight";
 
 export const Hero = () => {
   return (
-    <section className="relative w-full aspect-[4/3] min-h-[100dvh] bg-black text-white font-sans flex flex-col selection:bg-white selection:text-black">
+    <section className="relative w-full aspect-[4/3] min-h-[115dvh] bg-black text-white font-sans flex flex-col selection:bg-white selection:text-black">
       {/* Background Video */}
       <video
         src="/videos/hero-43.mp4"
@@ -18,8 +18,13 @@ export const Hero = () => {
       <div className="absolute inset-0 bg-black/20 z-0 pointer-events-none"></div>
 
       {/* Fade-out gradient (Hidden from initial view, visible on scroll) */}
-      <div className="absolute top-[100dvh] left-0 w-full h-[calc(100%-100dvh)] bg-white backdrop-blur-xs mask-[linear-gradient(to_bottom,transparent,black_90%)] z-0 pointer-events-none"></div>
-      {/* <div className="absolute top-[100dvh] left-0 w-full h-[calc(100%-100dvh)] bg-gradient-to-b from-white/0 via-white/80 to-white z-0 pointer-events-none"></div> */}
+      <div
+        className="absolute top-[100dvh] left-0 w-full h-[calc(100%-100dvh)] bg-black backdrop-blur-xs z-0 pointer-events-none"
+        style={{
+          WebkitMaskImage: "linear-gradient(to bottom, transparent, black 90%)",
+          maskImage: "linear-gradient(to bottom, transparent, black 90%)",
+        }}
+      />
 
       {/* Grid Container Anchored to Initial Viewport */}
       <div className="absolute top-0 left-0 w-full h-[100dvh] p-4 md:py-6 lg:py-8 md:px-8 lg:px-12 z-10 overflow-hidden pointer-events-none">
@@ -44,9 +49,9 @@ export const Hero = () => {
               <span className="bg-white text-black rounded-full font-medium py-3 px-8 text-sm md:text-base">
                 Get started now
               </span>
-              <span className="flex items-center justify-center w-11 h-11 rounded-full bg-white text-black text-sm md:text-base">
+              {/*<span className="flex items-center justify-center w-11 h-11 rounded-full bg-white text-black text-sm md:text-base">
                 <ArrowUpRightIcon weight="bold" />
-              </span>
+              </span>*/}
             </Link>
           </div>
 

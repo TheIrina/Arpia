@@ -100,13 +100,13 @@ export const ProductShowcase = () => {
   return (
     <section
       ref={containerRef}
-      className="relative w-full bg-white text-black px-4 py-24 md:px-8 lg:px-12"
+      className="relative w-full bg-black text-white px-4 py-24 md:px-8 lg:px-12"
     >
       <div className="max-w-screen-2xl mx-auto flex flex-col gap-12 md:gap-16">
         {/* Header */}
         <div className="grid grid-cols-1 md:grid-cols-8 lg:grid-cols-12 gap-x-4">
           <div className="col-span-1 md:col-span-8 lg:col-span-6">
-            <p className="showcase-subtitle text-sm md:text-base tracking-wide uppercase text-[#5f666d] mb-4">
+            <p className="showcase-subtitle text-sm md:text-base tracking-wide uppercase text-[#CCCCCC] mb-4">
               Our product
             </p>
             <h2 className="showcase-title text-3xl md:text-4xl lg:text-5xl font-normal leading-[1.05] tracking-tighter">
@@ -114,7 +114,7 @@ export const ProductShowcase = () => {
             </h2>
           </div>
           <div className="col-span-1 md:col-span-8 lg:col-start-8 lg:col-span-5 flex items-end mt-6 lg:mt-0">
-            <p className="text-sm md:text-base text-[#5f666d] leading-relaxed">
+            <p className="text-sm md:text-base text-[#CCCCCC] leading-relaxed">
               From pre-flight planning to post-flight analysis, Arpia gives
               pilots a single, integrated cockpit for every phase of the
               journey.
@@ -148,7 +148,7 @@ export const ProductShowcase = () => {
                 <h3 className="text-lg md:text-xl font-semibold font-sans mb-1">
                   {item.title}
                 </h3>
-                <p className="text-xs md:text-sm text-[#5f666d] leading-relaxed">
+                <p className="text-xs md:text-sm text-[#86868B]  leading-relaxed">
                   {item.description}
                 </p>
               </div>

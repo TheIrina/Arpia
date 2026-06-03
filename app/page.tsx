@@ -6,8 +6,12 @@ import { Cta } from "./(landing)/cta/cta";
 import dynamic from "next/dynamic";
 import { Footer } from "./(landing)/footer/footer";
 
-const Navbar = dynamic(() => import("./(landing)/components/navbar").then((mod) => mod.Navbar));
-const MobileNav = dynamic(() => import("./(landing)/components/mobile-nav").then((mod) => mod.MobileNav));
+const Navbar = dynamic(() =>
+  import("./(landing)/components/navbar").then((mod) => mod.Navbar),
+);
+const MobileNav = dynamic(() =>
+  import("./(landing)/components/mobile-nav").then((mod) => mod.MobileNav),
+);
 
 export const metadata: Metadata = {
   title: "Arpia | Elevating the Paragliding Experience",
@@ -23,7 +27,6 @@ export default function Home() {
       <Hero />
       <ProductShowcase />
       <Features />
-      <Cta />
       <Footer />
     </main>
   );
