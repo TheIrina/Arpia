@@ -1,4 +1,4 @@
-import { pgTable, text, integer, timestamp, boolean } from "drizzle-orm/pg-core";
+import { pgTable, text, integer, timestamp, boolean, doublePrecision, real, index } from "drizzle-orm/pg-core";
 
 export const user = pgTable("user", {
 	id: text("id").primaryKey(),
@@ -48,3 +48,17 @@ export const verification = pgTable("verification", {
 	createdAt: timestamp("createdAt"),
 	updatedAt: timestamp("updatedAt")
 });
+
+export const thermals = pgTable("thermals", {
+	id: text("id").primaryKey(),
+	name: text("name"),
+	latitude: doublePrecision("latitude").notNull(),
+	longitude: doublePrecision("longitude").notNull(),
+	strength: real("strength").default(0),
+	frequency: real("frequency").default(1),
+	windDirection: text("windDirection"),
+	season: text("season")
+}, (table) => [
+	index("lat_lng_idx").on(table.latitude, table.longitude),
+]);
+
