@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Hero } from "./(landing)/components/hero";
 import { Features } from "./(landing)/features/features";
 import { ProductShowcase } from "./(landing)/showcase/showcase";
+import { Integrations } from "./(landing)/integrations/integrations";
 import { Cta } from "./(landing)/cta/cta";
 import dynamic from "next/dynamic";
 import { Footer } from "./(landing)/footer/footer";
@@ -26,6 +27,7 @@ export default function Home() {
       {/* <Hero /> */}
       <Hero />
       <ProductShowcase />
+      <Integrations />
       <Features />
       <Footer />
     </main>
