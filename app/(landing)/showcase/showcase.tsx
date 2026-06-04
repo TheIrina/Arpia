@@ -13,6 +13,7 @@ const items = [
     icon: "/logo/hat.png",
     span: "col-span-1 md:col-span-4 lg:col-span-5 row-span-1",
     aspect: "aspect-[4/3] md:aspect-[16/10]",
+    image: "/weather.png",
   },
   {
     title: "Thermal Maps",
@@ -22,6 +23,7 @@ const items = [
     icon: "/logo/paraglider-backpack.png",
     span: "col-span-1 md:col-span-4 lg:col-span-7 row-span-1",
     aspect: "aspect-[4/3] md:aspect-[16/10]",
+    image: "/thermal.png",
   },
   {
     title: "Flight Logger",
@@ -30,6 +32,7 @@ const items = [
     icon: "/logo/para.png",
     span: "col-span-1 md:col-span-4 lg:col-span-4 row-span-1",
     aspect: "aspect-[4/3] md:aspect-[16/10]",
+    image: "/track.jpg",
   },
   {
     title: "Launch Sites",
@@ -39,6 +42,7 @@ const items = [
     icon: "/logo/hiking-boots.png",
     span: "col-span-1 md:col-span-4 lg:col-span-4 row-span-1",
     aspect: "aspect-[4/3] md:aspect-[16/10]",
+    image: "/map3d.png",
   },
   {
     title: "Pilot Community",
@@ -48,6 +52,7 @@ const items = [
     icon: "/logo/clo.png",
     span: "col-span-1 md:col-span-4 lg:col-span-4 row-span-1",
     aspect: "aspect-[4/3] md:aspect-[16/10]",
+    image: "/fai.jpeg",
   },
 ];
 
@@ -130,10 +135,23 @@ export const ProductShowcase = () => {
               ref={(el) => {
                 if (el) cardsRef.current[i] = el;
               }}
-              className={`${item.span} ${item.aspect} ${item.bg} rounded-2xl p-6 md:p-8 flex flex-col justify-between relative overflow-hidden group transition-transform duration-300 hover:scale-[1.02]`}
+              className={`${item.span} ${item.aspect} ${item.bg} rounded-2xl p-6 md:p-8 flex flex-col justify-between relative overflow-hidden group transition-transform duration-300 ${!item.image ? "hover:scale-[1.02]" : ""}`}
             >
+              {item.image && (
+                <>
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover absolute inset-0 opacity-100"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-black/10 z-10 pointer-events-none" />
+                </>
+              )}
+
               {/* Icon */}
-              <div className="w-16 h-16 md:w-20 md:h-20 relative opacity-80 group-hover:opacity-100 transition-opacity">
+              <div className="w-16 h-16 md:w-20 md:h-20 relative opacity-80 group-hover:opacity-100 transition-opacity z-20">
                 <Image
                   src={item.icon}
                   alt={item.title}
@@ -144,11 +162,15 @@ export const ProductShowcase = () => {
               </div>
 
               {/* Text */}
-              <div>
-                <h3 className="text-lg md:text-xl font-semibold font-sans mb-1">
+              <div className="relative z-20">
+                <h3
+                  className={`text-lg md:text-xl font-semibold font-sans mb-1 ${item.image ? "text-white drop-shadow-sm" : "text-[#1D1D1F]"}`}
+                >
                   {item.title}
                 </h3>
-                <p className="text-xs md:text-sm text-[#86868B]  leading-relaxed">
+                <p
+                  className={`text-xs md:text-sm leading-relaxed ${item.image ? "text-zinc-200 drop-shadow-sm" : "text-[#515154]"}`}
+                >
                   {item.description}
                 </p>
               </div>
