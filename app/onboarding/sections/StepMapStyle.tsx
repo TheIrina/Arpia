@@ -13,14 +13,14 @@ export function StepMapStyle({ onNext, value }: StepProps) {
   const [selectedStyle, setSelectedStyle] = useState(value || "");
 
   const styles = [
-    { id: "light", label: "Light", img: "/videos/hero1-poster.avif" },
-    { id: "dark", label: "Dark", img: "/videos/hero2-poster.avif" },
+    { id: "light", label: "Light", img: "/styles/white.webp" },
+    { id: "dark", label: "Dark", img: "/styles/dark.webp" },
     {
       id: "satellite",
       label: "Satellite Streets",
-      img: "/videos/hero1-poster.avif",
+      img: "/styles/satelite.webp",
     },
-    { id: "outdoors", label: "Outdoors", img: "/logo/para.avif" },
+    { id: "outdoors", label: "Outdoors", img: "/styles/outdoor.webp" },
   ];
 
   return (
