@@ -1,8 +1,6 @@
 "use client";
 
-import { useRef } from "react";
 import Image from "next/image";
-import gsap, { useGSAP } from "@/lib/gsap";
 
 const items = [
   {
@@ -57,54 +55,8 @@ const items = [
 ];
 
 export const ProductShowcase = () => {
-  const containerRef = useRef<HTMLElement>(null);
-  const cardsRef = useRef<HTMLDivElement[]>([]);
-
-  useGSAP(
-    () => {
-      gsap.from(".showcase-title", {
-        y: 40,
-        opacity: 0,
-        duration: 1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top 80%",
-        },
-      });
-
-      gsap.from(".showcase-subtitle", {
-        y: 30,
-        opacity: 0,
-        duration: 1,
-        delay: 0.15,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top 80%",
-        },
-      });
-
-      cardsRef.current.forEach((card, i) => {
-        gsap.from(card, {
-          y: 60,
-          opacity: 0,
-          duration: 0.9,
-          delay: 0.1 * i,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: card,
-            start: "top 85%",
-          },
-        });
-      });
-    },
-    { scope: containerRef },
-  );
-
   return (
     <section
-      ref={containerRef}
       className="relative w-full bg-black text-white px-4 py-24 md:px-8 lg:px-12"
     >
       <div className="max-w-screen-2xl mx-auto flex flex-col gap-12 md:gap-16">
@@ -129,12 +81,9 @@ export const ProductShowcase = () => {
 
         {/* Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-8 lg:grid-cols-12 gap-2 md:gap-3 lg:gap-4">
-          {items.map((item, i) => (
+          {items.map((item) => (
             <div
               key={item.title}
-              ref={(el) => {
-                if (el) cardsRef.current[i] = el;
-              }}
               className={`${item.span} ${item.aspect} ${item.bg} rounded-2xl p-6 md:p-8 flex flex-col justify-between relative overflow-hidden group transition-transform duration-300 ${!item.image ? "hover:scale-[1.02]" : ""}`}
             >
               {item.image && (

@@ -5,14 +5,14 @@ export function PrivacySections1to4() {
     <>
       <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4 gap-y-4">
         <div className="col-span-2 md:col-span-8 lg:col-span-4 flex flex-col gap-2">
-          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase">
+          <span className="text-zinc-400 text-xs font-semibold tracking-widest uppercase">
             01
           </span>
           <h2 className="text-xl md:text-2xl font-normal tracking-tight leading-[1.05] uppercase">
             Identificación del Responsable del Tratamiento
           </h2>
         </div>
-        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium flex flex-col gap-4">
+        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-zinc-400 leading-relaxed font-medium flex flex-col gap-4">
           <p>
             El responsable del tratamiento de los datos personales es [Insertar
             Nombre o Razón Social del Responsable Legal de ARPÍA] con domicilio
@@ -23,35 +23,35 @@ export function PrivacySections1to4() {
 
       <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4 gap-y-4">
         <div className="col-span-2 md:col-span-8 lg:col-span-4 flex flex-col gap-2">
-          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase">
+          <span className="text-zinc-400 text-xs font-semibold tracking-widest uppercase">
             02
           </span>
           <h2 className="text-xl md:text-2xl font-normal tracking-tight leading-[1.05] uppercase">
             Datos Personales Objeto de Tratamiento
           </h2>
         </div>
-        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium flex flex-col gap-4">
+        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-zinc-400 leading-relaxed font-medium flex flex-col gap-4">
           <p>
             ARPÍA recopila información en diferentes momentos de la interacción
             del Usuario con la Plataforma, incluyendo:
           </p>
           <ul className="flex flex-col gap-4">
             <li>
-              <strong className="text-black font-medium">
+              <strong className="text-white font-medium">
                 Datos de Identificación y Contacto:
               </strong>{" "}
               Nombre completo, dirección de correo electrónico, número de
               teléfono y, si aplica, dirección postal.
             </li>
             <li>
-              <strong className="text-black font-medium">
+              <strong className="text-white font-medium">
                 Datos de Registro y Cuenta:
               </strong>{" "}
               Nombre de usuario, contraseña (cifrada), fecha de alta y datos
               asociados a la gestión de la cuenta.
             </li>
             <li>
-              <strong className="text-black font-medium">
+              <strong className="text-white font-medium">
                 Datos Transaccionales/Comerciales:
               </strong>{" "}
               Información relativa a los pagos, compras o servicios contratados
@@ -59,14 +59,14 @@ export function PrivacySections1to4() {
               tarjetas de crédito, que son procesados por terceros).
             </li>
             <li>
-              <strong className="text-black font-medium">
+              <strong className="text-white font-medium">
                 Datos de Navegación y Uso (Cookies):
               </strong>{" "}
               Información sobre la actividad en la Plataforma, la dirección IP,
               el tipo de dispositivo y datos de geolocalización (ver la{" "}
               <Link
                 href="/cookies"
-                className="text-black underline underline-offset-4 hover:text-[#5f666d] transition-colors"
+                className="text-white underline underline-offset-4 hover:text-zinc-400 transition-colors"
               >
                 Política de Uso de Cookies
               </Link>{" "}
@@ -78,21 +78,21 @@ export function PrivacySections1to4() {
 
       <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4 gap-y-4">
         <div className="col-span-2 md:col-span-8 lg:col-span-4 flex flex-col gap-2">
-          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase">
+          <span className="text-zinc-400 text-xs font-semibold tracking-widest uppercase">
             03
           </span>
           <h2 className="text-xl md:text-2xl font-normal tracking-tight leading-[1.05] uppercase">
             Finalidades del Tratamiento de Datos
           </h2>
         </div>
-        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium flex flex-col gap-4">
+        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-zinc-400 leading-relaxed font-medium flex flex-col gap-4">
           <p>
             Los datos personales de los Usuarios son tratados con las siguientes
             finalidades:
           </p>
           <ul className="flex flex-col gap-4">
             <li>
-              <strong className="text-black font-medium">
+              <strong className="text-white font-medium">
                 3.1. Prestación del Servicio Principal:
               </strong>{" "}
               Gestionar el registro del Usuario, permitir el acceso a los
@@ -100,7 +100,7 @@ export function PrivacySections1to4() {
               transacciones y facilitar la comunicación de servicio.
             </li>
             <li>
-              <strong className="text-black font-medium">
+              <strong className="text-white font-medium">
                 3.2. Mejora y Personalización:
               </strong>{" "}
               Analizar el uso de la Plataforma para optimizar su funcionamiento,
@@ -108,7 +108,7 @@ export function PrivacySections1to4() {
               funcionalidades y servicios.
             </li>
             <li>
-              <strong className="text-black font-medium">
+              <strong className="text-white font-medium">
                 3.3. Comunicaciones Comerciales y Promocionales:
               </strong>{" "}
               Enviar comunicaciones informativas y promocionales sobre
@@ -116,7 +116,7 @@ export function PrivacySections1to4() {
               podrá oponerse a estas comunicaciones en cualquier momento).
             </li>
             <li>
-              <strong className="text-black font-medium">
+              <strong className="text-white font-medium">
                 3.4. Cumplimiento Legal y Seguridad:
               </strong>{" "}
               Cumplir con obligaciones legales y regulatorias, atender
@@ -129,21 +129,21 @@ export function PrivacySections1to4() {
 
       <section className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4 gap-y-4">
         <div className="col-span-2 md:col-span-8 lg:col-span-4 flex flex-col gap-2">
-          <span className="text-[#5f666d] text-xs font-semibold tracking-widest uppercase">
+          <span className="text-zinc-400 text-xs font-semibold tracking-widest uppercase">
             04
           </span>
           <h2 className="text-xl md:text-2xl font-normal tracking-tight leading-[1.05] uppercase">
             Base Legal para el Tratamiento
           </h2>
         </div>
-        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-[#5f666d] leading-relaxed font-medium flex flex-col gap-4">
+        <div className="col-span-2 md:col-span-8 lg:col-start-5 lg:col-span-8 text-sm md:text-base text-zinc-400 leading-relaxed font-medium flex flex-col gap-4">
           <p>
             ARPÍA trata los datos personales basándose en las siguientes
             legitimaciones:
           </p>
           <ul className="flex flex-col gap-4">
             <li>
-              <strong className="text-black font-medium">
+              <strong className="text-white font-medium">
                 Ejecución de un Contrato:
               </strong>{" "}
               El tratamiento es necesario para ejecutar los Términos y
@@ -151,7 +151,7 @@ export function PrivacySections1to4() {
               servicios de ARPÍA.
             </li>
             <li>
-              <strong className="text-black font-medium">
+              <strong className="text-white font-medium">
                 Consentimiento del Interesado:
               </strong>{" "}
               Para el envío de comunicaciones comerciales y el uso de ciertas
@@ -159,14 +159,14 @@ export function PrivacySections1to4() {
               explícito del Usuario.
             </li>
             <li>
-              <strong className="text-black font-medium">
+              <strong className="text-white font-medium">
                 Interés Legítimo:
               </strong>{" "}
               Para la mejora de la Plataforma, la prevención del fraude y la
               seguridad de la red.
             </li>
             <li>
-              <strong className="text-black font-medium">
+              <strong className="text-white font-medium">
                 Obligación Legal:
               </strong>{" "}
               Cuando el tratamiento es requerido para cumplir con una obligación

@@ -3,7 +3,7 @@ import { PrivacySections5to9 } from "./sections-5-9";
 
 export default function PrivacyPage() {
   return (
-    <article className="flex flex-col gap-24 font-sans text-black">
+    <article className="flex flex-col gap-24 font-sans text-white">
       <header className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-4 gap-y-4">
         <div className="col-span-2 md:col-span-8 lg:col-span-5">
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-normal tracking-tighter leading-[1.05] uppercase">
@@ -11,7 +11,7 @@ export default function PrivacyPage() {
           </h1>
         </div>
         <div className="col-span-2 md:col-span-8 lg:col-start-7 lg:col-span-6">
-          <p className="text-sm md:text-base text-[#5f666d] leading-relaxed font-medium">
+          <p className="text-sm md:text-base text-zinc-400 leading-relaxed font-medium">
             Fecha de la última revisión: Abril 2026
           </p>
         </div>

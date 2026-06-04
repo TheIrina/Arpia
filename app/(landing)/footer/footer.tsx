@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export const Footer = () => {
   return (
-    <footer className="relative w-full bg-[#FF5722] text-white px-4 pt-24 pb-12 md:px-8 lg:px-12">
+    <footer className="relative w-full bg-black text-white px-4 pt-24 pb-12 md:px-8 lg:px-12">
       <div className="max-w-screen-2xl mx-auto flex flex-col gap-16 md:gap-24 relative z-20">
         {/* Top Section: Branding & Links */}
         <div className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-2 md:gap-x-3 lg:gap-x-4 gap-y-12">
@@ -18,7 +18,7 @@ export const Footer = () => {
             <h4 className="text-xs md:text-base uppercase font-semibold tracking-wide text-white">
               Product
             </h4>
-            <nav className="flex text-sm md:text-base font-medium text-[#F0F0F0] flex-col gap-2">
+            <nav className="flex text-sm md:text-base font-medium text-white flex-col gap-2">
               <Link href="#" className="hover:underline">
                 Features
               </Link>
@@ -39,7 +39,7 @@ export const Footer = () => {
             <h4 className="text-xs md:text-base uppercase font-semibold tracking-wide text-white">
               Company
             </h4>
-            <nav className="flex text-sm md:text-base font-medium text-[#F0F0F0] flex-col gap-2">
+            <nav className="flex text-sm md:text-base font-medium text-white flex-col gap-2">
               <Link href="/history" className="hover:underline">
                 Who We Are
               </Link>
@@ -60,7 +60,7 @@ export const Footer = () => {
             <h4 className="text-xs md:text-base uppercase font-semibold tracking-wide text-white">
               Social
             </h4>
-            <nav className="flex text-sm md:text-base font-medium text-[#F0F0F0] flex-col gap-2">
+            <nav className="flex text-sm md:text-base font-medium text-white flex-col gap-2">
               <Link href="#" className="hover:underline">
                 Instagram
               </Link>
@@ -85,7 +85,7 @@ export const Footer = () => {
             </h1>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-2 md:gap-x-3 lg:gap-x-4 gap-y-4 items-start md:items-center font-medium text-xs text-[#F0F0F0] uppercase">
+          <div className="grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 gap-x-2 md:gap-x-3 lg:gap-x-4 gap-y-4 items-start md:items-center font-medium text-xs text-white uppercase">
             <div className="col-span-2 md:col-span-4 lg:col-span-6">
               <p>© 2026 Arpia.com All rights reserved.</p>
             </div>

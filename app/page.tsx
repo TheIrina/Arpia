@@ -29,6 +29,7 @@ export default function Home() {
       <ProductShowcase />
       <Integrations />
       <Features />
+      <Cta />
       <Footer />
     </main>
   );

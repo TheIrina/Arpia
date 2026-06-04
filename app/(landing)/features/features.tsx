@@ -3,15 +3,6 @@
 import { useRef } from "react";
 import gsap, { useGSAP } from "@/lib/gsap";
 import { SplitText } from "../components/common/split-text";
-import dynamic from "next/dynamic";
-const MapCardVisual = dynamic(
-  () => import("./cards/map").then((mod) => mod.MapCardVisual),
-  { ssr: false },
-);
-const WeatherCard = dynamic(
-  () => import("./cards/weather").then((mod) => mod.WeatherCard),
-  { ssr: false },
-);
 
 export const Features = () => {
   const containerRef = useRef<HTMLElement>(null);
@@ -99,7 +90,7 @@ export const Features = () => {
         >
           {/* Card 1 */}
           <div className="flex flex-col gap-4 w-[85vw] md:w-[calc(50%-8px)] lg:w-[calc(41.666667%-9.333px)] shrink-0 snap-start">
-            <WeatherCard />
+            <div className="w-full h-100 md:h-125 lg:h-150 rounded-2xl bg-[#fbfbfb] border border-gray-200"></div>
             <div className="flex flex-col gap-1">
               <h3 className="text-xl md:text-2xl font-normal font-sans">
                 Live Weather Interface
@@ -112,7 +103,7 @@ export const Features = () => {
 
           {/* Card 2 */}
           <div className="flex flex-col gap-4 w-[85vw] md:w-[calc(50%-8px)] lg:w-[calc(41.666667%-9.333px)] shrink-0 snap-start">
-            <div className="w-full h-100 md:h-125 lg:h-150 rounded-2xl bg-orange-100"></div>
+            <div className="w-full h-100 md:h-125 lg:h-150 rounded-2xl bg-[#fbfbfb] border border-gray-200"></div>
             <div className="flex flex-col gap-1">
               <h3 className="text-xl md:text-2xl font-normal font-sans">
                 Thermal Tracking
@@ -125,7 +116,7 @@ export const Features = () => {
 
           {/* Card 3 */}
           <div className="flex flex-col gap-4 w-[85vw] md:w-[calc(50%-8px)] lg:w-[calc(41.666667%-9.333px)] shrink-0 snap-start">
-            <div className="w-full h-100 md:h-125 lg:h-150 rounded-2xl bg-green-100"></div>
+            <div className="w-full h-100 md:h-125 lg:h-150 rounded-2xl bg-[#fbfbfb] border border-gray-200"></div>
             <div className="flex flex-col gap-1">
               <h3 className="text-xl md:text-2xl font-normal font-sans">
                 Site Topography
@@ -138,7 +129,7 @@ export const Features = () => {
 
           {/* Card 4 */}
           <div className="flex flex-col gap-4 w-[85vw] md:w-[calc(50%-8px)] lg:w-[calc(41.666667%-9.333px)] shrink-0 snap-start">
-            <div className="w-full h-100 md:h-125 lg:h-150 rounded-2xl bg-purple-100"></div>
+            <div className="w-full h-100 md:h-125 lg:h-150 rounded-2xl bg-[#fbfbfb] border border-gray-200"></div>
             <div className="flex flex-col gap-1">
               <h3 className="text-xl md:text-2xl font-normal font-sans">
                 Pilot Community
@@ -151,7 +142,7 @@ export const Features = () => {
 
           {/* Card 5 */}
           <div className="flex flex-col gap-4 w-[85vw] md:w-[calc(50%-8px)] lg:w-[calc(41.666667%-9.333px)] shrink-0 snap-start">
-            <MapCardVisual />
+            <div className="w-full h-100 md:h-125 lg:h-150 rounded-2xl bg-[#fbfbfb] border border-gray-200"></div>
             <div className="flex flex-col gap-1">
               <h3 className="text-xl md:text-2xl font-normal font-sans">
                 Roldanillo Launch Sites
